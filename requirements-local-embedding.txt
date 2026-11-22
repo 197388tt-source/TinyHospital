@@ -1,0 +1,2 @@
+-r requirements-qwen.txt
+sentence-transformers>=3,<6

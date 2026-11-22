@@ -1,0 +1,2 @@
+# Offline checks in this review: Linux, Python 3.12.14; not an original training lockfile.
+numpy==2.3.5

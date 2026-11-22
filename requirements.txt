@@ -1,0 +1,3 @@
+# API chat, API embeddings, exact retrieval, offline tests and benchmarks.
+# Chat HTTP, SQLite, IPC and tests otherwise use the Python standard library.
+numpy>=1.24,<3

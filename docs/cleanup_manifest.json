@@ -1,0 +1,906 @@
+{
+  "removed": [
+    {
+      "path": "history/semantic-memory.sqlite",
+      "bytes": 77824,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "vectors/gastritis-experiment.sqlite",
+      "bytes": 311296,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/qwen_trained_testnomemory/semantic-memory.sqlite",
+      "bytes": 28672,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/qwen3_betterex_full2/semantic-memory.sqlite",
+      "bytes": 5259264,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_ab_binary/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_ab_text/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_final_shared/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_ab_shared/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_final_binary/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "experiment/vector_final_text/semantic-memory.sqlite",
+      "bytes": 4313088,
+      "reason": "derived embedding cache; rebuilt on first retrieval, may require paid API"
+    },
+    {
+      "path": "embedding/tiny_hospital(5).zip",
+      "bytes": 55952270,
+      "reason": "nested backup unpacked selectively: unique evidence preserved, old code stored as patch"
+    },
+    {
+      "path": "agent/__pycache__/base.cpython-310.pyc",
+      "bytes": 6114,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/base.cpython-313.pyc",
+      "bytes": 10625,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/base.cpython-314.pyc",
+      "bytes": 9704,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/doctor.cpython-310.pyc",
+      "bytes": 8260,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/doctor.cpython-313.pyc",
+      "bytes": 11500,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/doctor.cpython-314.pyc",
+      "bytes": 9018,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/doctor_Qwen.cpython-310.pyc",
+      "bytes": 7076,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/expert.cpython-310.pyc",
+      "bytes": 18808,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/expert.cpython-313.pyc",
+      "bytes": 21293,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/expert.cpython-314.pyc",
+      "bytes": 13407,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/patient.cpython-310.pyc",
+      "bytes": 3171,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/patient.cpython-313.pyc",
+      "bytes": 5258,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/patient.cpython-314.pyc",
+      "bytes": 4254,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/retrieval.cpython-310.pyc",
+      "bytes": 5031,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/retrieval.cpython-313.pyc",
+      "bytes": 8628,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/retrieval.cpython-314.pyc",
+      "bytes": 7245,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/validation.cpython-310.pyc",
+      "bytes": 8367,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/validation.cpython-313.pyc",
+      "bytes": 13760,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/validation.cpython-314.pyc",
+      "bytes": 11766,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 498,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/__init__.cpython-313.pyc",
+      "bytes": 525,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "agent/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 522,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "doctor_preview.log",
+      "bytes": 36026,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/build_vectors.cpython-310.pyc",
+      "bytes": 3337,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/build_vectors.cpython-313.pyc",
+      "bytes": 5534,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/encoder.cpython-310.pyc",
+      "bytes": 9060,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/encoder.cpython-313.pyc",
+      "bytes": 13518,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/records.cpython-310.pyc",
+      "bytes": 3163,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/records.cpython-313.pyc",
+      "bytes": 5051,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/retrieval.cpython-310.pyc",
+      "bytes": 5614,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/retrieval.cpython-313.pyc",
+      "bytes": 9850,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/store.cpython-310.pyc",
+      "bytes": 8898,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/store.cpython-313.pyc",
+      "bytes": 14181,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/test_api.cpython-310.pyc",
+      "bytes": 4256,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/transport.cpython-310.pyc",
+      "bytes": 4140,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/transport.cpython-313.pyc",
+      "bytes": 6990,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 460,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "embedding/__pycache__/__init__.cpython-313.pyc",
+      "bytes": 473,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/betterex/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/qwen3_betterex_full2/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/qwen_trained_testnomemory/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_ab_binary/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_ab_shared/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_ab_text/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_final_binary/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_final_shared/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/vector_final_text/.experiment.lock",
+      "bytes": 0,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/__pycache__/same_case_memory.cpython-310.pyc",
+      "bytes": 13411,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/__pycache__/test.cpython-310.pyc",
+      "bytes": 6136,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "experiment/__pycache__/test.cpython-313.pyc",
+      "bytes": 10047,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/memory.cpython-310.pyc",
+      "bytes": 13018,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/memory.cpython-313.pyc",
+      "bytes": 22619,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/memory.cpython-314.pyc",
+      "bytes": 20869,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 276,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/__init__.cpython-313.pyc",
+      "bytes": 297,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "history/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 294,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_decision_vector.cpython-313.pyc",
+      "bytes": 6897,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_doctor_prompts.cpython-313.pyc",
+      "bytes": 8837,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_embedding.cpython-313.pyc",
+      "bytes": 19800,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_experiment_progress.cpython-310.pyc",
+      "bytes": 5089,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_experiment_progress.cpython-313.pyc",
+      "bytes": 6772,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_hospital_process.cpython-313.pyc",
+      "bytes": 29828,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_incremental_history.cpython-313.pyc",
+      "bytes": 14698,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_incremental_medicines.cpython-313.pyc",
+      "bytes": 23349,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_ipc_runtime.cpython-313.pyc",
+      "bytes": 16878,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_llm_client.cpython-313.pyc",
+      "bytes": 3286,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_main.cpython-310.pyc",
+      "bytes": 37358,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_main.cpython-313.pyc",
+      "bytes": 63561,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_memory.cpython-313.pyc",
+      "bytes": 14240,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_performance_baseline.cpython-313.pyc",
+      "bytes": 7483,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_protocol.cpython-313.pyc",
+      "bytes": 14489,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_qwen_experiment.cpython-310.pyc",
+      "bytes": 9368,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_qwen_invalid_output.cpython-310.pyc",
+      "bytes": 8109,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_retrieval_policy.cpython-310.pyc",
+      "bytes": 3375,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_retrieval_policy.cpython-313.pyc",
+      "bytes": 5265,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_same_case_memory.cpython-310.pyc",
+      "bytes": 7124,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_semantic_retrieval.cpython-313.pyc",
+      "bytes": 29536,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_shared_medicines.cpython-313.pyc",
+      "bytes": 13965,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_shared_transport.cpython-313.pyc",
+      "bytes": 39909,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_stage5_recovery.cpython-313.pyc",
+      "bytes": 14219,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tests/__pycache__/test_structured_payload.cpython-313.pyc",
+      "bytes": 12241,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/api_retry.cpython-310.pyc",
+      "bytes": 1283,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/api_retry.cpython-313.pyc",
+      "bytes": 1938,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/case_utils.cpython-310.pyc",
+      "bytes": 2678,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/case_utils.cpython-313.pyc",
+      "bytes": 4284,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/case_utils.cpython-314.pyc",
+      "bytes": 4635,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/diagnostics.cpython-310.pyc",
+      "bytes": 776,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/diagnostics.cpython-313.pyc",
+      "bytes": 1148,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/experiment_progress.cpython-310.pyc",
+      "bytes": 4157,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/experiment_progress.cpython-313.pyc",
+      "bytes": 5000,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/json_store.cpython-310.pyc",
+      "bytes": 783,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/json_store.cpython-313.pyc",
+      "bytes": 1108,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/json_store.cpython-314.pyc",
+      "bytes": 1302,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_client.cpython-310.pyc",
+      "bytes": 2991,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_client.cpython-313.pyc",
+      "bytes": 4793,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_client.cpython-314.pyc",
+      "bytes": 5210,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_usage.cpython-310.pyc",
+      "bytes": 2279,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_usage.cpython-313.pyc",
+      "bytes": 2853,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/llm_usage.cpython-314.pyc",
+      "bytes": 2564,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/local_qwen_client.cpython-310.pyc",
+      "bytes": 2617,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/local_qwen_client.cpython-313.pyc",
+      "bytes": 4350,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/medicine_store.cpython-310.pyc",
+      "bytes": 4261,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/medicine_store.cpython-313.pyc",
+      "bytes": 6912,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/medicine_store.cpython-314.pyc",
+      "bytes": 7858,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/tracing.cpython-310.pyc",
+      "bytes": 11756,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/tracing.cpython-313.pyc",
+      "bytes": 20620,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/tracing.cpython-314.pyc",
+      "bytes": 22444,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/__init__.cpython-310.pyc",
+      "bytes": 219,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/__init__.cpython-313.pyc",
+      "bytes": 226,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "tool/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 235,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "train_qwen.log",
+      "bytes": 20854,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "train_qwen.pid",
+      "bytes": 8,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/cases.cpython-310.pyc",
+      "bytes": 2839,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/cases.cpython-313.pyc",
+      "bytes": 4429,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/cases.cpython-314.pyc",
+      "bytes": 3892,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/decision_vector.cpython-310.pyc",
+      "bytes": 4295,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/decision_vector.cpython-313.pyc",
+      "bytes": 7083,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/decision_vector.cpython-314.pyc",
+      "bytes": 8316,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/hospital_process.cpython-310.pyc",
+      "bytes": 26325,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/hospital_process.cpython-313.pyc",
+      "bytes": 52310,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/hospital_process.cpython-314.pyc",
+      "bytes": 48294,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/ipc_runtime.cpython-310.pyc",
+      "bytes": 27528,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/ipc_runtime.cpython-313.pyc",
+      "bytes": 52113,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/ipc_runtime.cpython-314.pyc",
+      "bytes": 57919,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/main.cpython-310.pyc",
+      "bytes": 19935,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/main.cpython-313.pyc",
+      "bytes": 38655,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/main.cpython-314.pyc",
+      "bytes": 18510,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/performance_baseline.cpython-310.pyc",
+      "bytes": 14730,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/performance_baseline.cpython-313.pyc",
+      "bytes": 23187,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/performance_baseline.cpython-314.pyc",
+      "bytes": 24769,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/performance_stage2.cpython-313.pyc",
+      "bytes": 6973,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/protocol.cpython-310.pyc",
+      "bytes": 16369,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/protocol.cpython-313.pyc",
+      "bytes": 30512,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/protocol.cpython-314.pyc",
+      "bytes": 32776,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/shared_transport.cpython-310.pyc",
+      "bytes": 12197,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/shared_transport.cpython-313.pyc",
+      "bytes": 21786,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    },
+    {
+      "path": "__pycache__/shared_transport.cpython-314.pyc",
+      "bytes": 24982,
+      "reason": "compiled cache / stale lock / PID / console log; structured experiment evidence retained"
+    }
+  ],
+  "nested_preserved": [
+    "archive/nested/experiment/empty_memory/golden_experience.json",
+    "archive/nested/experiment/empty_memory/reflection_memory.json",
+    "archive/nested/experiment/experience/golden_experience.json",
+    "archive/nested/experiment/experience/README.md",
+    "archive/nested/experiment/experience/reflection_memory.json",
+    "archive/nested/experiment/experience_ablation_analysis/per_case.csv",
+    "archive/nested/experiment/experience_ablation_analysis/per_case_both.csv",
+    "archive/nested/experiment/experience_ablation_analysis/per_experience.csv",
+    "archive/nested/experiment/experience_ablation_analysis/per_experience_both.csv",
+    "archive/nested/experiment/experience_ablation_analysis/summary.json",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/build_analysis.py",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/per_case.csv",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/per_case_both.csv",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/per_experience.csv",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/per_experience_both.csv",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/README.md",
+    "archive/nested/experiment/experience_ablation_analysis/traincut_leave_one_out/summary.json",
+    "archive/nested/experiment/experience_lcx/golden_experience.json",
+    "archive/nested/experiment/experience_lcx/reflection_memory.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/golden_experience.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/reflection_memory.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/test/progress.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_empty/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/golden_experience.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/reflection_memory.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/progress.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_one_each/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/golden_experience.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/reflection_memory.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/progress.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_positive_only/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/golden_experience.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/reflection_memory.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/progress.json",
+    "archive/nested/experiment/qwen_devcut_glm3_gpu0_reflection_only/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_positive_only_memory/golden_experience.json",
+    "archive/nested/experiment/qwen_positive_only_memory/reflection_memory.json",
+    "archive/nested/experiment/qwen_reflection_only_memory/golden_experience.json",
+    "archive/nested/experiment/qwen_reflection_only_memory/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_experience_lcx_threshold_08/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_filtered_experience_threshold_08/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_full_threshold_08/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/golden_experience.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/reflection_memory.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/progress.json",
+    "archive/nested/experiment/qwen_testcut_glm3_gpu0_one_each/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/golden_experience.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/reflection_memory.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/progress.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_empty/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/golden_experience.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/reflection_memory.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/progress.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_leave_one_out/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/golden_experience.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/reflection_memory.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/progress.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_positive_only/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/golden_experience.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/reflection_memory.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/control_communication.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/progress.json",
+    "archive/nested/experiment/qwen_traincut_glm3_gpu0_reflection_only/test/token_usage.jsonl",
+    "archive/nested/experiment/qwen_train_deepseek_full/golden_experience.json",
+    "archive/nested/experiment/qwen_train_deepseek_full/reflection_memory.json",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/control_communication.jsonl",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/diagnostics.jsonl",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/doctor_failures.jsonl",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/llm_usage.jsonl",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/progress.json",
+    "archive/nested/experiment/qwen_train_deepseek_full/train/token_usage.jsonl"
+  ],
+  "nested_code_differences": [
+    "agent/expert.py",
+    "agent/patient.py",
+    "agent/retrieval.py",
+    "agent/validation.py",
+    "cases.py",
+    "embedding/encoder.py",
+    "embedding/test_api.py",
+    "embedding/transport.py",
+    "history/memory.py",
+    "hospital_process.py",
+    "main.py",
+    "tests/test_embedding.py",
+    "tests/test_main.py",
+    "tests/test_memory.py",
+    "tests/test_retrieval_policy.py",
+    "tests/test_semantic_retrieval.py"
+  ]
+}

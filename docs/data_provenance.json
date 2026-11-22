@@ -1,0 +1,42 @@
+{
+  "upstream_repository": "https://github.com/f-window/DialMed",
+  "paper": "https://aclanthology.org/2022.coling-1.60/",
+  "commit": "4cd19719ad8a25e0d2cb411cdede3aea9d9e095f",
+  "splits": {
+    "train": {
+      "byte_identical": true,
+      "json_identical": true,
+      "upstream_rows": 9605,
+      "local_rows": 9605,
+      "local_rows_not_in_upstream": 0,
+      "upstream_sha256": "04f2553616d6dda5bd9b22c08488a005d10afb7c6fa440914cf73821fce59058",
+      "local_sha256": "04f2553616d6dda5bd9b22c08488a005d10afb7c6fa440914cf73821fce59058"
+    },
+    "dev": {
+      "byte_identical": true,
+      "json_identical": true,
+      "upstream_rows": 1192,
+      "local_rows": 1192,
+      "local_rows_not_in_upstream": 0,
+      "upstream_sha256": "4f240d14720e34da14d692eb6850f496037b6ebe3d8b4e5854b121d5e437c066",
+      "local_sha256": "4f240d14720e34da14d692eb6850f496037b6ebe3d8b4e5854b121d5e437c066"
+    },
+    "test": {
+      "byte_identical": false,
+      "json_identical": false,
+      "upstream_rows": 1199,
+      "local_rows": 1199,
+      "local_rows_not_in_upstream": 1,
+      "upstream_sha256": "7f1853dbab171437cf3169c6f6d7be02eeb74835791e3c335deec153acb6840b",
+      "local_sha256": "3328891cb16bb0de941216f8a7580b8c1cf9f96abc52578eb2997611c049d280"
+    }
+  },
+  "test_difference": {
+    "row": 78,
+    "fields": [
+      "dialog[1]",
+      "original_dialog[1]"
+    ],
+    "change": "added closing ] after [MASK！ in the same public doctor utterance; no added patient information"
+  }
+}

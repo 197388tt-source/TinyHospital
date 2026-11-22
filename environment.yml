@@ -1,0 +1,9 @@
+name: tiny-hospital
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy==2.3.5
+# For local Qwen / embedding, install the corresponding requirements file afterward.
