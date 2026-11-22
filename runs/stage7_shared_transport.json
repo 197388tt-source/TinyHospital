@@ -1,0 +1,71 @@
+{
+  "cases": 10,
+  "outputs_identical": true,
+  "hospital_handoff": {
+    "pipe": {
+      "frames": 30,
+      "all_ipc_frames": 60,
+      "shared_frames": 0,
+      "pipe_bytes": 55246,
+      "all_ipc_pipe_bytes": 90662,
+      "request_pipe_bytes": 37540,
+      "mean_round_trip_ms_including_handler": 0.271,
+      "shared_allocations": 0,
+      "peak_shared_bytes_max_case": 0,
+      "shared_write_bytes": 0,
+      "shared_read_bytes": 0,
+      "shared_write_us": 0.0,
+      "shared_read_us": 0.0,
+      "active_shared_bytes_after_cases": 0,
+      "cleanup_errors": 0
+    },
+    "shared_dialog": {
+      "frames": 30,
+      "all_ipc_frames": 60,
+      "shared_frames": 30,
+      "pipe_bytes": 35998,
+      "all_ipc_pipe_bytes": 71468,
+      "request_pipe_bytes": 17635,
+      "mean_round_trip_ms_including_handler": 0.421,
+      "shared_allocations": 10,
+      "peak_shared_bytes_max_case": 1557,
+      "shared_write_bytes": 8216,
+      "shared_read_bytes": 24648,
+      "shared_write_us": 37.3,
+      "shared_read_us": 71.94,
+      "active_shared_bytes_after_cases": 0,
+      "cleanup_errors": 0
+    }
+  },
+  "hospital_pipe_bytes_saved": 19248,
+  "hospital_pipe_bytes_saved_percent": 34.84,
+  "all_ipc_pipe_bytes_saved": 19194,
+  "all_ipc_pipe_bytes_saved_percent": 21.17,
+  "no_op_echo_40_repeated_requests": {
+    "pipe": {
+      "samples": 40,
+      "median_round_trip_us": 180.27,
+      "mean_round_trip_us": 200.45,
+      "pipe_bytes": 687586,
+      "shared_allocations": 0,
+      "peak_shared_bytes": 0,
+      "shared_write_bytes": 0,
+      "shared_read_bytes": 0,
+      "shared_write_us": 0.0,
+      "shared_read_us": 0.0
+    },
+    "shared": {
+      "samples": 40,
+      "median_round_trip_us": 346.95,
+      "mean_round_trip_us": 326.81,
+      "pipe_bytes": 26221,
+      "shared_allocations": 1,
+      "peak_shared_bytes": 16800,
+      "shared_write_bytes": 16800,
+      "shared_read_bytes": 672000,
+      "shared_write_us": 10.57,
+      "shared_read_us": 94.85
+    }
+  },
+  "notes": "Hospital RTT includes deterministic Agent work; echo RTT uses a trivial handler. Copy timers cover shared-memory write/read only, not JSON encoding or Pipe copying. This is an exploratory local measurement, not the final performance baseline."
+}

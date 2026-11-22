@@ -1,0 +1,34 @@
+{
+  "cases": 93,
+  "evaluated": 91,
+  "failed": 2,
+  "failed_case_ids": [
+    51,
+    53
+  ],
+  "failure_rate": 0.021505376344086023,
+  "exact_matches": 26,
+  "exact_match_accuracy": 0.2857142857142857,
+  "exact_match_accuracy_all_recorded": 0.27956989247311825,
+  "micro_precision": 0.5359116022099447,
+  "micro_recall": 0.5359116022099447,
+  "micro_f1": 0.5359116022099447,
+  "micro_jaccard": 0.3660377358490566,
+  "sample_average_precision": 0.5082417582417583,
+  "sample_average_recall": 0.5082417582417583,
+  "sample_average_f1": 0.5082417582417583,
+  "sample_average_jaccard": 0.43772893772893784,
+  "true_positive": 97,
+  "false_positive": 84,
+  "false_negative": 84,
+  "cases_with_duplicate_drugs": 0,
+  "scoring_policy": {
+    "drug_comparison": "exact names, sets; duplicates removed",
+    "failed_predictions": "missing/null excluded from quality scores; empty list is a valid prediction",
+    "zero_denominator": "0; two empty sets still count as exact match",
+    "coverage": "recorded cases only; unfinished/unrecorded cases not inferred",
+    "sample_average": "mean of per-case scores, not per-label macro scores"
+  },
+  "source": "/home/Users/licx/OS-Work/tiny_hospital/experiment/qwen_trained_testnomemory/test/progress.json",
+  "source_sha256": "cda5249f24da6d11aec0e45481893910473c2d557d035d6db66557b7cd783cba"
+}

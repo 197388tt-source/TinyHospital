@@ -1,0 +1,73 @@
+{
+  "cases": 10,
+  "model": "FixedModel; no gateway calls",
+  "transport": "multiprocessing Pipe; shared_dialog=False in both modes",
+  "outputs_identical": true,
+  "doctor_input_text_identical": true,
+  "full": {
+    "case_count": 10,
+    "all_ipc_frames": 60,
+    "all_ipc_pipe_bytes": 90662,
+    "history_request_pipe_bytes": 12398,
+    "history_reply_pipe_bytes": 12988,
+    "history_reply_text_bytes": 10277,
+    "empty_history_replies": 10,
+    "retrieval_ipc_round_trip": {
+      "samples": 10,
+      "total_us": 5511.97,
+      "mean_us": 551.2,
+      "median_us": 468.74
+    },
+    "child_reply_json_encode": {
+      "samples": 10,
+      "total_us": 77.98,
+      "mean_us": 7.8,
+      "median_us": 7.85
+    },
+    "parent_trace_reply_serialize": {
+      "samples": 10,
+      "total_us": 211.25,
+      "mean_us": 21.12,
+      "median_us": 22.0
+    },
+    "parent_context_parse_and_restore": null
+  },
+  "incremental": {
+    "case_count": 10,
+    "all_ipc_frames": 60,
+    "all_ipc_pipe_bytes": 80386,
+    "history_request_pipe_bytes": 12398,
+    "history_reply_pipe_bytes": 2712,
+    "history_reply_text_bytes": 721,
+    "empty_history_replies": 10,
+    "retrieval_ipc_round_trip": {
+      "samples": 10,
+      "total_us": 5512.32,
+      "mean_us": 551.23,
+      "median_us": 512.66
+    },
+    "child_reply_json_encode": {
+      "samples": 10,
+      "total_us": 49.8,
+      "mean_us": 4.98,
+      "median_us": 5.25
+    },
+    "parent_trace_reply_serialize": {
+      "samples": 10,
+      "total_us": 207.1,
+      "mean_us": 20.71,
+      "median_us": 20.19
+    },
+    "parent_context_parse_and_restore": {
+      "samples": 10,
+      "total_us": 219.71,
+      "mean_us": 21.97,
+      "median_us": 23.91
+    }
+  },
+  "history_reply_pipe_bytes_saved": 10276,
+  "history_reply_pipe_bytes_saved_percent": 79.12,
+  "all_ipc_pipe_bytes_saved": 10276,
+  "all_ipc_pipe_bytes_saved_percent": 11.33,
+  "timing_notes": "RTT includes history lookup and IPC; child JSON encode is the outgoing reply only. Parent Trace serialization measures its additional reply encoding; delta-only parent parse and reconstruction are reported separately. Timings are local exploratory samples, not an isolated serialization or final performance baseline."
+}

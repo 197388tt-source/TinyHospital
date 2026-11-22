@@ -1,0 +1,258 @@
+{
+  "benchmark_version": 1,
+  "reproducibility": {
+    "dataset": "DIALMED traincut.txt 前 10 例",
+    "network": "not used",
+    "model": "deterministic local stub",
+    "quality_equivalence_checked": true
+  },
+  "pure_text": {
+    "mode": "pure_text",
+    "method": "same 8-step medical workflow; natural-language messages only; deterministic role policy",
+    "case_count": 10,
+    "case_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "message_count": 80,
+    "non_text_transfer_count": 0,
+    "non_text_transfer_bytes": 0,
+    "total_message_bytes": 91557,
+    "total_message_tokens_estimate": 31146,
+    "mean_case_elapsed_ms": 1.224,
+    "exact_matches": 0,
+    "steps": [
+      {
+        "step": 0,
+        "source": "System",
+        "target": "Patient",
+        "purpose": "请将当前病例的真实用药私下告知专家。",
+        "mean_message_bytes": 459.1,
+        "mean_message_tokens_estimate": 148
+      },
+      {
+        "step": 1,
+        "source": "Patient",
+        "target": "Expert",
+        "purpose": "病例对话与真实用药如下，请保存标签以便后续评审。",
+        "mean_message_bytes": 1288.8,
+        "mean_message_tokens_estimate": 420.7
+      },
+      {
+        "step": 2,
+        "source": "System",
+        "target": "Patient",
+        "purpose": "请提供不含真实标签的推荐所需信息。",
+        "mean_message_bytes": 480.1,
+        "mean_message_tokens_estimate": 155
+      },
+      {
+        "step": 3,
+        "source": "Patient",
+        "target": "Doctor",
+        "purpose": "请根据以下完整对话推荐恰好指定数量的药物。",
+        "mean_message_bytes": 2337.2,
+        "mean_message_tokens_estimate": 793
+      },
+      {
+        "step": 4,
+        "source": "Doctor",
+        "target": "Expert",
+        "purpose": "以下是医生推荐，请与先前收到的真实标签比较。",
+        "mean_message_bytes": 534.8,
+        "mean_message_tokens_estimate": 173.4
+      },
+      {
+        "step": 5,
+        "source": "Expert",
+        "target": "Retrieval",
+        "purpose": "请查询推荐药物和真实药物的说明，供经验审核使用。",
+        "mean_message_bytes": 521.4,
+        "mean_message_tokens_estimate": 168.1
+      },
+      {
+        "step": 6,
+        "source": "Retrieval",
+        "target": "Expert",
+        "purpose": "以下是所请求药物的说明，请据此完成审核。",
+        "mean_message_bytes": 3026.9,
+        "mean_message_tokens_estimate": 1091.3
+      },
+      {
+        "step": 7,
+        "source": "Expert",
+        "target": "End",
+        "purpose": "本病例已经完成评审与经验审核。",
+        "mean_message_bytes": 507.4,
+        "mean_message_tokens_estimate": 165.1
+      }
+    ],
+    "outcomes": [
+      {
+        "case_id": 1,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "复方消化酶"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 2,
+        "recommended_drugs": [
+          "黄连素",
+          "曲美布汀"
+        ],
+        "actual_drugs": [
+          "铝镁化合物",
+          "莫沙必利"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 3,
+        "recommended_drugs": [
+          "黄连素",
+          "曲美布汀",
+          "益生菌"
+        ],
+        "actual_drugs": [
+          "奥美拉唑",
+          "复方消化酶",
+          "益生菌"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 4,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "奥美拉唑"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 5,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "奥美拉唑"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 6,
+        "recommended_drugs": [
+          "黄连素",
+          "曲美布汀"
+        ],
+        "actual_drugs": [
+          "奥美拉唑",
+          "莫沙必利"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 7,
+        "recommended_drugs": [
+          "黄连素",
+          "曲美布汀"
+        ],
+        "actual_drugs": [
+          "奥美拉唑",
+          "康复新液"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 8,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "阿莫西林"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 9,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "曲美布汀"
+        ],
+        "exact_match": false
+      },
+      {
+        "case_id": 10,
+        "recommended_drugs": [
+          "黄连素"
+        ],
+        "actual_drugs": [
+          "莫沙必利"
+        ],
+        "exact_match": false
+      }
+    ]
+  },
+  "th_acp_structured": {
+    "mode": "th_acp_structured",
+    "method": "first 10 fixed DIALMED training cases; frozen two-lesson memory; deterministic local model stub",
+    "case_count": 10,
+    "case_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "message_count": 80,
+    "total_message_bytes": 57568,
+    "total_message_tokens_estimate": 21858,
+    "total_packet_bytes": 75081,
+    "mean_case_elapsed_ms": 1.338,
+    "exact_matches": 0,
+    "non_text_transfer_count": 0,
+    "non_text_transfer_bytes": 0,
+    "note": "This baseline measures structured TH-ACP packets. The separate decision-vector result below measures actual non-text Pipe transfer."
+  },
+  "comparison": {
+    "same_cases": true,
+    "same_exact_matches": true,
+    "message_bytes_saved": 33989,
+    "message_bytes_saved_percent": 37.12,
+    "communication_tokens_saved": 9288,
+    "communication_tokens_saved_percent": 29.82
+  },
+  "non_text_state_transfer": {
+    "cases": 10,
+    "handoff_frames": 20,
+    "outputs_identical": true,
+    "json_frames_bytes_reconstructed": 5136,
+    "binary_frames_bytes_measured": 4872,
+    "saved_bytes": 264,
+    "saved_percent": 5.14,
+    "raw_binary_payload_bytes": 530,
+    "encode_mean_us": 6.38,
+    "decode_mean_us": 6.2,
+    "scope": "Doctor response + Expert request; Pipe frame headers included; no LLM timing"
+  }
+}

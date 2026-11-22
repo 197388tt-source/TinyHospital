@@ -1,0 +1,218 @@
+{
+  "method": "first 10 fixed DIALMED training cases; frozen two-lesson memory; deterministic local model stub",
+  "real_llm_api_tokens": null,
+  "case_count": 10,
+  "case_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "packet_count": 80,
+  "exact_matches": 0,
+  "steps": [
+    {
+      "step": 0,
+      "source": "System",
+      "target": "PatientAgent",
+      "capability": "patient.provide_case_truth",
+      "mean_execution_ms": 0.068,
+      "mean_serialization_ms": 0.038,
+      "mean_message_bytes": 39,
+      "mean_packet_bytes": 229.1,
+      "mean_message_tokens_estimate": 13
+    },
+    {
+      "step": 1,
+      "source": "PatientAgent",
+      "target": "ExpertAgent",
+      "capability": "expert.receive_case_truth",
+      "mean_execution_ms": 0.118,
+      "mean_serialization_ms": 0.04,
+      "mean_message_bytes": 931.3,
+      "mean_packet_bytes": 1196.4,
+      "mean_message_tokens_estimate": 370.2
+    },
+    {
+      "step": 2,
+      "source": "System",
+      "target": "PatientAgent",
+      "capability": "patient.provide_recommendation_context",
+      "mean_execution_ms": 0.063,
+      "mean_serialization_ms": 0.035,
+      "mean_message_bytes": 39,
+      "mean_packet_bytes": 241.1,
+      "mean_message_tokens_estimate": 13
+    },
+    {
+      "step": 3,
+      "source": "PatientAgent",
+      "target": "DoctorAgent",
+      "capability": "doctor.recommend",
+      "mean_execution_ms": 0.435,
+      "mean_serialization_ms": 0.039,
+      "mean_message_bytes": 969.7,
+      "mean_packet_bytes": 1226.8,
+      "mean_message_tokens_estimate": 382.5
+    },
+    {
+      "step": 4,
+      "source": "DoctorAgent",
+      "target": "ExpertAgent",
+      "capability": "expert.evaluate",
+      "mean_execution_ms": 0.097,
+      "mean_serialization_ms": 0.04,
+      "mean_message_bytes": 244.2,
+      "mean_packet_bytes": 436.3,
+      "mean_message_tokens_estimate": 89.2
+    },
+    {
+      "step": 5,
+      "source": "ExpertAgent",
+      "target": "RetrievalAgent",
+      "capability": "retrieval.medicines",
+      "mean_execution_ms": 0.09,
+      "mean_serialization_ms": 0.037,
+      "mean_message_bytes": 100.4,
+      "mean_packet_bytes": 297.5,
+      "mean_message_tokens_estimate": 45.1
+    },
+    {
+      "step": 6,
+      "source": "RetrievalAgent",
+      "target": "ExpertAgent",
+      "capability": "expert.review",
+      "mean_execution_ms": 0.41,
+      "mean_serialization_ms": 0.048,
+      "mean_message_bytes": 3394.2,
+      "mean_packet_bytes": 3661.8,
+      "mean_message_tokens_estimate": 1259.8
+    },
+    {
+      "step": 7,
+      "source": "ExpertAgent",
+      "target": "End",
+      "capability": "case.complete",
+      "mean_execution_ms": 0.065,
+      "mean_serialization_ms": 0.041,
+      "mean_message_bytes": 39,
+      "mean_packet_bytes": 219.1,
+      "mean_message_tokens_estimate": 13
+    }
+  ],
+  "mean_case_execution_ms": 1.347,
+  "mean_case_serialization_ms": 0.318,
+  "mean_case_packet_bytes": 7508.1,
+  "mean_case_packet_tokens_estimate": 3140.3,
+  "dialog_unique_bytes": 8546,
+  "dialog_transmitted_bytes_steps_1_3_4": 17092,
+  "dialog_redundant_bytes": 8546,
+  "history_handoff_bytes_step_4": 0,
+  "history_nonempty_cases": 0,
+  "overlapping_medicine_names_step_7": 0,
+  "duplicate_medicine_introduction_bytes_step_7": 0,
+  "introduction_hashes": [
+    "bc0cfdba40631e5d08f5e250f599123585eb3727233b922d679b8e4eb8af852d",
+    "a9c6ff4bbdf347cc449534643d8ed7879fa43609c79fd93d5d5b1ffb4f4a01c5",
+    "7d95143f1edeaf3f809ef8e3b07cfd7bb3c3f63f671fd1d63c8f9cf96aefefcb",
+    "90b35e700e73e07ed8b48b518096792c09644b447204ee25c359c33d5d0a457b",
+    "90b35e700e73e07ed8b48b518096792c09644b447204ee25c359c33d5d0a457b",
+    "50340af29780e1cf15a2e5fbefc676f5833c392bdae462beedffca8a278b0513",
+    "e6b917642e4ee9930bba30778d044d05e937a03dafd344576ccef0613cfbb48b",
+    "99b6ca52cdf127d24881f41b6e87c7e9cf17da9461e34a1747072007a04a8f87",
+    "73037cf1f92e970d941fab88f9dfe6e72f7f089a0e5123a631de1365322d547f",
+    "969d818f34a9eeda42d594c771e1b7c7e397ecbeada636e852ab9dcb76554fab"
+  ],
+  "step7_case_bytes": [
+    {
+      "case_id": 1,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 2007,
+      "current_packet_bytes": 2057
+    },
+    {
+      "case_id": 2,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 3818,
+      "current_packet_bytes": 3904
+    },
+    {
+      "case_id": 3,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 5546,
+      "current_packet_bytes": 5662
+    },
+    {
+      "case_id": 4,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 3301,
+      "current_packet_bytes": 3348
+    },
+    {
+      "case_id": 5,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 3301,
+      "current_packet_bytes": 3348
+    },
+    {
+      "case_id": 6,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 4821,
+      "current_packet_bytes": 4904
+    },
+    {
+      "case_id": 7,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 5625,
+      "current_packet_bytes": 5708
+    },
+    {
+      "case_id": 8,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 3430,
+      "current_packet_bytes": 3477
+    },
+    {
+      "case_id": 9,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 1922,
+      "current_packet_bytes": 1969
+    },
+    {
+      "case_id": 10,
+      "overlap_count": 0,
+      "legacy_packet_bytes_reconstructed": 2194,
+      "current_packet_bytes": 2241
+    }
+  ],
+  "step7_unified_count": 10,
+  "prompt_hashes": [
+    "192bca2d7bd1704b16bbf53fbe44d67c36f4402215e86ea91c267157a9fe7139",
+    "0c569ca6c13a603bc179acfcaa761fddca432853c2491285ac50f20215b16eac",
+    "d9577b5f56b42ab55f5f9bdaa16123913d8ef7b3b12c81509afb55bc491f358e",
+    "f3a781d6ff0ccc6540ddcfd5117839560c302fa9a91ef8bb136dde23c07649bc",
+    "bf906be2542b273b6b7256f41357fec13244823a651081eaff63e8307dda2969",
+    "d5f47ca462cbd2b41bc8b03e0539248751bffd512f92d4a567a4ec3f9719274b",
+    "8ea809205c9179a8bb90cf47f0efc4aa9e7528123cb47370f46ecc1d7a2650fb",
+    "26e08793885b616232c9b44ced63b84d7785e5e8bcbcaee12e166091f81958e2",
+    "b37b1a6ee7bda1e294834a132fd8d26dc600fc00ea84cea4c3189a1591dd0bf7",
+    "ddacdd2cd3051a55a2d142f8360b168dc31b0efdbca421ceb486c91ef1cc6174",
+    "e46c6d5cdd9992ade874ff8c7e731b74430d9529d09f1081f66e175c9bcb9e7f",
+    "91e119c5600a131ea96929c4e79941d54bddea814879ed966b7d7ba224448e9e",
+    "0ab69144a499e3b4762bfc90df902f9aa900b894db335c71154d12e9eb58f121",
+    "ec86b4b0f6711ee2884a09b4d7b5ba18b579116228f9dc907553b5fde9d41e8d",
+    "b1c9a4a48d687305c92f6d0165f395d021677261a35674aae7ee7e1b2e78d7f0",
+    "ff0c4e22dbc90bd415a643a03ca3313ccdee2bd08a0692105278cd6a20648b08",
+    "9478dcdb6d5deb11915ff79eb6f014e39d6289f14ac67b0a4ef1e55c25b1ce55",
+    "2575729bf50add45c12096f2dd17bb15663f388140a98234851c551b7fc4d49b",
+    "3feb60a80e07d6256b61de2c2e056b539156a524a48fb4630ad2192d116d8312",
+    "7e6c1a3f441fe00b3b4392efd9ee6e2a8840a5634c8eab1f0973b86d7c2bced6"
+  ],
+  "label_isolation_checked": true
+}

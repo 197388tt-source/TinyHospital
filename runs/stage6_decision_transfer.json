@@ -1,0 +1,13 @@
+{
+  "cases": 10,
+  "handoff_frames": 20,
+  "outputs_identical": true,
+  "json_frames_bytes_reconstructed": 5136,
+  "binary_frames_bytes_measured": 4872,
+  "saved_bytes": 264,
+  "saved_percent": 5.14,
+  "raw_binary_payload_bytes": 530,
+  "encode_mean_us": 7.51,
+  "decode_mean_us": 9.11,
+  "scope": "Doctor response + Expert request; Pipe frame headers included; no LLM timing"
+}

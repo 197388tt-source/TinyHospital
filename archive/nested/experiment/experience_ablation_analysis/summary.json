@@ -1,0 +1,36 @@
+{
+  "positive": {
+    "unique_experiences": 28,
+    "hits": 81,
+    "correct": 19,
+    "wrong_to_correct": 7,
+    "correct_to_wrong": 7,
+    "f1_up": 16,
+    "f1_down": 13
+  },
+  "negative": {
+    "unique_experiences": 65,
+    "hits": 81,
+    "correct": 16,
+    "wrong_to_correct": 5,
+    "correct_to_wrong": 8,
+    "f1_up": 8,
+    "f1_down": 16
+  },
+  "both": {
+    "cases": 81,
+    "unique_positive": 29,
+    "unique_negative": 65,
+    "correct": 24,
+    "wrong_to_correct": 10,
+    "correct_to_wrong": 5,
+    "both_correct": 14,
+    "both_wrong": 52,
+    "f1_up": 19,
+    "f1_down": 14,
+    "doctor_failures": 2,
+    "tp": 84,
+    "fp": 72,
+    "fn": 77
+  }
+}

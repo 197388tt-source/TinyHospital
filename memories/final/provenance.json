@@ -1,0 +1,13 @@
+{
+  "source": "experiment/betterex",
+  "selection": "User confirmed outer betterex as final version on 2026-11-22",
+  "training_dataset": "data/traincut.txt",
+  "dataset_sha256": "de3a954a60ef46cf34bee9164294b20027616c623cf8d840919d31c83e14ee6a",
+  "completed_training_cases": 686,
+  "golden_count": 52,
+  "reflection_count": 235,
+  "files": {
+    "golden_experience.json": "e3df2b691cd4401a3f6663e8d34c5a51f47e6aa7818743d9a416fdbd8bc518fd",
+    "reflection_memory.json": "4088783eb801e6d0be385d4948f02ea014d05bdc3d25224c7bbb8332ca00e79a"
+  }
+}

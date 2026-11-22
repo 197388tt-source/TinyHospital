@@ -1,0 +1,651 @@
+--- outer/agent/expert.py
++++ nested/agent/expert.py
+@@ -208,95 +208,45 @@
+ 
+         else:
+             instruction = (
+-                '你是一名医学专家，负责判断药物推荐是否存在需要纠正的问题。只有存在充分依据的问题时，才提炼可供相似病例参考的反思经验。\n'
+-                '\n'
+-                '你将获得医患对话、医生推荐药物、医生判断依据、参考推荐药物、相关药物说明及标签差异。\n'
+-                '\n'
+-                '参考推荐来自数据集标签，不代表唯一合理方案。标签差异不能直接视为临床错误，参考药物也不能直接视为临床正确答案。\n'
+-                '\n'
+-                '一、逐药审核与整体评估\n'
+-                '\n'
+-                '先根据对话识别患者的主要症状、关键问题、现用药及明确风险，再审核完整推荐方案，最后比较参考药物。\n'
+-                '\n'
+-                '1. 对医生推荐的每一种药物，判断其是否有与当前症状、疾病判断或用药场景相对应的依据，以及是否与明确的用药限制冲突。与参考答案相同的药物也必须审核，不能自动视为合理。\n'
+-                '\n'
+-                '2. 对“推荐有、参考无”的药物，逐一判断：\n'
+-                '   - 有合理使用依据，且没有明确冲突：仅属于标签差异，不作为错误。\n'
+-                '   - 有充分依据认定推荐不合理：记录具体药名、对话依据及不合理原因，作为可反思的问题。\n'
+-                '   - 必要信息不足，无法判断：保留不确定性，不直接认定为错误。\n'
+-                '\n'
+-                '3. 对“参考有、推荐无”的药物，逐一判断：\n'
+-                '   - 该药针对什么治疗目标，对话是否支持这一目标。\n'
+-                '   - 医生现有方案是否已经合理覆盖该目标。\n'
+-                '   - 未推荐该药是否意味着遗漏了会明显改变选药或处理方式的关键问题。\n'
+-                '   如果现有方案已合理覆盖该目标，或该药只是可选治疗，不认定为遗漏。\n'
+-                '   只有确认存在关键遗漏时，才将该问题作为反思依据；只有材料支持时，才提出该药作为可考虑的处理，不能仅凭参考答案要求补药。\n'
+-                '   如果关键问题需要先补充评估，可以反思评估不足，不必强行增加药物。\n'
+-                '\n'
+-                '4. 逐药审核后，结合完整方案检查治疗目标是否覆盖、现用药是否存在冲突，以及推荐是否只处理了次要症状。不得将逐药审核变成逐药补齐参考答案。\n'
+-                '\n'
+-                '二、判断是否需要生成反思\n'
+-                '\n'
+-                '只有满足以下至少一项，才可以生成反思：\n'
+-                '\n'
+-                '1. 推荐药物缺乏与当前症状、疾病判断或用药场景相对应的依据，或与材料明确的症状、禁忌、现用药及用药风险明显冲突。\n'
+-                '2. 推荐遗漏了对话中已明确、且会明显改变选药或处理方式的关键症状或问题，导致只处理次要症状。遗漏的处理可以是用药，也可以是必要的补充评估。\n'
+-                '\n'
+-                '以下情况不生成反思：\n'
+-                '- 推荐与参考药物不同，但同样具有合理依据，且没有上述问题。\n'
+-                '- 只能确认标签差异，不能确认具体的用药问题或关键遗漏。\n'
+-                '- 仅因为参考列表包含某药，就认为必须补充该药。\n'
+-                '- 仅因为还可以增加问诊、检查或注意事项，就认为原推荐有错。\n'
+-                '- 必要材料缺失，无法作出有依据的判断。\n'
+-                '\n'
+-                '“还可以进一步核查”本身不是生成反思的理由。核查建议只有在对应一个已由对话触发、会改变处理决策的关键问题时，才能进入反思。\n'
+-                '\n'
+-                '三、判断时遵守的边界\n'
+-                '\n'
+-                '1. 不得补充病例事实，不得将医生的问句视为患者事实，不得将“未提及”视为“不存在”，不得将疑似诊断写成确诊。\n'
+-                '2. 区分“对话没有提供某药的使用依据”和“药物说明资料缺失”。后者不等于该药不适用，也不能仅因信息不足就认定推荐错误。\n'
+-                '3. 区分禁用、慎用、不推荐合用和需要监测。不良反应中列出某症状，不等于该药对有此症状的患者绝对禁用；应结合使用依据和风险判断。\n'
+-                '4. 不得把所有症状都映射成必须增加一种药。已有方案可能覆盖多个症状，部分问题需要评估而非加药。\n'
+-                '5. 区分继续使用、加用、换药和既往已停药。再次提及同一药物不自动等于重复加量，作用相近也不自动等于禁止联用。不得默认模型方案、参考方案与既往药物同时使用。\n'
+-                '6. 不得仅因简短的医生判断依据没有展开某项常规评估，就断言医生遗漏了该问题。\n'
+-                '7. 无法确认存在具体用药问题或关键遗漏时，返回空反思，不为了生成经验寻找纠错理由。\n'
+-                '\n'
+-                '四、提炼可复用反思\n'
+-                '\n'
+-                '完成全部药物审核后，围绕一个有充分依据、影响选药或处理决策的核心问题提炼经验。若存在多个独立问题，优先选择风险更高或更影响主要问题处理的一项；不必把完整审核过程写入反思。\n'
+-                '\n'
+-                '采用以下结构：\n'
+-                '“如果患者具备【触发问题的关键条件】，不应【具体不合理推荐或遗漏的处理方式】，因为【具体原因】；应【有依据的纠正原则或必要评估】。”\n'
+-                '\n'
+-                '写作要求：\n'
+-                '\n'
+-                '1. 以“如果……”或“当……时……”开头，写清关键条件如何影响选药，不复述完整病例，不使用“本例”“上述患者”等指代。\n'
+-                '2. 所选核心问题涉及已确认错误推荐的药物时，必须逐一写出与推荐列表一致的药名及不合理原因，不用“某药”“这类药”或“原方案”代替。\n'
+-                '3. 合理的标签差异不写入纠错内容。只有确认关键遗漏且材料支持时，才提及未推荐的参考药物及其适用条件；替代、加用或停用建议也须有依据。\n'
+-                '4. 补充评估须说明其对应的关键问题及如何影响处理，不能泛泛写“先核实再决定”。\n'
+-                '5. 保留必要限定与不确定性，不把个案判断扩大成某药普遍适用或不适用。\n'
+-                '6. 一个段落，通常一到两句，最多200字符，不设最低字数；不为压缩文字省略错误药名、关键否定词或必要限定。\n'
+-                '7. 若只能形成病例摘要、一般性提醒或没有明确决策意义的核查建议，返回空反思。\n'
+-                '\n'
+-                '五、输出\n'
+-                '\n'
+-                '仅返回合法 JSON 对象，仅包含 reflection 字段；reflection 为字符串，不输出审核过程或 Markdown。\n'
+-                '\n'
+-                '存在有依据的问题且能提炼经验时：\n'
+-                '{"reflection":"如果……，不应……；应……。"}\n'
+-                '\n'
+-                '推荐合理、仅有标签差异、证据不足或无法提炼经验时：\n'
++                '你是一名医学专家，请仅依据提供材料评估医生的药物推荐，并提炼一条可供相似病例参考的纠错经验。\n'
++                '\n'
++                '你将获得医患对话、医生推荐药物、医生判断依据、参考推荐药物、相关药物说明，以及多荐和漏荐药物列表。\n'
++                '参考推荐来自数据集标签，不代表唯一合理方案；多荐和漏荐只表示标签差异，不直接代表临床用药错误。\n'
++                '\n'
++                '任务一、推荐评估与差异分析\n'
++                '检查病例事实、疾病判断和选药依据是否一致，逐一分析差异药物；涉及联用或替代时，结合既往用药和完整方案判断。\n'
++                '\n'
++                '1. 多荐药物：核查使用依据及限制，区分“有证据不宜使用”、“材料不足以支持使用”和“有使用依据，仅与参考推荐不同”。不得仅因未出现在参考推荐中就否定该药物。\n'
++                '2. 漏荐药物：核查病例是否符合适应症及限定条件，说明该药可考虑改善什么问题、依据是什么，并检查相关限制。不得仅因列入参考推荐或匹配适应症，就认定必须加入现有方案。\n'
++                '3. 联用与替代：区分患者已用药、医生推荐和参考方案，不得默认不同方案中的药物会同时使用。不得将作用相近直接推导为重复用药、禁止联用或可以替代。提出联用限制或以 B 替代 A 时，须有材料支持，并保留适用条件；无法区分优劣时，不得编造疗效、安全性或首选优势。\n'
++                '\n'
++                '分析中不得补充病例事实、将未提及视为不存在、将疑似写成确诊，或推测医生未表达的意图。药物说明缺少剂型、给药途径、适应症或相互作用等必要信息时，须保留不确定性，不得据此断言适用、无禁忌或可安全联用。区分禁用、慎用、不推荐合用和需要监测，不良反应中列出某症状不等于对此类患者禁用。\n'
++                '\n'
++                '任务二、提炼经验\n'
++                '围绕一个有依据、影响选药决策的核心问题，总结：关键病例条件、涉及的差异药物、具体纠正或核查动作及原因。\n'
++                '用“患者出现……时”“患者已使用……且……”等表述明确经验的适用条件，不使用“本例”“该病例”“上述患者”等依赖原始对话的指代。不能仅将“本例”替换为“患者”，还须写明影响选药的关键条件，使经验脱离原始对话也能独立理解。\n'
++                '相关既往用药及治疗反应会影响判断时，应予保留。有明确问题时说明如何调整；无法确认错误时，仅提出有依据的具体核查建议，说明核查什么及其如何影响选药。\n'
++                '不要求覆盖全部差异药物，不简单复述药物列表，也不泛泛要求“核对适应症”或“合理用药”。不得为了贴合参考答案编造纠错理由，也不得将“无法证明原推荐错误”写成“原推荐正确、无需调整”。\n'
++                '若仅能确认标签差异，无法形成有依据的纠错原则或具体核查建议，则不生成经验。\n'
++                '\n'
++                '任务三、输出\n'
++                '只返回合法 JSON 对象，仅包含 reflection 字段，不输出分析过程或 Markdown。\n'
++                'reflection 为字符串，有经验时建议100至150个字符，最多200个字符（标点、数字和英文字母均计入），允许1至3句，写成一个段落。须能独立理解，简单问题可以更短，不得为凑长度补充内容，或为缩短文字省略否定词、限定条件和不确定性。\n'
++                '\n'
++                '有充分依据：\n'
++                '{"reflection":"包含关键病例条件、具体药物、纠正或核查动作及原因的经验"}\n'
++                '证据不足：\n'
+                 '{"reflection":""}'
+             )
+             context = (
+                 '医患对话：' + case['patient_dialog']
+                 + '\n医生推荐依据：' + evaluation['reasoning_summary']
+                 + '\n医生推荐药物：' + json.dumps(evaluation['recommended_drugs'], ensure_ascii=False)
+-                + '\n医生推荐药物说明：' + json.dumps(details['recommended_introductions'], ensure_ascii=False)
+-                + '\n参考推荐药物说明：' + json.dumps(details['actual_introductions'], ensure_ascii=False)
+-                + '\n参考推荐药物：' + json.dumps(case['actual_drugs'], ensure_ascii=False)
+-                + '\n标签差异（参考推荐有、医生推荐无）：' + json.dumps(metrics['missing_drugs'], ensure_ascii=False)
+-                + '\n标签差异（医生推荐有、参考推荐无）：' + json.dumps(metrics['extra_drugs'], ensure_ascii=False)
++                + '\n推荐药物说明：' + json.dumps(details['recommended_introductions'], ensure_ascii=False)
++                + '\n真实药物说明：' + json.dumps(details['actual_introductions'], ensure_ascii=False)
++                + '\n真实药物：' + json.dumps(case['actual_drugs'], ensure_ascii=False)
++                + '\n漏荐药物：' + json.dumps(metrics['missing_drugs'], ensure_ascii=False)
++                + '\n多荐药物：' + json.dumps(metrics['extra_drugs'], ensure_ascii=False)
+             )
+             base_context = context
+             for attempt in range(3):
+@@ -330,13 +280,12 @@
+                     feedback = f'\n上一回复未通过校验：{exc}。'
+                     if isinstance(value, str) and len(value.strip()) > 200:
+                         feedback += (f'上一条反思有{len(value.strip())}个字符，超过200字符上限。'
+-                                     '请压缩至200个字符以内，不设最低字数；围绕一个核心选药问题，通常一到两句。以“如果……”或“当……时……”明确适用条件。'
+-                                     '保留关键病例条件、所选核心问题涉及的错误药名、不合理原因及必要限制，'
++                                     '请压缩为100至150个字符，围绕一个核心选药问题，允许1至3句。'
++                                     '保留关键病例条件、药物名称、选药理由及必要限制，'
+                                      '删除重复背景和分析过程。'
+                                      '\n待改写反思（最多展示1000字符）：' + value[:1000])
+-                    feedback += ('\n所选核心问题涉及错误推荐时，逐一写出对应准确药名及原因；只有确认关键遗漏且材料支持时才提及参考药物，不要求两侧同时出现。'
+-                                 '\n只返回 {"reflection":"可复用的纠错经验"}，'
+-                                 '证据不足时返回 {"reflection":""}；推荐合理、仅有标签差异或无法提炼纠错经验时也返回空反思，不要输出其他内容。')
++                    feedback += ('\n只返回 {"reflection":"可复用的纠错经验"}，'
++                                 '证据不足时返回 {"reflection":""}，不要输出其他内容。')
+                     context = base_context + feedback
+         outcome = {
+             'case_id': case['case_id'],
+--- outer/agent/patient.py
++++ nested/agent/patient.py
+@@ -60,23 +60,13 @@
+         return json.dumps(data, ensure_ascii=False)
+ 
+     def request_history(self, _request: str) -> str:
++        data = json.loads(self.provide_recommendation_context(_request))
+         self.receive_task(State.IDLE)
+-        if self.case is None:
+-            raise RuntimeError('尚未开始病例')
+-        # Text and vector state transfer are deliberately mutually exclusive.
+-        # The orchestrator keeps the dialogue for the later Doctor handoff;
+-        # Retrieval only needs it in text mode to create a query vector.
+-        data = {
+-            'case_id': self.case.case_id, 'dataset_path': self.dataset_path,
+-            'count': self.case.drug_count,
+-        }
+         if self.vector_sender is not None:
+             assert self.runtime is not None
+             descriptor, self.query_binary = self.vector_sender.prepare(
+                 self.case.patient_input, self.runtime.trace_id, self.vector_name)
+             data['query_embedding'] = descriptor
+-        else:
+-            data['patient_dialog'] = self.case.patient_input
+         response = json.dumps(data, ensure_ascii=False)
+         self.transition(State.IDLE)
+         return response
+--- outer/agent/retrieval.py
++++ nested/agent/retrieval.py
+@@ -31,20 +31,15 @@
+     def retrieve_history(self, message: str, binary: bytes | None = None) -> str:
+         self.receive_task(State.IDLE)
+         data = json.loads(message)
+-        vector_only = self.vector_transport != 'text'
+-        expected = ({'case_id', 'dataset_path', 'count', 'query_embedding'} if vector_only else
+-                    {'case_id', 'dataset_path', 'patient_dialog', 'count'})
+-        if (not isinstance(data, dict) or set(data) != expected
+-                or type(data.get('case_id')) is not int or not isinstance(data.get('dataset_path'), str)
+-                or (not vector_only and (not isinstance(data.get('patient_dialog'), str)
+-                                         or not data['patient_dialog'].strip()))
++        if (type(data.get('case_id')) is not int or not isinstance(data.get('dataset_path'), str)
++                or not isinstance(data.get('patient_dialog'), str) or not data['patient_dialog'].strip()
+                 or type(data.get('count')) is not int or not 0 < data['count'] <= len(self.medicines.names)
+                 or 'actual_drugs' in data or 'drug_labels' in data):
+-            raise ValueError('历史检索请求字段无效')
++            raise ValueError('历史检索只能接收病例对话、编号和药物数量')
+         self.history_query_count += 1
+         query_vector = None
+-        descriptor = data.get('query_embedding')
+-        if vector_only and (
++        descriptor = data.pop('query_embedding', None)
++        if self.vector_transport != 'text' and (
+                 not isinstance(descriptor, dict) or descriptor.get('storage') != self.vector_transport):
+             raise ValueError('查询向量缺失或传输模式不匹配，禁止静默重新编码')
+         if descriptor is not None:
+@@ -56,14 +51,14 @@
+             query_vector = receive_vector(
+                 descriptor, trace_id=self.runtime.trace_id,
+                 fingerprint=self.memories.semantic.encoder.config.fingerprint,
+-                dialog=data.get('patient_dialog'), binary=binary)
++                dialog=data['patient_dialog'], binary=binary)
+             self.vector_transport_stats['received_vectors'] += 1
+             key = 'shared_read_bytes' if descriptor['storage'] == 'shared_memory' else 'binary_bytes'
+             self.vector_transport_stats[key] += descriptor['size']
+         elif binary is not None:
+             raise ValueError('二进制向量缺少协议描述')
+         retrieved = self.memories.retrieve(
+-            data.get('patient_dialog'), data['case_id'], data['dataset_path'],
++            data['patient_dialog'], data['case_id'], data['dataset_path'],
+             query_vector=query_vector,
+         )
+         # Keep source dialogue, case IDs, summaries and scores inside Retrieval.
+@@ -71,9 +66,8 @@
+             'golden_experiences': [row['experience'] for row in retrieved['golden_experiences']],
+             'reflections': [row['reflection'] for row in retrieved['reflections']],
+         }
+-        # A vector-only request cannot echo a dialogue that it never received.
+         reply = ({'case_id': data['case_id'], 'history': history}
+-                 if self.incremental_history or vector_only else {**data, 'history': history})
++                 if self.incremental_history else {**data, 'history': history})
+         started = perf_counter_ns()
+         encoded = json.dumps(reply, ensure_ascii=False)
+         encoding_ns = perf_counter_ns() - started
+--- outer/agent/validation.py
++++ nested/agent/validation.py
+@@ -175,6 +175,6 @@
+     if not lesson:
+         raise ValueError('反思不能仅包含空白字符；证据不足时返回空字符串')
+     if len(lesson) > 200:
+-        raise ValueError('反思应控制在200字符以内')
++        raise ValueError('反思应控制在200字以内')
+     if '\n' in lesson or '\r' in lesson or re.search(r'(?:^|[；;。])\s*(?:\d+[.、]|[一二三四][.、]|[-•])', lesson):
+         raise ValueError('反思须写成一个段落，不能写成列表')
+--- outer/cases.py
++++ nested/cases.py
+@@ -8,8 +8,8 @@
+ 
+ DATA_DIRECTORY = Path(__file__).resolve().parent / "data"
+ DIALMED_TRAIN_PATH = DATA_DIRECTORY / "traincut.txt"
++DIALMED_DEV_PATH = DATA_DIRECTORY / "devcut.txt"
+ DIALMED_TEST_PATH = DATA_DIRECTORY / "testcut.txt"
+-DIALMED_DEV_PATH = DATA_DIRECTORY / "devcut.txt"
+ 
+ 
+ def default_dataset_path(training: bool) -> Path:
+@@ -20,11 +20,10 @@
+ 
+ 
+ def memory_source_dataset_path(dataset_path: Path, training: bool) -> Path:
+-    """Resolve held-out test/validation subsets to their training memory source."""
++    """Map the bundled evaluation subsets to the train subset that owns memories."""
+     path = Path(dataset_path)
+-    if not training and path.resolve() in {
+-        DIALMED_TEST_PATH.resolve(), DIALMED_DEV_PATH.resolve()
+-    }:
++    if not training and path.resolve() in (DIALMED_DEV_PATH.resolve(),
++                                              DIALMED_TEST_PATH.resolve()):
+         return DIALMED_TRAIN_PATH
+     return path
+ 
+--- outer/embedding/encoder.py
++++ nested/embedding/encoder.py
+@@ -66,18 +66,26 @@
+     return [x / norm for x in scaled]
+ 
+ 
++def api_key_from_env_or_default(api_key_env: str) -> str:
++    key = os.environ.get(api_key_env)
++    if not key and api_key_env == 'EMBEDDING_API_KEY':
++        from tool.llm_client import DEFAULT_API_KEY
++        key = DEFAULT_API_KEY
++    if not key:
++        raise ValueError(f'请设置环境变量 {api_key_env}')
++    return key
++
++
+ class ApiBackend:
+     """JSON embeddings endpoint accepting model/input/encoding_format.
+ 
+-    The complete endpoint is explicit; chat credentials are never reused.
++    The complete endpoint is explicit; the default key can be shared with chat.
+     """
+     def __init__(self, config: EmbeddingConfig, api_key_env: str, timeout: float):
+         self.config, self.api_key_env, self.timeout = config, api_key_env, timeout
+ 
+     def encode(self, texts: list[str]) -> list[list[float]]:
+-        key = os.environ.get(self.api_key_env)
+-        if not key:
+-            raise ValueError(f'请设置环境变量 {self.api_key_env}')
++        key = api_key_from_env_or_default(self.api_key_env)
+         request = Request(self.config.endpoint, method='POST', headers={
+             'Authorization': f'Bearer {key}', 'Content-Type': 'application/json'},
+             data=json.dumps({'model': self.config.model, 'input': texts,
+--- outer/embedding/test_api.py
++++ nested/embedding/test_api.py
+@@ -15,11 +15,12 @@
+ import argparse
+ import json
+ import math
+-import os
+ import sys
+ from urllib.error import HTTPError, URLError
+ from urllib.parse import urlsplit
+ from urllib.request import Request, urlopen
++
++from .encoder import api_key_from_env_or_default
+ 
+ 
+ def main(argv: list[str] | None = None) -> int:
+@@ -44,10 +45,10 @@
+     if args.timeout <= 0:
+         parser.error("--timeout 必须大于 0")
+ 
+-    api_key = os.environ.get(args.key_env)
+-    if not api_key:
+-        print(f"缺少环境变量 {args.key_env}；请先 export {args.key_env}='你的密钥'",
+-              file=sys.stderr)
++    try:
++        api_key = api_key_from_env_or_default(args.key_env)
++    except ValueError as exc:
++        print(exc, file=sys.stderr)
+         return 2
+ 
+     body = json.dumps({
+--- outer/embedding/transport.py
++++ nested/embedding/transport.py
+@@ -66,14 +66,11 @@
+         self.arena.release()
+ 
+ 
+-def receive_vector(descriptor, *, trace_id, fingerprint, dialog=None, binary=None):
++def receive_vector(descriptor, *, trace_id, fingerprint, dialog, binary=None):
+     validate_embedding_descriptor(descriptor, trace_id)
+     if descriptor['model_fingerprint'] != fingerprint:
+         raise ValueError('查询向量与记忆索引模型或预处理配置不一致')
+-    # In vector-only IPC mode Retrieval deliberately never receives the source
+-    # dialogue.  The parent Runtime has already authenticated the sender and
+-    # trace; content integrity is still checked through the vector SHA-256.
+-    if dialog is not None and descriptor['text_hash'] != sha256(dialog_text(dialog).encode()).hexdigest():
++    if descriptor['text_hash'] != sha256(dialog_text(dialog).encode()).hexdigest():
+         raise ValueError('查询向量与当前对话不匹配')
+     if descriptor['storage'] == 'shared_memory':
+         if binary is not None:
+--- outer/history/memory.py
++++ nested/history/memory.py
+@@ -21,7 +21,8 @@
+ 
+     MIN_SIMILARITY = 0.15
+     EMBEDDING_MIN_SIMILARITY = 0.60  # Provisional conservative cutoff; calibrate on held-out pairs.
+-    MAX_RESULTS = 3
++    MAX_RESULTS = 2
++    MAX_RESULTS_PER_KIND = 1
+ 
+     def __init__(self, golden_path: Path, reflection_path: Path, training: bool,
+                  source_dataset_path: Path = DIALMED_TRAIN_PATH,
+@@ -165,15 +166,11 @@
+                     self._memory_version(self.reflection_path)) != self._versions):
+             self._reload()
+ 
+-    def retrieve(self, dialog: str | None, case_id: int, dataset_path: str,
++    def retrieve(self, dialog: str, case_id: int, dataset_path: str,
+                  limit: int = MAX_RESULTS, min_similarity: float | None = None,
+                  query_vector=None) -> dict:
+         if min_similarity is None:
+             min_similarity = self.min_similarity
+-        if dialog is None and query_vector is None:
+-            raise ValueError('检索必须提供对话文本或查询向量')
+-        if dialog is None and self.retrieval_mode != 'embedding':
+-            raise ValueError('无对话文本的检索仅支持 embedding 模式')
+         if query_vector is not None and self.semantic is None:
+             raise ValueError('只有 embedding 检索接受查询向量')
+         if type(limit) is not int or limit < 0:
+@@ -185,7 +182,7 @@
+         self._refresh_if_changed()
+         self._sync_semantic()
+         semantic_scores = self.semantic.scores(dialog, query_vector) if self.semantic is not None and limit else {}
+-        query, query_key = (_features(dialog), self._dialog_key(dialog)) if dialog is not None else (set(), None)
++        query, query_key = _features(dialog), self._dialog_key(dialog)
+         ranked, candidates = [], []
+         same_dataset = Path(dataset_path).resolve() == self.source_dataset_path.resolve()
+         for bucket, row, old_key, old_features, old_dialog in self._index:
+@@ -196,7 +193,7 @@
+             reason = ('disabled' if self.retrieval_mode == 'none' else
+                       'limit_zero' if limit == 0 else
+                       'current_case' if row['case_id'] == case_id and same_dataset else
+-                      'identical_dialog' if query_key is not None and old_key == query_key else
++                      'identical_dialog' if old_key == query_key else
+                       'below_threshold' if score < min_similarity or score <= 0 else 'eligible')
+             candidate = {'source_case_id': row['case_id'], 'kind': bucket,
+                          'similarity': round(score, 6), 'reason': reason}
+@@ -212,6 +209,9 @@
+                 candidate['reason'] = 'duplicate_dialog'
+                 continue
+             if len(similarities) >= limit:
++                candidate['reason'] = 'outside_top_k'
++                continue
++            if len(result[bucket]) >= self.MAX_RESULTS_PER_KIND:
+                 candidate['reason'] = 'outside_top_k'
+                 continue
+             candidate['reason'] = 'selected'
+--- outer/hospital_process.py
++++ nested/hospital_process.py
+@@ -72,12 +72,6 @@
+             or type(context['count']) is not int or context['count'] != case.drug_count):
+         raise ValueError('Patient 病例上下文无效或包含额外字段')
+     return context
+-
+-
+-def _history_context_from_case(case: DialMedCase, dataset_path: str) -> dict[str, Any]:
+-    """The parent alone retains dialogue while Retrieval receives a vector."""
+-    return {'case_id': case.case_id, 'dataset_path': dataset_path,
+-            'patient_dialog': case.patient_input, 'count': case.drug_count}
+ 
+ 
+ def _restore_history_response(context: dict[str, Any], text: str) -> str:
+@@ -598,29 +592,25 @@
+                             raise ValueError('Patient 未使用父进程预留的向量共享段')
+                     elif query_binary is None:
+                         raise ValueError('Patient 未返回二进制查询向量')
+-                restore_vector_history = self.vector_transport != 'text'
+-                if self.incremental_history or restore_vector_history:
++                if self.incremental_history:
+                     context_started = perf_counter_ns()
+-                    self._history_context = (_history_context_from_case(case, self.dataset_path)
+-                                             if restore_vector_history else
+-                                             _history_context_from_patient(
+-                                                 request_text, case, self.dataset_path))
++                    self._history_context = _history_context_from_patient(
++                        request_text, case, self.dataset_path)
+                     context_parse_ns = perf_counter_ns() - context_started
+                 history, history_text = self._deliver(MessageType.REQUEST, "PatientAgent",
+                                                       "retrieval.history", request_text, request.head.message_id,
+                                                       binary=query_binary,
+                                                       shared_fields=("/patient_dialog",) if self.shared_dialog and query_binary is None else None)
+-                if self.incremental_history or restore_vector_history:
++                if self.incremental_history:
+                     if self._history_context is None:
+                         raise RuntimeError('Retrieval 回复缺少已保存的病例上下文')
+                     restore_started = perf_counter_ns()
+                     history_text = _restore_history_response(self._history_context, history_text)
+                     restore_ns = perf_counter_ns() - restore_started
+-                    if self.incremental_history:
+-                        self.history_delta_stats.append({
+-                            'case_id': case.case_id, 'context_parse_ns': context_parse_ns,
+-                            'restore_ns': restore_ns,
+-                        })
++                    self.history_delta_stats.append({
++                        'case_id': case.case_id, 'context_parse_ns': context_parse_ns,
++                        'restore_ns': restore_ns,
++                    })
+                     self._history_context = None
+                 recommendation, recommendation_result = self._deliver(
+                     MessageType.RESPONSE, "RetrievalAgent", "doctor.recommend",
+--- outer/main.py
++++ nested/main.py
+@@ -16,24 +16,6 @@
+ from history.memory import CaseMemoryStore, GOLDEN_EXPERIENCE_PATH, REFLECTION_MEMORY_PATH
+ from tool.llm_client import LLMClient
+ from tool.local_qwen_client import DEFAULT_MODEL_PATH
+-
+-
+-def _restore_vector_history(case: DialMedCase, dataset_path: str, text: str) -> str:
+-    """Join a vector-only Retrieval reply with dialogue held by the orchestrator."""
+-    reply = json.loads(text)
+-    history = reply.get('history') if isinstance(reply, dict) else None
+-    if (not isinstance(reply, dict) or set(reply) != {'case_id', 'history'}
+-            or reply['case_id'] != case.case_id or not isinstance(history, dict)
+-            or set(history) != {'golden_experiences', 'reflections'}
+-            or any(not isinstance(values, list)
+-                   or any(not isinstance(value, str) or not value.strip() for value in values)
+-                   for values in history.values())):
+-        raise ValueError('向量检索回复无效或病例编号不匹配')
+-    return json.dumps({
+-        'case_id': case.case_id, 'dataset_path': str(dataset_path),
+-        'patient_dialog': case.patient_input, 'count': case.drug_count,
+-        'history': history,
+-    }, ensure_ascii=False)
+ from tool.llm_usage import append_llm_usage
+ from tool.diagnostics import emit
+ from tool.medicine_store import MedicineKnowledgeBase
+@@ -152,10 +134,7 @@
+         else:
+             request = self._system_request('patient.request_history', '请提供对话和目标药物数量。')
+             history = self.patient.send_request(request.output, 'retrieval.history', request.packet.head.message_id)
+-            history_text = history.output
+-            if self.vector_transport != 'text':
+-                history_text = _restore_vector_history(case, self.dataset_path, history_text)
+-            recommendation = self.retrieval.send_response(history_text, history.packet.head.message_id,
++            recommendation = self.retrieval.send_response(history.output, history.packet.head.message_id,
+                                                            'doctor.recommend')
+         recommendation_data = json.loads(recommendation.output)
+         failed = recommendation_data.get('status') == 'doctor_failed'
+--- outer/tests/test_embedding.py
++++ nested/tests/test_embedding.py
+@@ -143,6 +143,29 @@
+                 with self.assertRaises(ValueError):
+                     backend.encode(['a', 'b'])
+         self.assertNotIn('secret', json.dumps(config.manifest))
++
++    def test_default_embedding_key_uses_hardcoded_chat_key_as_fallback(self):
++        config = EmbeddingConfig('api', 'example-model', 'v1', endpoint='https://example.invalid/embeddings')
++        response = {'data': [{'index': 0, 'embedding': [1, 0]}]}
++        payload = io.BytesIO(json.dumps(response).encode())
++        backend = ApiBackend(config, 'EMBEDDING_API_KEY', 5)
++        with patch.dict('os.environ', {'EMBEDDING_API_KEY': ''}), \
++                patch('tool.llm_client.DEFAULT_API_KEY', 'hardcoded-test-key'), \
++                patch('embedding.encoder.urlopen', return_value=payload) as opened:
++            self.assertEqual(backend.encode(['a']), [[1, 0]])
++            self.assertEqual(opened.call_args.args[0].get_header('Authorization'),
++                             'Bearer hardcoded-test-key')
++
++    def test_embedding_env_key_overrides_hardcoded_key(self):
++        config = EmbeddingConfig('api', 'example-model', 'v1', endpoint='https://example.invalid/embeddings')
++        response = {'data': [{'index': 0, 'embedding': [1, 0]}]}
++        backend = ApiBackend(config, 'EMBEDDING_API_KEY', 5)
++        with patch.dict('os.environ', {'EMBEDDING_API_KEY': 'environment-test-key'}), \
++                patch('tool.llm_client.DEFAULT_API_KEY', 'hardcoded-test-key'), \
++                patch('embedding.encoder.urlopen', return_value=io.BytesIO(json.dumps(response).encode())) as opened:
++            self.assertEqual(backend.encode(['a']), [[1, 0]])
++            self.assertEqual(opened.call_args.args[0].get_header('Authorization'),
++                             'Bearer environment-test-key')
+ 
+     def test_local_backend_rejects_silent_truncation(self):
+         backend = LocalBackend(self.config)
+--- outer/tests/test_main.py
++++ nested/tests/test_main.py
+@@ -87,15 +87,10 @@
+         self.assertEqual(default_dataset_path(False), DIALMED_TEST_PATH)
+         self.assertEqual(memory_source_dataset_path(DIALMED_TEST_PATH, False),
+                          DIALMED_TRAIN_PATH)
++        self.assertEqual(memory_source_dataset_path(DIALMED_DEV_PATH, False),
++                         DIALMED_TRAIN_PATH)
+         self.assertEqual(memory_source_dataset_path(DIALMED_TRAIN_PATH, True),
+                          DIALMED_TRAIN_PATH)
+-
+-    def test_validation_memories_map_to_training_source(self):
+-        for path in (DIALMED_DEV_PATH, DIALMED_DEV_PATH.parent / '..' / 'data' / 'devcut.txt'):
+-            self.assertEqual(memory_source_dataset_path(path, False), DIALMED_TRAIN_PATH)
+-        self.assertEqual(memory_source_dataset_path(DIALMED_DEV_PATH, True), DIALMED_DEV_PATH)
+-        custom = Path('/tmp/custom-data/devcut.txt')
+-        self.assertEqual(memory_source_dataset_path(custom, False), custom)
+ 
+     def test_training_skips_history_even_with_existing_memories(self):
+         self.golden.write_text(json.dumps([{'case_id': 1, 'experience': '已有经验不应进入训练'}]))
+@@ -448,7 +443,7 @@
+             self.assertFalse(outcome['exact_match'])
+             self.assertEqual(outcome['reflection'], reflection)
+             self.assertNotIn('酮康唑', fake.calls[0][1]['content'])
+-            self.assertIn('参考推荐药物：', fake.calls[1][1]['content'])
++            self.assertIn('真实药物：', fake.calls[1][1]['content'])
+             row = json.loads(self.reflections.read_text(encoding='utf-8'))[0]
+             self.assertEqual(row, {'case_id': 1, 'reflection': reflection})
+             self.assertFalse(self.golden.exists())
+@@ -468,7 +463,7 @@
+                 outcome = session.run_case(DialMedCase(1, self.dialog, ('依巴斯汀',)))
+                 self.assertEqual(outcome['reflection'], valid)
+                 self.assertIn(f'{len(long_text)}个字符', fake.calls[2][1]['content'])
+-                self.assertIn('不设最低字数', fake.calls[2][1]['content'])
++                self.assertIn('100至150', fake.calls[2][1]['content'])
+                 self.assertIn('超过200字符上限', fake.calls[2][1]['content'])
+                 self.assertIn('证据不足时返回 {"reflection":""}', fake.calls[2][1]['content'])
+                 self.assertEqual(json.loads(self.reflections.read_text())[0]['reflection'], valid)
+--- outer/tests/test_memory.py
++++ nested/tests/test_memory.py
+@@ -122,6 +122,25 @@
+                          {'golden_experiences': [], 'reflections': []})
+         self.assertEqual(store.retrieval_statistics['hit_rate'], 0.5)
+ 
++    def test_retrieval_returns_one_experience_and_one_reflection(self):
++        self.write_dataset('发热 咳嗽 胸痛 头痛', '发热 咳嗽 胸痛 头晕', '咳嗽 胸痛')
++        self.write(self.golden, [
++            {'case_id': 1, 'experience': '正向经验一'},
++            {'case_id': 2, 'experience': '正向经验二'},
++        ])
++        self.write(self.reflections, [{'case_id': 3, 'reflection': '反向经验'}])
++        store = self.store(training=False)
++
++        result = store.retrieve('发热 咳嗽 胸痛', 4, str(self.dataset))
++        self.assertEqual([row['case_id'] for row in result['golden_experiences']], [1])
++        self.assertEqual([row['case_id'] for row in result['reflections']], [3])
++        self.assertEqual(store.last_retrieval_stats['returned_count'], 2)
++
++        result = store.retrieve('发热 咳嗽 胸痛', 4, str(self.dataset), min_similarity=0.7)
++        self.assertEqual([row['case_id'] for row in result['golden_experiences']], [1])
++        self.assertEqual(result['reflections'], [])
++        self.assertEqual(store.last_retrieval_stats['returned_count'], 1)
++
+     def test_reflection_length_boundary_roundtrip(self):
+         self.write_dataset('头皮屑伴瘙痒三天')
+         store = self.store()
+--- outer/tests/test_retrieval_policy.py
++++ nested/tests/test_retrieval_policy.py
+@@ -9,6 +9,27 @@
+ 
+ 
+ class RetrievalPolicyTests(unittest.TestCase):
++    def test_embedding_selects_one_from_each_memory_kind(self):
++        with tempfile.TemporaryDirectory() as folder:
++            root = Path(folder)
++            dataset, golden, reflection = root/'train.txt', root/'golden.json', root/'reflection.json'
++            dataset.write_text('\n'.join(json.dumps({'dialog': [dialog]})
++                                         for dialog in ('正向病例一', '正向病例二', '反向病例')))
++            golden.write_text(json.dumps([{'case_id': 1, 'experience': '正向经验一'},
++                                          {'case_id': 2, 'experience': '正向经验二'}]))
++            reflection.write_text(json.dumps([{'case_id': 3, 'reflection': '反向经验'}]))
++            with patch('embedding.retrieval.SemanticMemoryIndex') as factory:
++                index = factory.return_value
++                index.identity.side_effect = lambda bucket, row: str(row['case_id'])
++                index.scores.return_value = {'1': 0.9, '2': 0.8, '3': 0.7}
++                store = CaseMemoryStore(golden, reflection, False, dataset)
++                result = store.retrieve('当前病例', 4, str(dataset))
++                self.assertEqual([row['case_id'] for row in result['golden_experiences']], [1])
++                self.assertEqual([row['case_id'] for row in result['reflections']], [3])
++                self.assertEqual(store.last_retrieval_stats['returned_count'], 2)
++                self.assertEqual(store.last_retrieval_stats['candidates'][1]['reason'],
++                                 'outside_top_k')
++
+     def test_embedding_cutoff_and_candidate_reasons(self):
+         with tempfile.TemporaryDirectory() as folder:
+             root = Path(folder)
+--- outer/tests/test_semantic_retrieval.py
++++ nested/tests/test_semantic_retrieval.py
+@@ -217,19 +217,6 @@
+                         self.assertEqual(stats['query_sender']['query_encodings'], 1)
+                         self.assertEqual(stats['embedding']['query_encodings'], 0)
+                         self.assertEqual(stats['vector_receive']['received_vectors'], 1)
+-                        requests = [p for p in session.trace.packets
+-                                    if p.payload.get('capability') == 'retrieval.history'
+-                                    and p.head.source == 'PatientAgent']
+-                        request_body = json.loads(requests[-1].payload['text'])
+-                        self.assertNotIn('patient_dialog', request_body)
+-                        self.assertIn('query_embedding', request_body)
+-                    else:
+-                        requests = [p for p in session.trace.packets
+-                                    if p.payload.get('capability') == 'retrieval.history'
+-                                    and p.head.source == 'PatientAgent']
+-                        request_body = json.loads(requests[-1].payload['text'])
+-                        self.assertIn('patient_dialog', request_body)
+-                        self.assertNotIn('query_embedding', request_body)
+                     if mode == 'binary':
+                         frames = [f for f in session.runtime.binary_frame_stats
+                                   if f['capability'] in ('patient.request_history', 'retrieval.history')]

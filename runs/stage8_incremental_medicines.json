@@ -1,0 +1,75 @@
+{
+  "cases": 10,
+  "model": "FixedModel; no gateway calls",
+  "transport": "multiprocessing Pipe; shared_dialog=False; incremental_history=False",
+  "outputs_identical": true,
+  "expert_input_text_identical": true,
+  "full": {
+    "cases": 10,
+    "all_ipc_frames": 70,
+    "all_ipc_pipe_bytes": 149704,
+    "medicine_request_pipe_bytes": 3105,
+    "medicine_reply_pipe_bytes": 36738,
+    "medicine_reply_text_bytes": 33942,
+    "ipc_round_trip_including_lookup": {
+      "samples": 10,
+      "mean_us": 172.22,
+      "median_us": 163.31,
+      "total_us": 1722.16
+    },
+    "child_reply_json_encode": {
+      "samples": 10,
+      "mean_us": 13.02,
+      "median_us": 12.04,
+      "total_us": 130.21
+    },
+    "parent_trace_reply_serialize": {
+      "samples": 10,
+      "mean_us": 17.51,
+      "median_us": 17.09,
+      "total_us": 175.06
+    },
+    "parent_context_parse_and_restore": null,
+    "exact_matches": 0,
+    "overlap_cases": 0
+  },
+  "incremental": {
+    "cases": 10,
+    "all_ipc_frames": 70,
+    "all_ipc_pipe_bytes": 148741,
+    "medicine_request_pipe_bytes": 3105,
+    "medicine_reply_pipe_bytes": 35775,
+    "medicine_reply_text_bytes": 33079,
+    "ipc_round_trip_including_lookup": {
+      "samples": 10,
+      "mean_us": 419.2,
+      "median_us": 365.53,
+      "total_us": 4192.01
+    },
+    "child_reply_json_encode": {
+      "samples": 10,
+      "mean_us": 29.45,
+      "median_us": 25.1,
+      "total_us": 294.52
+    },
+    "parent_trace_reply_serialize": {
+      "samples": 10,
+      "mean_us": 46.03,
+      "median_us": 50.54,
+      "total_us": 460.34
+    },
+    "parent_context_parse_and_restore": {
+      "samples": 10,
+      "mean_us": 81.65,
+      "median_us": 66.98,
+      "total_us": 816.49
+    },
+    "exact_matches": 0,
+    "overlap_cases": 0
+  },
+  "medicine_reply_pipe_bytes_saved": 963,
+  "medicine_reply_pipe_bytes_saved_percent": 2.62,
+  "all_ipc_pipe_bytes_saved": 963,
+  "all_ipc_pipe_bytes_saved_percent": 0.64,
+  "timing_notes": "IPC RTT includes medicine lookup and serialization in the child, but excludes main-process reconstruction after the reply. Child JSON encoding, parent Trace encoding, and delta-only reconstruction are reported separately; ten local samples are exploratory."
+}

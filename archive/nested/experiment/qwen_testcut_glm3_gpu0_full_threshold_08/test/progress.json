@@ -1,0 +1,3737 @@
+{
+  "config": {
+    "dataset": "/data/cuizh/tiny_hospital/data/testcut.txt",
+    "doctor_backend": "local-qwen",
+    "doctor_model_path": "/data/SharedFile/Qwen/Qwen3-8B",
+    "doctor_max_new_tokens": 256,
+    "memory_dir": "/data/cuizh/tiny_hospital/experiment/qwen_train_deepseek_full",
+    "stage": "test",
+    "retrieval_mode": "embedding",
+    "vector_transport": "shared_memory",
+    "embedding_backend": "api",
+    "embedding_model": "GLM-Embedding-3",
+    "embedding_model_version": "GLM-Embedding-3",
+    "embedding_endpoint": "https://llmapi.paratera.com/v1/embeddings",
+    "embedding_store": null,
+    "embedding_key_env": "EMBEDDING_API_KEY",
+    "embedding_timeout": 120,
+    "chat_timeout": 120.0,
+    "agent_timeout": 720,
+    "embedding_min_similarity": 0.8,
+    "runtime": "sync",
+    "shared_dialog": false,
+    "incremental_history": false,
+    "incremental_medicines": false,
+    "shared_medicines": false,
+    "structured_data": false,
+    "dataset_sha256": "7dc8959322f410ea1658408fa8523f98e6d7e4f822180995c4ece759025d1151",
+    "memory_source_sha256": "de3a954a60ef46cf34bee9164294b20027616c623cf8d840919d31c83e14ee6a",
+    "chat_model": "/data/SharedFile/Qwen/Qwen3-8B",
+    "chat_endpoint": "local",
+    "doctor_generation": {
+      "enable_thinking": false,
+      "do_sample": false,
+      "max_new_tokens": 256
+    },
+    "expert_model": "DeepSeek-V4.1-Flash-1017",
+    "expert_endpoint": "https://llmapi.paratera.com/v1/",
+    "code_sha256": {
+      "agent/__init__.py": "16c078bdf750d2bef02bea720a8896cb4a307d99289098c306a19655ea12b3a4",
+      "agent/base.py": "98f3babc25f203506249d4b56514fae510abdb692f2272e2bef79c70cc5d448b",
+      "agent/doctor.py": "090751098bd437ee147a1057eb099c25deeff37001e474513e903e8376c113fc",
+      "agent/doctor_Qwen.py": "b14661b2fbb9d8e83cc98c2770338c740905b42d2203d9e8f8b7a0acf4e69eec",
+      "agent/expert.py": "d14487ee8d4ed1f00644051e30049a0a189c3954daeeefc56461cab4d5f48b2a",
+      "agent/patient.py": "ed45903669dc31db69f43a1ba6522507acec5842f791c6c9ce03dab0b1cc3ca6",
+      "agent/retrieval.py": "ed6ea673369164f726e72ac926f3ae88229904be18c8415deab7f3e4d14be10b",
+      "agent/validation.py": "5b62253671a568d81e10478783716378e45aba1e1f643add279cac51817023e4",
+      "capture_gateway_run.py": "ac9fe95ca65ca72b58814ff3879823e836c27d40217ae97722b7a1a4d88fd1d7",
+      "cases.py": "792190566bcea2c6d3c986678c407455d1ab7e9bf5117e37794847e63d87f0c8",
+      "decision_vector.py": "4d4c6beb3acacec78e70153ef09cbcaf94874d365f233254a83230f3a0224738",
+      "embedding/__init__.py": "f1b8e0add04ef7224876d0943b01e703a4eb03c66074c38851b0e681d061a6a5",
+      "embedding/build_vectors.py": "328ab2028848f7f949f4c3ca14ec7e4593d13f58b03176fc67881e0bf996edce",
+      "embedding/encoder.py": "e8935b5a418a7294d58d83715ba46b57ba7b93c4a46f6afdd5d6d3929bf2bcec",
+      "embedding/records.py": "2ca33552a5328aeaddc3513f983691cab8200df18be8c9822c4cb7c0b4381de0",
+      "embedding/retrieval.py": "4d8c5955ef2a97727a101bc389150b7a4637e6028f9962c8c9b83261dd6c092e",
+      "embedding/store.py": "9364ea1de9e5b74a8411e0f587feab2c363090eb6a18c0b3651e35cc01ac2d2b",
+      "embedding/test_api.py": "c7e6dac2e8c06fc4d5930fca738ac8be6a05df1e229f392b9e94e83fb1e5b9d5",
+      "embedding/transport.py": "fbee2b7366b0f17276ca080cd1efc641d2959efc480b03cf853fb44f56185ad6",
+      "history/__init__.py": "426e1cc7158a91a6de3948bd4c64a6e67af854bf0c4e31f23072b437d6f6e891",
+      "history/memory.py": "bb92cedffe2734033fe3169071d8d6a644d4b47576a986f354def32cce772ae4",
+      "hospital_process.py": "8b5575131f9adf17a744b3f21b82755549c37f249c14fdb3b12084a23ab4214a",
+      "ipc_runtime.py": "6fd81bab31e1b4a2dbaf76d5745418c64f0ae2512419ea457781776e16277884",
+      "main.py": "3bf2a99fdf365662bb96924f7b3c9922c3e47674e818234c2a0c2cdac75632c8",
+      "measure_decision_transfer.py": "af4c6db1072e33ea698e08fe3e74ac6024ea3bfdd2c912f777f9c1b1e8a3a294",
+      "measure_incremental_history.py": "5f6e809471011809f6661e3d57b030409a277a9bf1b61e4dc08a46952b00d804",
+      "measure_incremental_medicines.py": "ce3fcc8fad60de401c96a886c2c17366ccc949641472a90eff0791a5e24d9087",
+      "measure_shared_transport.py": "c1ba0f89a3a595a017b8b1d6ef8b0c243e6d31d3be72fcd87fbc3e42e5332b97",
+      "performance_baseline.py": "96ba2eeb10be289921591f925289079bff25dd7fc878a047bbe42e73d9a7cc3c",
+      "performance_ipc.py": "1eab11007fcc7c4ac12feb62a465377e323fe26b3b01199cdd3a6d1cc6bd7c05",
+      "performance_stage2.py": "f65dbe43982b863b999271324c8fa021586ad334086e24ea19dc71db60c210f9",
+      "protocol.py": "3902102059a0368a6ca3079e6ceaeb8ff469df072c39aa063047a97ce7df96bf",
+      "shared_transport.py": "fb4f1aec1400ac2d5b5253bd3db85c6615375489098e06b57d3cf29c621fe98d",
+      "tool/__init__.py": "dc866139efc9d4234d56b1e4a789a1a00ca7ae9b38f311b2dbeaee3dc35abec4",
+      "tool/api_retry.py": "d02cd4625b0f6def53f7db46ea9674d3a7776678d03ba57dd884742cee41389a",
+      "tool/case_utils.py": "87b1a5921eea81f43e6595d7ae52ef0acf923d6eee5d9302e0acd7fb29f187f3",
+      "tool/diagnostics.py": "a971290981bf1d00eb973f2a0591df8bb0400873839ce4ffe43c059c075ff8d5",
+      "tool/experiment_progress.py": "512b5bc11b4c14d921caee156c7bbb9736162dd5277ef60e858fde4cb1b33af1",
+      "tool/json_store.py": "2db41e55a03fce3a2ed1e79464732407070f236beab3cd6d594ecfb81cc11bb1",
+      "tool/llm_client.py": "1ad2b71ae62dd6d0fb6eb7890dde3d88b3dd60ebeb71bf9a8a794bfac91c6670",
+      "tool/llm_usage.py": "5e8e402cfbc25297ae5f98efb12f06dee21fca4c0758e4a5269b07993fc702ff",
+      "tool/local_qwen_client.py": "4ed9cad239a7cdaf25f9347553ff1ca5d7872c421bc525a99748fbca44dbd019",
+      "tool/medicine_store.py": "02a381caf25271a3bc1b669a860e50bd12c09a1a7623e376e079e6fbeb487f9b",
+      "tool/tracing.py": "fcf28c72b93f6bac6ee1c1b9c5f1453ac89d9d26b7415a69458162f9aa16b069"
+    }
+  },
+  "completed_case_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93
+  ],
+  "results": [
+    {
+      "case_id": 1,
+      "recommended_drugs": [
+        "莫沙必利",
+        "氯雷他定"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 2,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 3,
+      "recommended_drugs": [
+        "克拉霉素"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 4,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 5,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "三九胃泰"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 6,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 7,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "生理氯化钠溶液",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 8,
+      "recommended_drugs": [
+        "蒙脱石",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "谷氨酰胺",
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 9,
+      "recommended_drugs": [
+        "益生菌",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "谷氨酰胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 10,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 11,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "山莨菪碱"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 12,
+      "recommended_drugs": [
+        "益生菌",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 13,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 14,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 15,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 16,
+      "recommended_drugs": [
+        "蒙脱石",
+        "益生菌",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "益生菌",
+        "复方消化酶",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 17,
+      "recommended_drugs": [
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "甲氧氯普胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 18,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "谷氨酰胺",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 19,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 20,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 21,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "胶体果胶铋",
+        "谷氨酰胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 22,
+      "recommended_drugs": [
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "蒙脱石"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 23,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 24,
+      "recommended_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 25,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 26,
+      "recommended_drugs": [
+        "莫沙必利",
+        "复方消化酶",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 27,
+      "recommended_drugs": [
+        "阿莫西林",
+        "克拉霉素",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "胶体果胶铋",
+        "阿莫西林"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 28,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 29,
+      "recommended_drugs": [
+        "莫沙必利",
+        "曲美布汀",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 30,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 31,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 32,
+      "recommended_drugs": [
+        "健胃消食片",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 33,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 34,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 35,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 36,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 37,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 38,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 39,
+      "recommended_drugs": [
+        "蒙脱石",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "谷氨酰胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 40,
+      "recommended_drugs": [
+        "蒙脱石",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "益生菌",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 41,
+      "recommended_drugs": [
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "三九胃泰"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 42,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "康复新液",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 43,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 44,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 45,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 46,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 47,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 48,
+      "recommended_drugs": [
+        "益生菌",
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "益生菌",
+        "奥美拉唑",
+        "曲美布汀"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 49,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 50,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 51,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "三九胃泰"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 52,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 53,
+      "status": "doctor_failed",
+      "recommended_drugs": null,
+      "error": "医生连续 3 次返回无效内容：必须推荐恰好 1 种互不重复的白名单药物",
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"耐信\"],\n  \"reasoning_summary\": \"关键证据：胃溃疡复发，HP阴性；疾病判断：胃浅表溃疡；选药依据：耐信为质子泵抑制剂，与艾普拉唑作用机制一致，可替代使用。\"\n}",
+          "error": "必须推荐恰好 1 种互不重复的白名单药物"
+        },
+        {
+          "attempt": 2,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"耐信\"],\n  \"reasoning_summary\": \"关键证据：患者有胃溃疡病史，HP阴性；疾病判断：胃溃疡复发，需抑酸治疗；选药依据：耐信为质子泵抑制剂，与艾普拉唑作用机制一致，可替代使用。\"\n}",
+          "error": "必须推荐恰好 1 种互不重复的白名单药物"
+        },
+        {
+          "attempt": 3,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"耐信\"],\n  \"reasoning_summary\": \"关键证据：胃溃疡复发，HP阴性；疾病判断：胃浅表溃疡；选药依据：耐信为质子泵抑制剂，适用于胃溃疡治疗，与当前疾病判断一致。\"\n}",
+          "error": "必须推荐恰好 1 种互不重复的白名单药物"
+        }
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 54,
+      "recommended_drugs": [
+        "曲美布汀"
+      ],
+      "actual_drugs": [
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 55,
+      "recommended_drugs": [
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 56,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "莫沙必利",
+        "益生菌"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 57,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 58,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 59,
+      "recommended_drugs": [
+        "阿莫西林",
+        "克拉霉素",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "阿莫西林",
+        "克拉霉素"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 60,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "胶体果胶铋",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 61,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 62,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 63,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 64,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 65,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "胶体果胶铋"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 66,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 67,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 68,
+      "recommended_drugs": [
+        "曲美布汀",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 69,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "甲氧氯普胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 70,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 71,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 72,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 73,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 74,
+      "recommended_drugs": [
+        "曲美布汀"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 75,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 76,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 77,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 78,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 79,
+      "recommended_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 80,
+      "recommended_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 81,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 82,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 83,
+      "recommended_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 84,
+      "recommended_drugs": [
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 85,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 86,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "益生菌",
+        "谷氨酰胺"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 87,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 88,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 89,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 90,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 91,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 92,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 93,
+      "recommended_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    }
+  ],
+  "memory": [
+    [
+      {
+        "case_id": 10,
+        "experience": "进食少量即胃胀、恶心、上腹胀且平卧可缓解，曾有肠胃炎、服中药口干停用，考虑胃炎或功能性消化不良时，可考虑莫沙必利促胃排空以对应上述症状；但诊断未明，应先胃镜，注意过敏者禁用及腹泻、口干等不良反应，并清淡少产气饮食。"
+      },
+      {
+        "case_id": 14,
+        "experience": "胃上部灼烧感疼痛，现在有点疼，曾于怀孕快生时及现在有类似发作，考虑胃酸过多或胃食管反流，可试用奥美拉唑抑酸；该药适用于胃食管反流病，但使用不得超过7天，症状未缓解或烧心加重应停药就医。"
+      },
+      {
+        "case_id": 22,
+        "experience": "对慢性餐后不适、打嗝伴消化不良、偶有反酸者，若疑似功能性消化不良或胃炎，可考虑促动力药莫沙必利；其适用于功能性消化不良伴嗳气、上腹胀等症状。诊断未明需保留不确定性，对本品过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 42,
+        "experience": "患者有反酸、嗳气数月，饭后常坐躺，医生考虑胃食管反流及胃动力不足；可考虑莫沙必利促胃动力、奥美拉唑减少胃酸。奥美拉唑使用不超过7天，症状未缓解或加重应就医，注意莫沙必利腹泻等不良反应。"
+      },
+      {
+        "case_id": 43,
+        "experience": "患者胃炎、消化不良、饱胀、打嗝、胃疼、胀气、舌苔发白持续一周，服奥美拉唑14粒后仍打嗝胃疼；考虑胃动力障碍或慢性胃炎，可加用莫沙必利改善胃动力及腹胀、嗳气等消化不良症状；需核实过敏史，注意腹泻等不良反应。"
+      },
+      {
+        "case_id": 74,
+        "experience": "患者近一周咽食管交界异物感，伴胃热、反酸，既往胃炎、胃下垂可能，进食不规律或辛辣可诱发不适；考虑胃食管反流病时，可试用莫沙必利促动力、奥美拉唑抑酸改善反流/胃灼热，并遵医嘱胃镜评估；奥美拉唑使用不得超过7天，出现吞咽困难或疼痛、呕血、黑便应咨询医师。"
+      },
+      {
+        "case_id": 84,
+        "experience": "患者有早饱、恶心、嗳气、上腹不适半年，且体重下降；考虑功能性消化不良，但医生强调胃镜明确诊断。若需对症，可考虑莫沙必利（消化道促动力剂）改善功能性消化不良相关的早饱、恶心、嗳气等症状；对本品过敏者禁用，具体用药仍需先核实诊断。"
+      },
+      {
+        "case_id": 93,
+        "experience": "患者胃胀、想打嗝打不出来，饭后加重，咖啡后胃灼热，服奥美拉唑和达喜后灼热缓解但胃胀未改善；考虑胃炎伴消化不良可能，可加莫沙必利促胃肠动力以改善上腹胀、嗳气；用药需注意过敏者禁用及腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 116,
+        "experience": "患者近期饥饿痛，既往类似发作经医院配药可缓解；医生考虑胃溃疡并建议胃镜。可考虑奥美拉唑抑酸，其适应症含胃溃疡；但应短期使用不超过7天，两个月内不得再次服用，症状未缓解或反复需就医，出现吞咽困难、呕血、便血或黑便时勿自行使用。"
+      },
+      {
+        "case_id": 119,
+        "experience": "洗胃后5天进食少量即腹胀，有服安眠药史，材料提及胃康宁但使用状态需核实；结合医生判断考虑胃炎及胃动力下降可能，可考虑莫沙必利改善上腹胀等消化道症状，但应核实过敏，并注意腹泻、腹痛等不良反应，不能据此保证疗效。"
+      },
+      {
+        "case_id": 130,
+        "experience": "患者原症状经中药加少量西药明显缓解，现仅余嗳气，曾问是否续用西药；在症状缓解不能排除萎缩性胃炎、仍待胃镜病理核实的情况下，针对嗳气可考虑莫沙必利，其作为消化道促动力剂适用于功能性消化不良伴嗳气等症状，用以改善胃动力；需注意过敏者禁用，且不能以症状缓解替代病理判断。"
+      },
+      {
+        "case_id": 134,
+        "experience": "疑似胃食管反流伴烧心反酸、进食后反嗝者，可考虑莫沙必利（说明书适应症含胃食管反流性疾病）和奥美拉唑（适应症含胃食管反流病）；对莫沙必利或奥美拉唑过敏者禁用，奥美拉唑使用不超过7天，症状未缓解或出现吞咽困难、呕血、黑便等应停药就医，两个月以内不得再次服用。"
+      },
+      {
+        "case_id": 144,
+        "experience": "胃部胀满、反酸半个月，考虑胃食管反流时，可考虑莫沙必利改善上腹胀（适用于胃食管反流性疾病等），奥美拉唑抑制胃酸（适用于胃食管反流病）；无既往用药信息，不判断加用或替换。须核实过敏、合并用药及报警症状，奥美拉唑不超过7天，未缓解就医。"
+      },
+      {
+        "case_id": 152,
+        "experience": "患者胃反酸、打嗝，伴背部及肩胛刺痛；体检心电图正常，但医生仍怀疑心绞痛并建议复查排除。若暂按胃食管反流处理，可考虑莫沙必利促动力缓解嗳气反流，奥美拉唑抑酸治疗反流。奥美拉唑不超过7天，两个月内不重复，未缓解或反复应就医。"
+      },
+      {
+        "case_id": 156,
+        "experience": "患者胃难受、呕吐后低烧，无腹痛腹泻，有消化不良及饱后不适；考虑胃食管反流或慢性胃炎可能。如按胃食管反流，可短期选用奥美拉唑抑酸；使用不超过7天，症状不缓解或出现吞咽困难、呕血、黑便应就医。"
+      },
+      {
+        "case_id": 166,
+        "experience": "近期服中药后出现持续恶心、餐后加重、嗳气厌食，既往慢性胃病、胃酸过多；可考虑功能性消化不良或胃食管反流。可考虑莫沙必利用于恶心嗳气等消化不良症状，奥美拉唑用于反流抑酸，铝镁化合物缓解胃酸相关不适。需核实中药影响及过敏；奥美拉唑需排除报警症状且不超过7天；铝镁需排除急腹症，未缓解就医。"
+      },
+      {
+        "case_id": 171,
+        "experience": "患者消化不良、后半夜胃部不适，晚餐晚且餐后即卧，反酸烧心“好像有”，初步考虑胃炎和反流性食管炎。可考虑莫沙必利促胃肠动力用于消化不良及反流，奥美拉唑抑酸用于反流；同时调整晚餐及餐后体位。诊断未确认，奥美拉唑不超过7天，症状未缓解或出现吞咽困难、呕血、黑便应就医。"
+      },
+      {
+        "case_id": 190,
+        "experience": "患者胃镜示局部胃溃疡，另有早搏并提及慢心律片；本次针对胃溃疡可考虑奥美拉唑（质子泵抑制剂），依据其胃溃疡适应症，不保证疗效。按说明书使用不得超过7天，症状未缓解需咨询医师或药师。"
+      },
+      {
+        "case_id": 201,
+        "experience": "胆汁反流胃炎幽门螺旋菌治愈后，雷贝拉唑、达喜、吗丁啉2周余无效，仍有胃痛、恶心、打嗝无力；考虑胆汁反流性胃炎时，可将吗丁啉换为莫沙必利，作为促动力剂改善消化不良/反流相关恶心、嗳气，需核对过敏史。"
+      },
+      {
+        "case_id": 203,
+        "experience": "患者进食后胃痛两个多月，每次持续一两秒，医生考虑胃溃疡可能；奥美拉唑为质子泵抑制剂，适用于胃溃疡等胃酸相关疾病，可抑制胃酸。需注意说明书限用不超过7天，且两个月内不得再次服用；症状未缓解或反复应就医；吞咽疼痛、呕血、黑便等严重征兆时勿自行使用并咨询医师。"
+      },
+      {
+        "case_id": 232,
+        "experience": "75岁女性晚饭后吃猕猴桃后胃痛、反酸，秋冬受凉易发，未做胃镜，曾服半袋舒肝健胃丸；不排除胃溃疡，可考虑奥美拉唑抑酸并做胃镜评估。使用不超过7天，症状未缓解、反复或出现吞咽困难、呕血、黑便等应及时就医，两个月内不得再次服用。"
+      },
+      {
+        "case_id": 254,
+        "experience": "患者乏力、腹泻、发热，疑饮食所致急性肠胃炎，每日腹泻3—4次、体温约38℃，既往有肠胃炎类似症状且近日辛辣饮食；可考虑蒙脱石吸附肠道病原体及毒素以缓解腹泻，并注意纠正脱水；已服达喜，合用其他药前咨询医师。"
+      },
+      {
+        "case_id": 260,
+        "experience": "患者有烧心、反酸，常不吃早饭致空腹久，考虑胃炎、反流性食管炎；既往奥美拉唑短期服用后胃舒服，已2-3个月未用。可考虑奥美拉唑抑酸、莫沙必利促动力以对应反流及灼热；奥美拉唑连续用不超7天，2个月内不得再次服用，症状反复就医。"
+      },
+      {
+        "case_id": 292,
+        "experience": "患者持续打嗝2个月，伴反胃、气上顶，既往胃药可暂缓但反复，未行胃镜，考虑胃炎或反流性食管炎可能。可考虑莫沙必利促胃肠动力，适用于功能性消化不良伴嗳气或胃食管反流相关症状，但仍需胃镜明确诊断；过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 293,
+        "experience": "十二指肠球部溃疡、慢性浅表性胃炎经奥美拉唑及四联疗法后仍腹痛反酸，伴大便未消化菜叶且医生考虑消化不良时，可考虑加用复方消化酶，其适应症含消化不良相关腹部不适；需复查胃镜及幽门螺杆菌，并核实急性肝炎、胆道完全闭锁等禁忌。"
+      },
+      {
+        "case_id": 297,
+        "experience": "患者食辣后胃闷，已在用泮托拉唑和吗丁啉稍好转；既往检查示反流性胃炎或食管炎，现感堵、打嗝不畅。可考虑加莫沙必利促胃肠动力，其适应症含胃食管反流性疾病及上腹胀等；需关注腹泻、腹痛等不良反应，过敏者禁用。"
+      },
+      {
+        "case_id": 303,
+        "experience": "患者幽门螺杆菌阳性治疗中出现腹胀、打嗝，既往无饥饿感、大便不成形、自述胃动力差；考虑胃动力障碍时，可考虑莫沙必利促胃动力，其适用于功能性消化不良伴上腹胀、嗳气及胃功能障碍；需注意腹泻、腹痛等不良反应，并核实症状是否与四联药相关。"
+      },
+      {
+        "case_id": 307,
+        "experience": "反流性胃炎及食管炎病史者，有嗳气、排气多、刺刺挠挠伴疼痛且现仅用奥美拉唑时，可考虑莫沙必利促胃肠动力改善反流相关症状；奥美拉唑适用于胃食管反流病，可结合现用药评估。需核实过敏及奥美拉唑用药时长，注意其7天疗程和两个月内再服限制。"
+      },
+      {
+        "case_id": 353,
+        "experience": "患者受凉后腹痛伴嗝气、干呕，既往胃酸过多及结石史；考虑胃炎或功能性消化不良时，可考虑莫沙必利促胃肠动力，针对嗳气、干呕等消化不良症状；但腹痛明显、部位偏肠或泌尿且建议彩超，应先排查结石等，药物不替代腹痛评估。"
+      },
+      {
+        "case_id": 357,
+        "experience": "患者有胆汁反流性胃炎，曾用艾普拉唑3周后间隔3周，饮冰水后胃不适，现仅有点胀；可考虑加用莫沙必利促动力缓解上腹胀，说明书适用于功能性消化不良伴上腹胀等。暂避冰冷饮食，并需核实是否对莫沙必利过敏。"
+      },
+      {
+        "case_id": 365,
+        "experience": "患者有胃炎史，曾用硫糖铝口服混悬液后未继续，近2天腹胀、间歇性中腹痛，医生考虑功能性消化不良；可考虑莫沙必利促胃肠动力，用于功能性消化不良伴腹胀，但应确认症状符合适应症，过敏者禁用，并注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 367,
+        "experience": "患者胃胀气、恶心、打嗝、干呕数月，暂无明显腹痛，久坐偏瘦，医生考虑可能为胃动力不足。可先调整工作习惯并试用莫沙必利：其说明适用于功能性消化不良伴嗳气、恶心、上腹胀等消化道症状；对本品过敏者禁用，效果不佳可进一步胃镜。"
+      },
+      {
+        "case_id": 379,
+        "experience": "口腔异味数月、时有加重，饭后刷牙不能缓解，伴口腔酸腥气和消化不良时，可考虑消化不良相关；若符合功能性消化不良伴相关消化道症状，可选用莫沙必利促胃动力以改善症状，但需先排查口腔疾病等病因，并核实过敏史。"
+      },
+      {
+        "case_id": 380,
+        "experience": "萎缩性胃炎患者既往用贝雷拉唑、莫沙必利两周自觉好转，仍有嗳气、口干，结合医生判断提示可能消化道动力不足；既往治疗反应可支持继续考虑莫沙必利改善动力和嗳气，但口干列为其注意事项，需关注并与原症状区分；过敏史待核实。"
+      },
+      {
+        "case_id": 381,
+        "experience": "慢性胃炎患者反复腹胀、进食后堵胀不下、嗳气，胃镜示浅表性胃炎，需考虑胃肠动力障碍。可在现有抑酸/抗酸治疗基础上加用莫沙必利促动力，以改善上腹胀、早饱等消化不良症状；幽门螺杆菌尚未检测，应核实；注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 382,
+        "experience": "33岁患者长年反酸、反流至咽，胃镜示慢性萎缩性胃炎、幽门螺旋杆菌阴性，考虑胃食管反流病；可先饮食调控，必要时加用奥美拉唑抑酸缓解反酸；奥美拉唑适应症含胃食管反流病，但连续使用不超过7天，症状未缓解或出现吞咽困难、呕血、黑便需就医。"
+      },
+      {
+        "case_id": 403,
+        "experience": "患者进食减少、餐中恶心干呕约两月，无胃痛胃胀，月经正常；考虑胃功能紊乱致轻度胃动力不足。可考虑莫沙必利，其适应症含功能性消化不良伴恶心、呕吐、早饱等；需核实过敏史，对本品过敏者禁用，并注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 418,
+        "experience": "58岁女性反复胃胀、返酸、烧心，排便后胃胀稍缓解，未用药，疑似胃炎/胃溃疡/反流性食管炎但未确诊；可考虑莫沙必利改善上腹胀等动力相关症状，奥美拉唑抑酸用于反流/溃疡可能；需胃镜明确，奥美拉唑不超过7天，未缓解应咨询医师/药师，呕血、便血或黑便先就医。"
+      },
+      {
+        "case_id": 422,
+        "experience": "大便不成形伴白色泡沫、遇生冷辛辣易发时，医生考虑肠道功能紊乱可能；建议先就医检查，若需调理可考虑益生菌，按说明书用于肠内异常发酵、消化不良等，并避免辛辣油腻；注意过敏及不良反应，禁忌尚不明确。"
+      },
+      {
+        "case_id": 433,
+        "experience": "胃隐痛、反酸伴饮食不规律者，考虑慢性胃炎伴反流性食道炎时，可考虑莫沙必利促胃肠动力、奥美拉唑抑酸、铝镁化合物中和胃酸；对相应药过敏者禁用。奥美拉唑不超过7天，未缓解或见吞咽困难、呕血、便血/黑便应就医，两个月内不得再服；铝镁化合物急腹症先就诊，严重心肾功能不全、高镁/高钙血症慎用。"
+      },
+      {
+        "case_id": 435,
+        "experience": "患者反复嗳气、偶有饥饿时烧心，胃镜示浅表性胃炎，碳14无幽门螺杆菌，曾用伊托必利等半月无明显好转；考虑消化不良、胃食管反流可能。可考虑莫沙必利改善嗳气、烧心等症状，但既往同类促动力药疗效不佳，需说明换药依据并观察反应；核实过敏史，留意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 455,
+        "experience": "既往胆汁反流性胃窦炎，近期烧心、胀气、早饱，曾用霍香清胃胶囊、铝碳酸镁效果不佳，奥美拉唑有缓解；考虑消化不良症状时可选用莫沙必利促动力以缓解腹胀、早饱，但患者大便次数多且热汤粥后腹泻，而莫沙必利说明列腹泻、腹痛等不良反应，需关注腹泻，不宜将适应症匹配视为疗效保证。"
+      },
+      {
+        "case_id": 465,
+        "experience": "患者有胃糜烂史，现夜间腹胀、肠鸣、睡眠差，既往用药后仍胀气；医生考虑胃炎复发，可考虑莫沙必利促胃肠动力以缓解腹胀等消化不良症状。该药适用于功能性消化不良伴上腹胀等或胃食管反流等，需核实符合适应症；对本品过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 483,
+        "experience": "胃痛5年、夜间躺下反酸后胃痛、持续性隐痛及贲门痛，既往胃食管反流且近期未查胃镜者，考虑胃溃疡、胃糜烂、反流性食管炎可能，可考虑奥美拉唑（PPI，适应胃溃疡、胃食管反流病）改善胃酸相关症状，并建议胃镜明确；说明书限用不超7天、未缓解就医，两个月内不得再服，吞咽困难、呕血、便血或黑便时勿用咨询。"
+      },
+      {
+        "case_id": 485,
+        "experience": "患者晨起胃痛、口水多，伴反胃、恶心干呕，进食可暂时缓解且每日多次发作，考虑胃食管反流病可能。可考虑莫沙必利促胃肠动力、奥美拉唑抑酸，分别针对动力异常和反流；奥美拉唑使用不超过7天，症状未缓解或反复应就医，并核实过敏及合用药物限制。"
+      },
+      {
+        "case_id": 500,
+        "experience": "患者有慢性胃炎，胃镜医生称胃溃疡但未提供报告，宜按考虑胃溃疡核实；可考虑奥美拉唑，其适应症含胃溃疡。药物说明提示使用不超过7天，未缓解就医；呕血、黑便等先就医；注意过敏及与奈非那韦、利匹韦林合用禁忌。"
+      },
+      {
+        "case_id": 524,
+        "experience": "患者有慢性胃窦炎糜烂报告及烧心，胃角隆起疑外压，需超声内镜/CT待查；烧心可短期考虑奥美拉唑，但需按胃食管反流病等适应症评估，不能仅凭烧心确诊；7天未缓解或烧心加重应停用就医，并继续排查隆起病变。"
+      },
+      {
+        "case_id": 531,
+        "experience": "22岁女性持续半个月饭后腹胀、消化不良，打嗝排气可缓解，偶有腹泻便秘及腹痛，有慢性浅表性胃炎史；考虑胃肠功能紊乱，可考虑莫沙必利促胃肠动力以缓解腹胀及消化不良，但须核实过敏，并关注腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 532,
+        "experience": "患者今天吃凉后腹泻、大便稀，伴反酸及既往反酸史，考虑胃食管反流可能。可考虑奥美拉唑改善反酸，但腹泻非其适应症；使用不超过7天，症状未缓解或反复就医，两个月内不得再次服用，出现吞咽困难、呕血、黑便等勿用并就医。"
+      },
+      {
+        "case_id": 543,
+        "experience": "长期反酸、偶有前胸痛，曾偶尔服奥美拉唑；医生考虑浅表性胃炎，但诊断待核实。反酸可考虑奥美拉唑对症，其适应症含胃食管反流病。须按说明使用不超过7天，症状未缓解或反复即就医，两个月内不重复；吞咽困难、呕血或黑便时勿用。"
+      },
+      {
+        "case_id": 551,
+        "experience": "患者胃胀、胃不适、胃痒、无反酸，胃镜示糜烂性胃炎且曾用多种药效果不佳，医生考虑慢性胃炎。可考虑莫沙必利，其作为消化道促动力剂适用于功能性消化不良伴上腹胀等；需核实是否符合，胃痒原因待明确，过敏者禁用。"
+      },
+      {
+        "case_id": 646,
+        "experience": "患者饮食作息不规律，下午胃部不适、恶心、胃胀打嗝、胃灼热，家中备有奥美拉唑；考虑胃食管反流，可考虑奥美拉唑、莫沙必利。奥美拉唑适用于胃食管反流病，莫沙必利适用于伴胃灼热、嗳气、恶心、上腹胀的功能性消化不良及胃食管反流性疾病。奥美拉唑使用不超过7天，症状未缓解需咨询，反复或出现吞咽困难、呕血、黑便应就医；莫沙必利过敏者禁用。"
+      },
+      {
+        "case_id": 647,
+        "experience": "慢性非萎缩性胃炎伴反流、胃胀、排气多，既往未规律服药；可考虑益生菌改善消化，其适应症包括肠内异常发酵、消化不良；应少食、三餐规律，少饮碳酸饮料，避免油腻生冷辛辣及产气食物，对本品过敏者禁用，具体用药遵医嘱。"
+      },
+      {
+        "case_id": 648,
+        "experience": "60岁女性既往萎缩性胃炎并服中药，现慢性食管炎和糜烂性胃炎且未活检；胃食管反流病可能时可考虑奥美拉唑（PPI），其说明书适应症含胃食管反流病，但诊断仅为可能，需结合症状，且使用不得超过7天，未缓解需就医。"
+      },
+      {
+        "case_id": 657,
+        "experience": "患者浅表性胃炎、息肉未切除，有反酸烧心、腹痛腹胀及晨起反胃，无打嗝，考虑消化不良或胃食管反流病时可试用莫沙必利促动力、奥美拉唑抑酸；奥美拉唑使用不得超过7天，未缓解应咨询医师或药师，息肉宜择期切除。"
+      },
+      {
+        "case_id": 663,
+        "experience": "患儿持续腹泻、大便次数多，曾吐奶且精神差，已用益生菌；肠炎病因未明时，可在医生指导下试用蒙脱石吸附病原及毒素作腹泻对症处理。急性腹泻需警惕脱水并观察尿量、及时就医，儿童用量咨询医师，服1天无改善应复诊。"
+      },
+      {
+        "case_id": 667,
+        "experience": "患者有胃病，进食辛辣或火锅后易犯，近期夜间不论进食何物均腹泻；考虑功能性胃肠病或肠易激综合征依据有限。可试用蒙脱石吸附肠道内有害物质以缓解腹泻症状；治疗急性腹泻需注意纠正脱水，出现便秘可减量继续服用。"
+      },
+      {
+        "case_id": 669,
+        "experience": "反复咽至胃部堵塞感伴肩胛酸痛，既往胃镜示浅表胃炎，疑似胃食管反流但需胃镜明确。可考虑莫沙必利促动力、奥美拉唑用于胃食管反流病；先短期口服。奥美拉唑不超过7天，两个月内不重复，未缓解就医；若有吞咽困难/疼痛、呕血黑便勿用并就医。"
+      },
+      {
+        "case_id": 674,
+        "experience": "患者胃不适伴右肋及后背痛一周，饮食不规律、无烧心反酸，未检查；考虑胃溃疡时可考虑奥美拉唑，该药适应证含胃溃疡。因诊断未明，建议先查胃镜，并注意用药不超过7天、两个月以内不得再次服用，症状未缓解或出现吞咽困难、呕血、黑便等应就医。"
+      }
+    ],
+    [
+      {
+        "case_id": 1,
+        "reflection": "患者有糜烂性胃炎、饭后腹部不适且大便不正常、欲腹泻时，加用莫沙必利前应评估其腹泻、腹痛不良反应是否加重症状；若考虑复方消化酶改善消化不良，须先排除急性肝炎和胆道完全闭锁，并核查与现有肠炎宁、奥替溴安、整肠生的联用信息。"
+      },
+      {
+        "case_id": 2,
+        "reflection": "患者有慢性萎缩性胃炎伴糜烂、烧心嗳气且未证实反流或溃疡时，奥美拉唑说明书未列该适应症，长期抑酸对萎缩胃黏膜需权衡，应核查反流/溃疡证据及疗程；铝镁化合物适应症覆盖胃酸相关症状，可评估用于缓解烧心嗳气，但须核查肾功能、高镁高钙及急腹症限制。"
+      },
+      {
+        "case_id": 3,
+        "reflection": "患者以便秘与腹泻交替、排便前阵发性腹痛为主要表现且未完成肠镜时，不应仅凭糜烂性胃炎用双黄连缓解炎症或消化不良（材料不支持，且与消化酶类不宜同用）；用莫沙必利前应评估其腹泻、腹痛不良反应并核查肠镜指征。"
+      },
+      {
+        "case_id": 4,
+        "reflection": "患者胃部抽动或痉挛、无疼痛且近期饮酒时，不能把莫沙必利当解痉药；应核查有无早饱、腹胀、恶心或反酸烧心，并评估饮酒，再决定促动力或抑酸（如奥美拉唑），无相应指征不贸然加用。"
+      },
+      {
+        "case_id": 6,
+        "reflection": "患者出现胃痛、呕吐、餐后胀满、便秘且已服奥美拉唑等效果不佳时，莫沙必利有促动力依据；应核查奥美拉唑是否继续而非重复加用，健胃消食片因说明缺适应症及联用资料不宜替代抑酸，仅短期对症观察，症状持续或出现报警表现需胃镜。"
+      },
+      {
+        "case_id": 7,
+        "reflection": "患者病理示轻度慢性炎症伴肠化生并有胃酸恶心时，奥美拉唑抑酸和铝镁化合物中和胃酸均有对症依据；康复新液说明书限胃痛出血/溃疡等，应核查有无相应表现，无依据不应仅因参考差异加用，并注意铝镁化合物肾功能不全/高镁高钙慎用。"
+      },
+      {
+        "case_id": 11,
+        "reflection": "患者大量饮酒后晨起呕吐、乏力，材料未提示腹泻或过敏时，蒙脱石缺少止吐护胃依据，氯雷他定无使用指征；应核查脱水、电解质及呕血黑便，先纠正脱水，并仅在恶心呕吐或酸相关症状明确时评估莫沙必利、奥美拉唑。"
+      },
+      {
+        "case_id": 12,
+        "reflection": "患者以胃胀、食欲不振、恶心及排便异常为主，未提供溃疡或反流证据时，奥美拉唑说明书适应症不覆盖单纯胃炎/功能性消化不良，应核查酸抑制指征；若需改善餐后腹胀和食欲缺乏，可在排除急性肝炎、胆道完全闭锁后考虑复方消化酶。"
+      },
+      {
+        "case_id": 13,
+        "reflection": "患者短期胃部不适伴腹泻、疑似胃炎时，奥美拉唑说明书适应证未涵盖急性胃炎，材料不足以支持其作为首选；可核查铝镁化合物用于胃酸相关不适的适应证，但需先排除急腹症并注意腹泻、肾功能不全等限制。"
+      },
+      {
+        "case_id": 15,
+        "reflection": "半年全天胃隐痛、餐后胀痛伴嗳气及偶反酸者，若奥美拉唑不规律服用且疗效不佳，莫沙必利可试用于动力症状，但不应据此直接替代抑酸；需核查奥美拉唑用法疗程及反酸、报警症状，再定抑酸或促动力。"
+      },
+      {
+        "case_id": 16,
+        "reflection": "患者出现晨起恶心、偶反酸、胃胀且妊娠未排除时，应先确认妊娠再选药；健胃消食片孕妇需医师指导，奥美拉唑孕期慎用且偶发反酸不足以支持常规加用，莫沙必利可短期对症但须复核适应症与疗程。"
+      },
+      {
+        "case_id": 17,
+        "reflection": "患者出现胃痛、反酸、打嗝并有胆汁反流和胃炎病史时，若考虑山莨菪碱解痉止痛，应先核查青光眼、前列腺肥大、幽门/肠梗阻及急腹症未明等限制条件，并评估反流性食管炎慎用；不宜仅因胃痛加用，需与抑酸、促动力方案一并权衡。"
+      },
+      {
+        "case_id": 18,
+        "reflection": "患者每周饮酒3～4次并有腹胀、浅表性胃炎时，推荐健胃消食片前须确认能否在服药期间戒酒（说明书明确忌酒）；不能戒酒则不宜仅用该药，并应核查肝功、关注莫沙必利可能致肝酶升高。奥美拉唑、三九胃泰需核实反流/溃疡或湿热气滞证候后才考虑。"
+      },
+      {
+        "case_id": 19,
+        "reflection": "急性胃炎患者胃胀痛、恶心嗳气、无反酸腹泻，已用消炎药且疼痛减轻时，莫沙必利可对症促动力；奥美拉唑说明未列急性胃炎，不应仅因参考推荐加用，需核查反酸、黏膜损伤或溃疡证据及与消炎药联用信息，并监测腹泻腹痛等不良反应。"
+      },
+      {
+        "case_id": 20,
+        "reflection": "患者以恶心呕吐、口苦和胃不适为主且无反酸烧心时，莫沙必利仅按功能性消化不良伴恶心呕吐考虑；胃炎未确诊且奥美拉唑说明书适应症未列胃炎，健胃消食片说明书未提供适应症，应核查溃疡/反流及酸相关症状后定抑酸或加铝镁化合物，避免无指征叠加。"
+      },
+      {
+        "case_id": 21,
+        "reflection": "患者出现反酸、胃痛史并考虑胃食管反流时，奥美拉唑有适应症依据，不应仅因参考方案未列而否定；若同时消化不良未缓解、腹部臭味上涌，应核查复方消化酶适应症及急性肝炎、胆道完全闭锁禁忌后，再评估是否补充改善消化不良。"
+      },
+      {
+        "case_id": 23,
+        "reflection": "胆囊切除后出现便秘与烂便交替、腹部隐痛时，莫沙必利虽可用于糖尿病性胃轻瘫，但现有说明未证实胃动力低下且其可致腹泻腹痛；应先核查排便性状、频率及胃排空症状，烂便突出时复核促动力必要性。谷氨酰胺说明缺适应症，不应仅因参考推荐加入，需核查适用依据。"
+      },
+      {
+        "case_id": 24,
+        "reflection": "患者持续夜间左下腹痛、排便异常，饭后打嗝恶心且自服安必仙后暂缓解时，不能仅按消化不良加健胃消食片；应先核查腹痛及排便异常病因，莫沙必利可按功能性消化不良指征使用，奥美拉唑仅在确认溃疡或反流等适应症时考虑并7天内复评。"
+      },
+      {
+        "case_id": 25,
+        "reflection": "患者抗幽门螺杆菌治疗期间出现持续恶心、食欲差时，蒙脱石说明书未支持用于恶心呕吐，不宜仅凭“胃肠道不适”选用；应核查抗HP药物不良反应及与抗菌药同服限制，必要时评估莫沙必利对恶心呕吐的适应症和联用安全性。"
+      },
+      {
+        "case_id": 26,
+        "reflection": "患者已用金奥康3个月且近两周疗效减退时，再推荐奥美拉唑前应核查两者是否同类及实际疗程；奥美拉唑说明提示连续使用不超过7天、两个月内不得重复，症状未缓解需就医，故不宜默认续用。烧心、干呕无食积证据时，健胃消食片缺乏支持，应核查必要性。"
+      },
+      {
+        "case_id": 27,
+        "reflection": "患者出现黑便并伴烧心、胃酸时，不应直接推荐奥美拉唑或蒙脱石自行处理；奥美拉唑说明书中黑便属勿用警示，应先就医排查消化道出血，再据病因选药；康复新液仅作为胃痛出血或溃疡的考虑，须核查适用条件。"
+      },
+      {
+        "case_id": 28,
+        "reflection": "患者以便不成型、排气多、消化不良为主，胃肠镜示结肠炎、直肠炎且材料无烧心反酸等抑酸指征时，应核查奥美拉唑使用依据，不宜仅凭浅表性胃炎加用；可评估复方消化酶或曲美布汀对消化不良及排便异常的适用性，莫沙必利致腹泻风险需结合便不成型权衡。"
+      },
+      {
+        "case_id": 29,
+        "reflection": "患者有胃部不适、打嗝、大便不成型含食物残渣且反酸不明显时，不宜仅凭胃炎诊断加用奥美拉唑抑酸；应核查烧心、溃疡或反流证据及说明书适应症与疗程限制，并评估复方消化酶是否对症、核对胆道闭锁和急性肝炎禁忌及联用信息。"
+      },
+      {
+        "case_id": 30,
+        "reflection": "患者出现进食后呕吐且可能有胃病时，不能仅凭此用蒙脱石止吐；如考虑奥美拉唑治疗反流，须先核查呕血、黑便、吞咽困难等警示。呕吐明显拟用甲氧氯普胺时，应先排除胃肠道出血、机械性梗阻并评估锥体外系风险。"
+      },
+      {
+        "case_id": 32,
+        "reflection": "患者呕吐3月余、多种胃炎药无效且有高血压长期用药时，不应仅用蒙脱石止吐，其说明未支持呕吐适应症；应先核查降压药不良反应及器质性病因，若考虑功能性消化不良伴恶心呕吐，可评估莫沙必利。"
+      },
+      {
+        "case_id": 33,
+        "reflection": "患者已使用奥美拉唑且症状改善但仍有上腹胀、烧灼时，可考虑加莫沙必利缓解功能性消化不良样残余症状；需核查烧灼是否持续或加重、奥美拉唑疗程及胃镜指征，不能仅因参考方案未列莫沙必利判为不宜，也不应把继续用奥美拉唑视为漏荐而重复加药。"
+      },
+      {
+        "case_id": 34,
+        "reflection": "患者出现持续数月稀便并排出未消化菜叶、豆芽时，蒙脱石仅可对症止泻且可能致便秘，不能替代改善消化不良的复方消化酶；应核查有无急性肝炎或胆道完全闭锁等禁忌后考虑复方消化酶，并保留益生菌调节菌群的适用条件。"
+      },
+      {
+        "case_id": 35,
+        "reflection": "患者出现浅表性胃炎伴胃窦糜烂及偶发上腹不适、腹胀时，铝镁化合物适应症覆盖慢性胃炎相关胃部不适，可核查急腹症及心肾功能后考虑；莫沙必利须有嗳气、早饱、恶心呕吐等动力障碍或相应适应症证据，不宜仅凭偶发腹胀常规联用。"
+      },
+      {
+        "case_id": 36,
+        "reflection": "患者饭后腹泻、腹痛伴肠鸣而早饱腹胀等动力低下表现未明确时，不应仅因“消化不良”加用莫沙必利，因其不良反应含腹泻、腹痛且适应症未覆盖腹泻型肠易激；应核查排便及动力症状，并评估复方消化酶的适应症与胆道梗阻禁忌。"
+      },
+      {
+        "case_id": 37,
+        "reflection": "患者出现规律夜间上腹痛、反酸而白天无症状时，莫沙必利说明书主要适用于功能性消化不良伴胃灼热、嗳气、早饱、腹胀等动力障碍症状，也可用于胃食管反流等；材料未显示动力障碍表现，不宜仅凭慢性胃炎推荐。应核查有无溃疡或反流及动力症状，并评估康复新液用于胃痛、溃疡的适应症及哮喘、孕妇禁用等限制。"
+      },
+      {
+        "case_id": 39,
+        "reflection": "患者出现饮食诱因的恶心、呕吐且未确认腹泻时，蒙脱石说明主要针对急性腹泻和吸附肠道毒素，不能据此认为可缓解呕吐；应先核查腹泻、脱水及呕血黑便，并确认有无反酸烧心等奥美拉唑指征后再选药，避免仅按标签差异调整。"
+      },
+      {
+        "case_id": 41,
+        "reflection": "患者有干饭吞咽不顺畅、烧心及胸骨后闷，且已用泮托拉唑后好转时，不应仅因参考标签加奥美拉唑：说明书警示吞咽困难或疼痛应先就医、勿自行使用；应评估吞咽不畅并核对既有抑酸方案。若推荐莫沙必利，还需明确多潘立酮是否停用，因二者均属促动力药且材料未提供联用信息。"
+      },
+      {
+        "case_id": 44,
+        "reflection": "患者出现腹胀、频繁排气或漏屁且考虑胃肠功能紊乱时，莫沙必利需按功能性消化不良上腹胀等适应症核查；健胃消食片材料缺适应症，不能据此确认适用；应先明确诊断并排除器质性/占位病变，再核查曲美布汀（腹胀腹鸣可用但器质性/占位慎用）或益生菌是否合适。"
+      },
+      {
+        "case_id": 45,
+        "reflection": "患者夜间阵发性腹痛、大便偏稀但无腹泻时，不宜仅凭大便偏稀选用蒙脱石；健胃消食片材料缺适应症支持；奥美拉唑需先核查反酸烧心或溃疡证据；若考虑肠易激综合征，应在明确诊断并排除器质性疾病后评估曲美布汀并调整方案。"
+      },
+      {
+        "case_id": 47,
+        "reflection": "患者有慢性胃炎、胃胀及消化不良表现时，莫沙必利可作促动力选择；但氯雷他定说明书仅用于过敏性疾病，不能据“焦虑相关躯体症状”选用，应核查过敏适应症并评估焦虑后改用有依据的处理。若伴脂肪便或腹胀可考虑复方消化酶，并排除胆道闭锁等禁忌。"
+      },
+      {
+        "case_id": 48,
+        "reflection": "患者出现胆汁反流性胃炎伴反复腹胀、消化不良，已用奥美拉唑可缓解且无腹泻时，益生菌调节菌群依据不足，不应默认联用；应核查莫沙必利是否针对功能性消化不良的上腹胀及有无禁忌，并评估复方消化酶（排除急性肝炎、胆道闭锁）或铝镁化合物对胃酸相关饱胀的作用。"
+      },
+      {
+        "case_id": 49,
+        "reflection": "患者有胆汁反流并持续胸骨后疼痛，已用莫沙必利等无效时，不宜仅凭胆汁反流再次推荐莫沙必利；若考虑山莨菪碱解痉，须先核查反流性食管炎及青光眼、前列腺肥大等慎禁用条件，并说明反流者慎用。"
+      },
+      {
+        "case_id": 50,
+        "reflection": "患者出现饮水即吐、无法进食2天且无胃病史时，应先核查脱水及急诊就医指征；材料未提供健胃消食片止吐适应症，不能据此认定适用；三九胃泰仅用于湿热气滞胃痛或浅表性胃炎证候，不能仅凭恶心呕吐选用。"
+      },
+      {
+        "case_id": 51,
+        "reflection": "患者出现餐后胃胀、嗳气、恶心、早饱而无明确反酸烧心时，莫沙必利用于功能性消化不良有依据；不应默认加奥美拉唑，需追问反酸烧心及吞咽困难、呕血黑便等再评估酸抑制治疗；健胃消食片说明未载明适应症，不宜作为主要选药依据。"
+      },
+      {
+        "case_id": 52,
+        "reflection": "患者出现急性上左腹痛且病因未明、仅主诉疼痛而未述恶心呕吐、早饱、腹胀等动力障碍表现时，莫沙必利缺乏适应症依据，不宜仅凭疼痛推荐；铝镁化合物说明急腹症须先就诊明确诊断，故应先排查急腹症再决定是否对症用药。"
+      },
+      {
+        "case_id": 53,
+        "reflection": "功能性消化不良伴持续胃胀、抑酸药和益生菌无效时，莫沙必利可选，但患者已有转氨酶轻度升高，需复查肝功能并监测；健胃消食片适应症未提供、禁忌尚不明确，不宜仅凭调理脾胃加用，可评估复方消化酶并排除急性肝炎或胆道完全闭锁。"
+      },
+      {
+        "case_id": 55,
+        "reflection": "患者进食生冷后出现右下腹隐痛、呕吐但无腹泻发热时，需先排查急性胰腺炎和细菌感染；未查血常规、淀粉酶脂肪酶及腹部B超且无细菌感染证据前，不宜经验性用阿莫西林（需皮试且说明未覆盖胃肠炎），无腹泻也不宜用蒙脱石；参考左氧同样需明确细菌感染并评估禁忌后再用。"
+      },
+      {
+        "case_id": 57,
+        "reflection": "患者出现左上腹隐痛伴恶心呕吐、黑便未确认时，莫沙必利可据功能性消化不良症状考虑，但不应直接补用奥美拉唑；应先核实黑便、呕血等报警症状，因奥美拉唑说明提示黑便/呕血时勿用，铝镁剂也需诊断明确后使用。"
+      },
+      {
+        "case_id": 58,
+        "reflection": "患者出现长期腹胀、排气多且胃肠镜未见明显器质性病变、拟诊胃肠功能紊乱时，莫沙必利有上腹胀适应症依据，不应仅因与参考不同而否定；曲美布汀适应症覆盖腹胀腹鸣，可在排除器质性/占位后考虑；健胃消食片说明缺适应症，不宜仅凭胀气推荐。"
+      },
+      {
+        "case_id": 59,
+        "reflection": "患者幽门螺杆菌根除停药后出现空腹胃烧伴腹泻时，莫沙必利虽可促动力缓解胃烧、腹胀，但说明书不良反应含腹泻，应先核查腹泻严重度及药物相关性，明显者暂缓或监测；胃烧可考虑铝镁化合物对症，但需结合Hp复查。"
+      },
+      {
+        "case_id": 60,
+        "reflection": "哺乳期患者有浅表性胃炎、胃痛腹胀且已用阿莫西林等3天时，推荐铝镁化合物而未用胶体果胶铋，应核查胶体果胶铋的哺乳期安全性、肾功能及是否与其他铋剂联用，并确认铝镁化合物先排除急腹症；不能仅凭适应症加用铋剂。"
+      },
+      {
+        "case_id": 61,
+        "reflection": "患者胃闷堵、无反酸烧心且近期饮酒咖啡时，若考虑胃食管反流，应核查奥美拉唑抑酸指征及7天疗程限制；健胃消食片说明书未载适应症，不宜仅凭腹胀使用，需核实其适用性。"
+      },
+      {
+        "case_id": 62,
+        "reflection": "患者存在慢性胃炎、近期非频繁腹泻伴嗳气排气且已用蒙脱石散/肠炎宁时，莫沙必利虽可促动力缓解嗳气，但说明列腹泻为不良反应，需先核查腹泻程度；曲美布汀覆盖腹泻、嗳气、腹鸣，可在排除器质性疾病后评估替代。"
+      },
+      {
+        "case_id": 63,
+        "reflection": "60岁患者腹胀数月、早饱且未行胃镜时，莫沙必利可用于功能性消化不良相关腹胀，但应先核查消瘦、贫血、吞咽困难等报警症状及胃镜指征；健胃消食片适应症材料不足，不宜仅因参考标签加用。"
+      },
+      {
+        "case_id": 64,
+        "reflection": "患者餐后烧心、恶心伴饥饿痛且未胃镜确诊胃溃疡时，奥美拉唑可经验抑酸；莫沙必利应核查是否仅符合功能性消化不良/反流适应症，不宜默认作为溃疡常规联用；若拟用康复新液修复溃疡，须先排除哮喘及妊娠禁忌。"
+      },
+      {
+        "case_id": 65,
+        "reflection": "患者出现餐后不消化、早饱，且幽门螺杆菌已转阴、诊断为浅表性胃炎时，复方消化酶可用于消化不良，但须核对急性肝炎及胆道完全闭锁禁忌；若以早饱、上腹胀为主，应核查是否确诊功能性消化不良再决定是否考虑莫沙必利，不能仅凭标签差异替代。"
+      },
+      {
+        "case_id": 66,
+        "reflection": "患者反复反流性食管炎症状，出差紧张时失眠、心慌，医生选用莫沙必利并称褪黑素无副作用；莫沙必利仅支持用于胃食管反流，不能据此推断改善失眠，应核查反流控制及奥美拉唑等抑酸指征，并保留褪黑素安全性不确定性。"
+      },
+      {
+        "case_id": 67,
+        "reflection": "患者反复呕吐且胃镜示胃炎糜烂时，加用复方消化酶前应核实有无食欲缺乏、餐后腹胀或脂肪便等消化不良依据，并排除急性肝炎、胆道完全闭锁；仅有呕吐不足以支持常规加用，铝镁化合物亦需核查急腹症及严重心肾功能不全。"
+      },
+      {
+        "case_id": 68,
+        "reflection": "患者以直立加重的胃胀为主、拟诊慢性胃炎但无烧心反酸或溃疡证据时，奥美拉唑缺乏明确抑酸指征，不宜仅因“胃炎”常规加入；可核查铝镁化合物用于慢性胃炎相关饱胀的适应症及肾功能、高镁/高钙等限制，健胃消食片因材料未支持该症状需按说明书再评估。"
+      },
+      {
+        "case_id": 69,
+        "reflection": "患者出现黑便或舌头发黑并伴胃胀、嗳气时，选用促动力药前应先核查黑便是否提示消化道出血；甲氧氯普胺禁用于胃肠道出血，未排除出血不宜选用，莫沙必利虽可改善腹胀嗳气，仍需结合既往用药及禁忌评估。"
+      },
+      {
+        "case_id": 70,
+        "reflection": "患者大便不成形、木香顺气丸半月无效且无检查时，不宜仅凭“肠功能紊乱”加蒙脱石或健胃消食片；应核查腹泻频次、脱水及器质病变，健胃消食片3天无缓解应就诊，明确诊断后再考虑曲美布汀并警惕蒙脱石致便秘。"
+      },
+      {
+        "case_id": 71,
+        "reflection": "患者有长期胃痛且胃镜示胃炎伴糜烂、近期中药后加重时，推荐曲美布汀前应先明确有无溃疡或胃食管反流并评估抑酸；说明书提示器质性消化道疾病慎用，奥美拉唑也需按溃疡或反流等适应症核对，不能仅凭情绪相关游走痛按功能性胃肠病用药。"
+      },
+      {
+        "case_id": 72,
+        "reflection": "患者出现急性腹泻伴胃痉挛性痛，且近期饮酒后症状加重时，不应仅因考虑胃炎加用莫沙必利：其为促动力药，说明书适应证为功能性消化不良/胃食管反流等，且可致腹泻、腹痛，可能加重当前腹泻；应核查排便次数和腹痛，优先评估补液及抑酸/胃黏膜保护，奥美拉唑仅在符合溃疡或反流等指征时考虑。"
+      },
+      {
+        "case_id": 75,
+        "reflection": "患者以进食后反复呕吐、腹痛为主，无发热腹泻时，不宜仅凭参考标签加阿莫西林；应核查细菌感染证据、青霉素过敏及皮试。蒙脱石用于止吐或胃炎依据不足，若仅呕吐无腹泻需重新评估。"
+      },
+      {
+        "case_id": 76,
+        "reflection": "患者萎缩性胃炎伴餐后腹胀、寒性食物加重且大便正常时，曲美布汀和益生菌有相应适应症，但不能据此排除消化不良；应核查腹胀以动力不足还是消化酶不足为主，若以上腹胀/早饱为主可考虑莫沙必利，若疑消化不良且无胆道梗阻可考虑复方消化酶，并避免未评估叠加促动力药。"
+      },
+      {
+        "case_id": 77,
+        "reflection": "患者慢性非萎缩性胃炎、幽门螺杆菌阴性且无反酸烧心，仅有餐后腹胀、排气多时，奥美拉唑抑酸依据不足，应核查溃疡/反流证据；莫沙必利对上腹胀有依据，健胃消食片说明书未明确适应症，复方消化酶可评估用于腹胀排气并排除急性肝炎、胆道闭锁。"
+      },
+      {
+        "case_id": 78,
+        "reflection": "患者出现夜间咽喉发热、粘液及恶心，疑胃食管反流或上呼吸道感染时，无哮喘或过敏性鼻炎证据不应加孟鲁司特，炉甘石洗剂无咽喉适应症也不应据现有材料选用；应核查过敏及皮肤指征，按反流评估奥美拉唑，并据恶心/反流考虑莫沙必利或铝镁化合物。"
+      },
+      {
+        "case_id": 79,
+        "reflection": "患者出现急性右下腹绞痛、诊断未明且需排查阑尾炎时，不应仅凭疑似肠痉挛即用曲美布汀或山莨菪碱；应先外科评估排除急腹症，明确肠痉挛且无禁忌后再考虑解痉，以免掩盖病情或误用。"
+      },
+      {
+        "case_id": 80,
+        "reflection": "患者进食不洁后急性胃阵痛、既往胃病，医生诊断慢性胃炎伴消化不良却未记录早饱、腹胀、嗳气等，莫沙必利依据不足，应先核实促动力药适应症状及急腹症警示；奥美拉唑用于溃疡/GERD，也需核对适应证；胃痛可结合证候评估三九胃泰并说明其2周无改善应就医。"
+      },
+      {
+        "case_id": 81,
+        "reflection": "考虑急性胃肠炎且退热后仅恶心、餐后不适、无腹泻时，蒙脱石“止泻”依据不足，应核查有无腹泻及与其他口服药的联用说明；患者已用四联双歧杆菌，再荐益生菌需核对菌种剂量，恶心早饱突出再评估莫沙必利适应症。"
+      },
+      {
+        "case_id": 82,
+        "reflection": "患者胸窝闷胀、餐后饱胀且未行胃镜，并主诉黑色粒状大便时，不宜直接按慢性胃炎用奥美拉唑；说明提示黑便须先就医，应核实是否真黑便并胃镜排除出血后再定抑酸，莫沙必利用前需排除梗阻，康复新液也应待溃疡或出血证据明确后考虑。"
+      },
+      {
+        "case_id": 83,
+        "reflection": "患者出现胃痛向小腹转移、恶心且无腹泻时，铝镁化合物说明书要求急腹症先就诊明确诊断；应先核查下腹痛病因、排除急腹症，再决定是否用莫沙必利或铝镁化合物，肠炎宁无腹泻且适应证不明时不默认加入。"
+      },
+      {
+        "case_id": 85,
+        "reflection": "患者冷辣饮食及情绪波动后恶心、食欲不振，疑胃炎但若未明确反酸烧心或溃疡证据，奥美拉唑适应证材料不足；应核查酸相关或溃疡警示症状，不默认抑酸，并依据恶心呕吐、纳减及湿热气滞证候评估三九胃泰，且浅表性胃炎需医师指导。"
+      },
+      {
+        "case_id": 86,
+        "reflection": "患者出现呕吐、胃堵且明确无腹泻时，不应仅凭肠胃不适选用蒙脱石；应核查有无肠梗阻、出血及脱水，若以止吐为目标，可在排除甲氧氯普胺禁忌后评估其适用性，而非用蒙脱石替代。"
+      },
+      {
+        "case_id": 88,
+        "reflection": "患者未诉嗳气反酸、上腹以隐痛为主且近期有腹泻时，不应仅凭慢性胃炎常规加莫沙必利，需核查有无早饱、腹胀等动力症状并评估腹泻风险；康复新液须核实胃痛出血、溃疡或瘀血阻滞指征及哮喘禁忌后方可考虑，不宜按参考标签直接加入方案。"
+      },
+      {
+        "case_id": 90,
+        "reflection": "患者有非萎缩性胃炎和十二指肠球部溃疡且未检测幽门螺杆菌时，不应仅凭疑似感染单用阿莫西林；应先检测幽门螺杆菌并核查青霉素过敏史，确诊后按含PPI等的联合方案治疗；奥美拉唑可抑酸促溃疡愈合，但不能替代根除方案。"
+      },
+      {
+        "case_id": 91,
+        "reflection": "患者有慢性胃炎伴餐后腹胀、嗳气、消化不良且已用胃药仍反复、未明确烧心反酸或溃疡/反流时，材料不足以支持常规加奥美拉唑；应核查酸相关症状及既往抑酸药，无适应证则按症状选莫沙必利，必要时评估铝镁化合物，避免长期PPI。"
+      },
+      {
+        "case_id": 92,
+        "reflection": "患者出现反胃、胀气、打嗝且幽门螺杆菌正常、无胃痛时，莫沙必利符合适应症；若考虑复方消化酶，应先核查急性肝炎、胆道完全闭锁禁忌及与莫沙必利联用资料，健胃消食片说明书缺适应症，不宜仅凭“调理消化”确认使用。"
+      },
+      {
+        "case_id": 95,
+        "reflection": "患者胃镜提示胃溃疡、糜烂，腹泻已缓解但胃口差时，莫沙必利材料未支持用于溃疡背景的促动力，应核查是否确为功能性消化不良并监测腹泻腹痛；复方消化酶可考虑改善食欲缺乏，但须先排除急性肝炎、胆道完全闭锁，健胃消食片说明缺适应症不宜仅凭参考加入。"
+      },
+      {
+        "case_id": 96,
+        "reflection": "患者以恶心呕吐、胃胀为主诉、无反酸烧心且未做胃镜时，健胃消食片说明未载明适应症，不能证实适用；奥美拉唑仅用于溃疡或反流等，须先核查相应证据，不满足适应症前不应直接补充，持续呕吐应就医。"
+      },
+      {
+        "case_id": 97,
+        "reflection": "当患者仅餐后3小时出现饥饿样轻微上腹不适、胀气及空腹肠鸣，进食后缓解，且无反酸烧心、黑便、吞咽困难时，材料不足以支持奥美拉唑抑酸；应先核查反流或溃疡证据，若需用药，莫沙必利可考虑短期对症，并核对剂型用法及腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 98,
+        "reflection": "患者胆汁反流性胃炎因进食过量复发、既往莫沙必利+康复新液+泮托拉唑一周无效时，应复核继续用康复新液是否有溃疡或出血依据；若仅为缓解胃酸相关饱胀烧心，可考虑铝镁化合物，并核查急腹症及严重心肾功能不全。"
+      },
+      {
+        "case_id": 99,
+        "reflection": "患者幽门螺杆菌已根除且未提供反酸烧心，仅有胃部紧缩感、脐周痛而腹胀不明显时，奥美拉唑材料未列慢性胃炎适应症，应核查反酸烧心、糜烂活动及PPI指征后再选；脐周痛可评估益生菌用于消化不良/肠炎，但其说明信息有限，不能替代病因判断。"
+      },
+      {
+        "case_id": 101,
+        "reflection": "患者有浅表性胃炎，表现为饥饿时恶心、打嗝且近期未用胃药时，莫沙必利、铝镁化合物可对症；健胃消食片助消化依据不足，奥美拉唑需先核查烧心反酸、胃痛或溃疡/反流证据及7天疗程限制，不能仅凭胃炎加用。"
+      },
+      {
+        "case_id": 103,
+        "reflection": "患者仅笼统胃病史且胃镜陈旧、无具体证候时，不应直接加三九胃泰或健胃消食片；先核查胃痛性质、湿热气滞证候、警报症状及肝胆超声，再结合奥美拉唑7天疗程限制和莫沙必利适应症选药。"
+      },
+      {
+        "case_id": 104,
+        "reflection": "患者有烧心反酸且大便不成型时，拟用莫沙必利须核查腹泻、腹痛风险及促动力治疗必要性，因其说明书不良反应含腹泻；不能因适应症含胃食管反流即认定安全，需结合耐受性决定是否调整方案。"
+      },
+      {
+        "case_id": 105,
+        "reflection": "患者有乙肝小三阳、肝功能正常，诊断为慢性非萎缩性胃炎并诉饥饿感、消化道难受时，莫沙必利可考虑用于早饱腹胀恶心等动力症状并监测肝酶；奥美拉唑须核实反酸烧心或溃疡证据后再用，不能仅因参考推荐加入。"
+      },
+      {
+        "case_id": 106,
+        "reflection": "饮酒后出现急性水样腹泻、明显胃痛并伴糜烂性胃炎者，医生用蒙脱石和奥美拉唑时，应核查是否需加胶体果胶铋保护胃黏膜（肾功能不全禁用、不宜长期大剂量），并核实蒙脱石与益生菌的服用间隔；现有材料仅显示标签差异，不能据此判定原方案错误。"
+      },
+      {
+        "case_id": 107,
+        "reflection": "患者进食沙棘汁后突发反胃呕吐、无腹泻，拟诊急性胃炎时，莫沙必利说明书主要限功能性消化不良等，急性胃炎依据不足；铝镁化合物用于急腹症须先诊断明确；奥美拉唑不应仅因标签差异加用，需核查是否符合溃疡或胃食管反流等适应症并排除呕血黑便。"
+      },
+      {
+        "case_id": 108,
+        "reflection": "患者已使用雷贝拉唑和莫沙必利且胀气可缓解时，再推荐莫沙必利应先核实用药，避免重复；糜烂性胃炎需黏膜修复时可评估康复新液，但哮喘、孕妇及过敏者禁用并监测消化道反应；加铝镁化合物需核对肾功能及高镁、高钙血症等慎用条件。"
+      },
+      {
+        "case_id": 110,
+        "reflection": "患者夜间上腹痛、有胃炎史且疑十二指肠溃疡但无腹胀、恶心、早饱等动力障碍时，奥美拉唑抑酸有依据；莫沙必利应核查有无功能性消化不良或反流症状，无相应症状不宜常规联用。谷氨酰胺说明书缺适应症，不能仅凭药物列表加入，需核实其适用性。"
+      },
+      {
+        "case_id": 112,
+        "reflection": "患者出现嗳气、反酸、肠鸣伴焦虑紧张且无过敏表现时，不应以氯雷他定缓解焦虑；应核查过敏适应症并停用或不用，焦虑另行评估。肠功能紊乱可考虑曲美布汀或益生菌，但需先排除器质性疾病并评估联用依据。"
+      },
+      {
+        "case_id": 113,
+        "reflection": "患者出现黑便（尤其不成形）伴反酸烧心时，不应仅推荐铝镁化合物对症；铝镁化合物说明急腹症需先就诊，奥美拉唑说明黑便时请勿自行使用，应先就医排查消化道出血，诊断明确后由医师评估抑酸或黏膜保护方案。"
+      },
+      {
+        "case_id": 114,
+        "reflection": "患者出现持续饥饿伴饭后腹胀、尚未排除糖尿病时，不应仅凭“胃炎/溃疡可能”即用奥美拉唑和莫沙必利；应先核查血糖及呕血、黑便等报警症状，奥美拉唑限7天并评估溃疡证据，莫沙必利仅在确认上腹胀等功能性消化不良表现时考虑。"
+      },
+      {
+        "case_id": 117,
+        "reflection": "患者出现早饱、上腹胀、无烧心反酸腹痛且仅考虑胃炎未确诊时，奥美拉唑说明适应症未覆盖普通胃炎或功能性消化不良，应核查溃疡、反流等抑酸指征及报警症状；无指征时评估莫沙必利或复方消化酶对症，后者需排除急性肝炎、胆道闭锁。"
+      },
+      {
+        "case_id": 118,
+        "reflection": "患者出现肠道不适伴胃炎史且胃肠功能紊乱诊断未明确具体症状时，莫沙必利应核查有无上腹胀、嗳气、恶心等适应症状；若以腹胀、腹痛、腹泻或便秘为主，可评估曲美布汀但须先排除器质性疾病；谷氨酰胺说明缺适应症，不宜仅因参考推荐加入。"
+      },
+      {
+        "case_id": 121,
+        "reflection": "患者出现慢性便秘、嗳气腹胀并考虑胃肠功能紊乱时，应核查主导症状：莫沙必利主要用于功能性消化不良伴嗳气等上消化道症状；若便秘或肠易激样症状突出，可考虑曲美布汀（适应症含便秘、肠易激），但不默认两药联用或替代。"
+      },
+      {
+        "case_id": 123,
+        "reflection": "孕早期患者出现餐后腹胀、呕吐、胃痛及排便不规律时，若考虑功能性消化不良，选用莫沙必利或复方消化酶前须核查说明书妊娠期安全性；莫沙必利虽对症但材料未载妊娠信息，复方消化酶可针对腹胀恶心但同样需确认孕期可用及胆道禁忌。"
+      },
+      {
+        "case_id": 124,
+        "reflection": "患者出现腹胀、嗳气、恶心且无腹泻时，蒙脱石保护胃黏膜依据不足，奥美拉唑对单纯腹胀依据有限；应先核查排便排气、呕血黑便及脱水，排除梗阻或出血后再评估铝镁化合物或甲氧氯普胺，并核对后者禁忌。"
+      },
+      {
+        "case_id": 125,
+        "reflection": "患者急性餐后频繁胃痛、无既往胃病史且未排除急腹症时，不应仅凭疑似慢性胃炎予奥美拉唑：其说明书适应症不含慢性胃炎，证据不足。应先就医排除急腹症；若仅为胃酸相关胃部不适，可考虑铝镁化合物对症，但急腹症须诊断明确后再使用。"
+      },
+      {
+        "case_id": 126,
+        "reflection": "患者出现近期排便次数增多、稀便、里急后重且痔疮后排便未恢复时，用曲美布汀前需先明确诊断，器质性/占位性病变慎用；蒙脱石止泻应评估脱水、便秘，消化不良表现明确时再核查复方消化酶。"
+      },
+      {
+        "case_id": 127,
+        "reflection": "患者胃镜示萎缩性胃炎伴反流、糜烂且未查幽门螺杆菌时，奥美拉唑联合莫沙必利有依据；铝镁化合物可用于慢性胃炎胃酸相关症状，不能仅因属标签差异判为错误。康复新液若拟加入，须核查是否存在胃痛出血或胃十二指肠溃疡等适应条件，仅有糜烂不能直接支持使用。"
+      },
+      {
+        "case_id": 128,
+        "reflection": "老年患者息肉术后有胃炎史，出现餐后饱胀、早饱且伴肾功能不全时，奥美拉唑说明书适应症未覆盖功能性消化不良，单凭胃炎史选药依据不足；可核查莫沙必利改善早饱腹胀的适用性，并核对过敏及肾功能限制。"
+      },
+      {
+        "case_id": 129,
+        "reflection": "患者有萎缩性胃炎C1、夜间或晨起胃痛而无反酸嗳气时，不宜仅按胃酸过多选用莫沙必利，因其为促动力药且缺乏对应症状依据；应核查疼痛是否酸相关，若考虑奥美拉唑抑酸，须确认适应症、排除报警症状并限定疗程，避免长期用于萎缩性胃炎。"
+      },
+      {
+        "case_id": 131,
+        "reflection": "患者有胃炎胃糜烂、上腹胀痛且进食后加重、已用成分不详的消炎输液时，莫沙必利可因胃动力不足考虑，但单用不能覆盖胃痛；应核查有无反酸烧心及急腹症，再评估加用铝镁化合物抗酸以缓解胃部不适。"
+      },
+      {
+        "case_id": 132,
+        "reflection": "患者主诉便秘、胃痛伴烧热感时，以蒙脱石“缓解便秘”缺乏依据，该药可致便秘，不应选用并需核查当前是便秘还是腹泻；黄连素用于“胃火大”需核实感染或腹泻指征，不能仅凭清热解毒选用。"
+      },
+      {
+        "case_id": 133,
+        "reflection": "患者长期嗳气、早饱且体重稳定，伴肠易激样腹泻腹痛刚缓解时，莫沙必利虽可改善消化不良，但其可致腹泻腹痛，启用前应核实当前排便及腹痛是否稳定，活跃则慎用并监测，据结果决定是否选用或换药；无烧心反酸证据不应仅因嗳气加奥美拉唑。"
+      },
+      {
+        "case_id": 135,
+        "reflection": "妊娠中期患者出现阵发性胃痛且加重、尚未排除急腹症时，不应仅按胃炎直接推荐奥美拉唑；该药说明书孕期慎用且未列胃炎适应症，应先彩超排除肝胆胰脾急症并核查妊娠用药风险，再决定是否对症用药。"
+      },
+      {
+        "case_id": 136,
+        "reflection": "患者以便秘、排便少为主诉，仅有口臭、湿气重等非特异表现而未提供反酸、腹痛等胃炎依据时，不应把莫沙必利当作通便药；其说明书未列便秘，应先核查是否功能性消化不良，并据胃镜和呼气试验结果决定是否用奥美拉唑，不能仅凭参考标签加药。"
+      },
+      {
+        "case_id": 137,
+        "reflection": "患者餐前餐后胃痛伴反酸嗳气、材料未见溃疡或出血依据时，莫沙必利可作促动力对症，但须核查反流或功能性消化不良诊断及是否需联用抑酸；康复新液说明针对溃疡或胃痛出血，不宜仅凭慢性胃炎加入。"
+      },
+      {
+        "case_id": 138,
+        "reflection": "患者出现消化不良、口苦口干而无可确认过敏表现时，不应以“可能过敏”为由加用氯雷他定；口干亦可能为莫沙必利不良反应，应核查过敏证据，无过敏则不用于此症状。对消化不良可考虑复方消化酶，但须先排除急性肝炎及胆道完全闭锁。"
+      },
+      {
+        "case_id": 139,
+        "reflection": "慢性非萎缩性胃炎患者仅胃胀、无反酸烧心，四联后未复查幽门螺杆菌却因症状反复拟用奥美拉唑时，应先核查Hp状态及抑酸药对检测的影响，确认感染后再决定根除；益生菌无肠道菌群失调证据时依据不足，健胃消食片缺适应症信息需核查。"
+      },
+      {
+        "case_id": 140,
+        "reflection": "患者反复胃痛伴突发后背酸痛且无反酸嗳气时，莫沙必利缺少嗳气、早饱、腹胀等动力障碍依据，不宜仅按“促动力”加入；应核查急腹症警示及铝镁化合物用于胃痛的适应症，诊断明确且合并用药允许时可短期对症，并保留奥美拉唑。"
+      },
+      {
+        "case_id": 142,
+        "reflection": "患者急性呕吐伴低热、疑变质食物史时，奥美拉唑说明书未列急性胃炎适应症，铝镁剂须先排除急腹症；应核对呕血、黑便、剧烈腹痛和脱水，排除梗阻/出血且呕吐明显时可评估甲氧氯普胺，不宜默认加用奥美拉唑。"
+      },
+      {
+        "case_id": 143,
+        "reflection": "患者幽门螺杆菌高并糜烂性胃炎、仅隐痛而无早饱腹胀恶心时，莫沙必利缺乏动力症状依据，应先核查其适应症；胶体果胶铋仅在符合HP相关性溃疡或慢性浅表/萎缩性胃炎且肾功能正常时评估，并注意铋剂疗程。"
+      },
+      {
+        "case_id": 145,
+        "reflection": "哺乳期患者出现受凉或刺激性饮食诱发的反复胃痛并考虑胃炎时，推荐益生菌前应核查其适应症是否覆盖胃炎及哺乳期安全性；说明书仅用于肠道消化不良、肠炎，不能据此作为胃炎治疗依据，需重新评估针对性用药。"
+      },
+      {
+        "case_id": 146,
+        "reflection": "患者慢性胃炎胃痛伴恶心、无烧心反酸且已用奥美拉唑时，加铝镁化合物前应排除急腹症并核查严重心肾功能（慎用），三九胃泰须确认湿热内蕴或气滞血瘀证候；证候不明不宜仅凭胃痛恶心加入，铝镁仅作短期对症并关注排便及电解质变化。"
+      },
+      {
+        "case_id": 147,
+        "reflection": "患者慢性胃炎复发以隐痛、腹胀为主，复方消化酶使用依据不充分，需核查有无食欲缺乏、早饱、餐后腹胀或脂肪便及急性肝炎、胆道闭锁禁忌；铝镁化合物可针对胃酸相关胃痛饱胀，但应评估与奥美拉唑联用的必要性，不能仅凭参考列表替换或叠加。"
+      },
+      {
+        "case_id": 148,
+        "reflection": "患者有食管反流史且进食后胸痛时，莫沙必利对胃食管反流有促动力依据，不能仅因非参考药否定；若反流症状频发，应结合胃镜结果核查抑酸指征，考虑加用奥美拉唑等PPI以覆盖酸反流，而非直接替换，并核对禁忌及联用监测资料。"
+      },
+      {
+        "case_id": 149,
+        "reflection": "患者近期服布洛芬后胃痛、大便稀且黄色便中少量黑褐色时，推荐奥美拉唑前应核查是否黑便/消化道出血，因说明书黑便者请勿使用；同时莫沙必利可致腹泻、铝镁化合物可致软便，稀便时应评估风险，不宜直接按慢性胃炎三药联用。"
+      },
+      {
+        "case_id": 151,
+        "reflection": "患者已服奥美拉唑治疗贲门溃疡，又因新发稀便、腹痛被建议加用奥美拉唑时，应先核对是否重复并明确原方案是否继续；蒙脱石可短期止泻但需与口服药间隔并防便秘；若考虑曲美布汀或复方消化酶，须先排除感染及器质性腹泻并核对禁忌。"
+      },
+      {
+        "case_id": 153,
+        "reflection": "患者有胃炎病史，仅进食油炸食物后胃部不适，无腹胀、嗳气、早饱、恶心等功能性消化不良表现时，不应仅凭胃炎加用莫沙必利；应先核对上述症状及说明书适应症，缺乏促动力指征则不加用，并评估奥美拉唑短期抑酸指征。"
+      },
+      {
+        "case_id": 154,
+        "reflection": "患者出现嗳气、餐后腹胀且不进食也打嗝时，拟用莫沙必利和益生菌仍需核查复方消化酶是否适用：其说明覆盖嗳气、早饱、餐后腹胀，但急性肝炎及胆道完全闭锁禁用；健胃消食片说明缺适应症，不能据此确认可替代或联用，需补充核对。"
+      },
+      {
+        "case_id": 155,
+        "reflection": "患者夜间反酸、烧心、晨起口干且奥美拉唑曾缓解时，应核查是否保留PPI抑酸；莫沙必利可用于胃食管反流，铝镁化合物仅对症中和胃酸，需评估联用必要性及心肾功能、长期电解质风险，不宜仅以对症抗酸替代抑酸评估。"
+      },
+      {
+        "case_id": 157,
+        "reflection": "患者扁桃体术后进食少、体重下降，出现大便颜色异常且尚未明确黑便/便血时，应先核查便色和出血征象；奥美拉唑说明书提示黑便/便血时勿用并就医，胶体果胶铋可致黑褐色便而干扰判断，故未排除出血前不宜直接加用，待明确后再按胃炎及胃酸情况选药。"
+      },
+      {
+        "case_id": 158,
+        "reflection": "患者胃镜仅提示普通胃炎，表现为刺激性食物后胃痛、无烧心腹胀且备孕时，医生临时用奥美拉唑缺乏明确酸相关症状依据；应核对妊娠状态及疼痛性质，必要时短期考虑铝镁化合物对症，并交代疗程和警示症状，不宜自行长期服奥美拉唑。"
+      },
+      {
+        "case_id": 159,
+        "reflection": "患者出现间断胃绞痛、上腹痛伴腹泻时，不宜仅按“胃痉挛”选用莫沙必利：其适应症为促动力而非解痉，且不良反应含腹泻、腹痛；应核查是否以反流/上腹胀为主并评估腹泻。康复新液须有溃疡或出血证据再考虑，不能仅因胃痛加入。"
+      },
+      {
+        "case_id": 160,
+        "reflection": "患者反复胃痛、胃胀、食欲不振且拟诊慢性胃炎或功能性消化不良时，莫沙必利符合适应症；健胃消食片因材料未提供适应症，不宜仅凭助消化叠加，应核查其成分、适应症及与莫沙必利联用依据；奥美拉唑说明限溃疡或反流等，加入前需核查反酸、黑便及既往抑酸反应。"
+      },
+      {
+        "case_id": 162,
+        "reflection": "患者有幽门螺杆菌感染史、已完成四联且仍有胃酸胃痛胃胀灼热时，奥美拉唑联合莫沙必利有相应依据；若考虑用胶体果胶铋替代铝镁化合物，须先核实四联是否含铋及肾功能，避免重复铋剂，未确认前不应仅因标签差异否定铝镁化合物。"
+      },
+      {
+        "case_id": 165,
+        "reflection": "患者反复腹泻伴黄色黏液、排便后腹痛缓解且考虑功能性肠病时，蒙脱石止泻可保留，但需注意便秘和脱水；应核查是否已排除器质性病变，若诊断成立且腹痛腹泻突出，可评估曲美布汀，是否加用需结合诊断，不应默认必须。"
+      },
+      {
+        "case_id": 168,
+        "reflection": "患者出现恶心、油腻食物诱发且餐后腹泻时，莫沙必利治疗功能性消化不良有依据，但其可致腹泻，需监测；健胃消食片材料未给适应症及联用依据，不宜默认联用；若疑脂肪消化不良，可核查复方消化酶并排除急性肝炎、胆道完全闭锁。"
+      },
+      {
+        "case_id": 170,
+        "reflection": "患者有反酸、胃胀、嗳气且幽门螺杆菌未确诊时，单用莫沙必利和益生菌不能针对反酸；莫沙必利可改善动力，益生菌仅部分对应消化不良或排便异常，应核查并考虑加用奥美拉唑抑酸，同时先完成幽门螺杆菌和胃镜检测。"
+      },
+      {
+        "case_id": 172,
+        "reflection": "患者有浅表性胃炎、十二指肠球部炎伴腹鸣腹泻时，若拟加奥美拉唑，应先核实有无反酸烧心、溃疡或反流等说明书适应症；病例未提胃酸过多，说明书也未列浅表性胃炎或球部炎，不能仅凭推测选用。蒙脱石可对症腹泻，但需评估脱水、便秘及联用咨询。"
+      },
+      {
+        "case_id": 173,
+        "reflection": "患者出现上腹隐痛、夜间明显但反酸烧心未明确，且已使用奥美拉唑时，不应据“胃炎”直接加莫沙必利或健胃消食片；先核实反酸烧心、报警症状及奥美拉唑适应症和疗程，再评估铝镁化合物对症或是否需继续抑酸，避免无依据联用。"
+      },
+      {
+        "case_id": 175,
+        "reflection": "患者以消瘦、大便不成型求增重且诊断未明时，复方消化酶仅可考虑用于消化不良并需排除急性肝炎、胆道闭锁；曲美布汀不宜仅因排便异常加入，须核实身高体重、排便性状，明确胃肠运动紊乱或肠易激惹并排除器质性疾病后再评估。"
+      },
+      {
+        "case_id": 176,
+        "reflection": "患者已使用奥美拉唑且当前仍有反酸、餐后腹胀时，再次推荐奥美拉唑前应核查既往疗程与停药间隔；说明书要求连续使用不超过7天、两个月内不得再次服用，症状反复应就医评估，不能仅凭反酸重复抑酸。对餐后腹胀可核查复方消化酶的适应症及胆道闭锁等禁忌。"
+      },
+      {
+        "case_id": 177,
+        "reflection": "患者有烧心、嗳气、胃痛并考虑胃食管反流时，奥美拉唑抑酸有依据，但须核对7天疗程及呕血黑便等警示；莫沙必利对烧心嗳气有适应症，不应因参考未列而否定；胶体果胶铋需先确认慢性胃炎/溃疡及Hp状态、肾功能后再考虑，不能仅凭症状加用。"
+      },
+      {
+        "case_id": 178,
+        "reflection": "患者饭后胃胀、扎痛且排便3—4天一次、未查胃肠时，莫沙必利有功能性消化不良适应症依据；奥美拉唑说明仅覆盖溃疡、反流等，若无反酸烧心、黑便或确诊酸相关病，不应仅因参考推荐加用，应先核查这些条件再决定是否联用或替代。"
+      },
+      {
+        "case_id": 179,
+        "reflection": "患者服用含铋剂后出现黑便且无其他不适时，应先确认黑便为药物所致并排除消化道出血；若仍饱胀反酸，莫沙必利有适应症依据，铝镁化合物可对症但需核查肾功能及电解质，三九胃泰仅在明确湿热、气滞血瘀或浅表性胃炎时考虑。"
+      },
+      {
+        "case_id": 182,
+        "reflection": "患者胃镜示十二指肠炎、慢性非萎缩性胃炎且HP阴性、无烧心反酸时，不宜仅因胃炎或十二指肠炎加奥美拉唑；若考虑PPI须核查溃疡、GERD或食管静脉曲张出血风险。莫沙必利用于上腹胀需评估腹泻，因其可致腹泻。"
+      },
+      {
+        "case_id": 183,
+        "reflection": "患者出现持续约2个月哽噎感并伴呼吸困难、反酸烧心时，不应仅按慢性胃炎推荐奥美拉唑等抑酸药；奥美拉唑说明列明吞咽困难/疼痛时勿用，应先就医评估报警症状，再决定是否抑酸及联用促动力、抗酸药。"
+      },
+      {
+        "case_id": 184,
+        "reflection": "患者出现持续胃痛伴餐后恶心、斯达舒可缓解时，莫沙必利有功能性消化不良适应症依据；但奥美拉唑说明未覆盖浅表性胃炎，不应仅因参考推荐加用或联用，需先核实反酸、溃疡/GERD证据及既往抑酸反应再定。"
+      },
+      {
+        "case_id": 185,
+        "reflection": "患者饮食诱因后急性腹泻且材料未提供脓血便或发热时，蒙脱石有对症止泻依据，但须评估纠正脱水、注意便秘；参考中的黄连素适应症材料不足，不应仅因标签差异加用，若考虑需核查G6PD缺乏、溶血性贫血及妊娠早期限制。"
+      },
+      {
+        "case_id": 187,
+        "reflection": "患者有胃糜烂史且现仅诉类似不适、未明确反酸腹胀或报警症状时，莫沙必利缺乏适应症依据；应先核查具体症状、黑便呕血及肾功能，再决定抑酸或是否考虑胶体果胶铋，避免无指征促动力和铋剂禁忌。"
+      },
+      {
+        "case_id": 188,
+        "reflection": "患者进食较多后出现上腹短暂轻痛、肠鸣和大量口水且无腹泻时，考虑胃炎不宜仅用蒙脱石止泻护胃；应核查腹泻及胃酸相关症状，无腹泻时不支持蒙脱石，胃痛或烧心明显可评估铝镁化合物，奥美拉唑须按说明书适应症使用。"
+      },
+      {
+        "case_id": 189,
+        "reflection": "患者孕早期出现胃胀、嗳气并卧床时，若拟用莫沙必利，因其说明书未提供妊娠安全性，不能据“适合孕妇”直接推荐；应先饮食调整并核查妊娠期用药证据，奥美拉唑孕期慎用且无反酸烧心指征，不因参考标签常规加用。"
+      },
+      {
+        "case_id": 192,
+        "reflection": "患者出现急性腹泻伴腹痛、既往肠炎宁无效时，蒙脱石可作对症止泻；若考虑加用黄连素，应先核实感染性腹泻证据及有无G6PD缺乏、溶血史和妊娠早期等禁忌，并评估脱水，不能仅因参考方案含黄连素而加用。"
+      },
+      {
+        "case_id": 193,
+        "reflection": "功能性消化不良患者以餐后上腹胀为主、排气后缓解时，推荐健胃消食片前应核查其说明书适应症与成分（材料未载明，支持不足）；复方消化酶可用于餐后腹胀等消化不良，但须排除急性肝炎、胆道完全闭锁，且与莫沙必利联用需有依据，不能默认同服。"
+      },
+      {
+        "case_id": 194,
+        "reflection": "患者饮食后频繁呕吐、无腹泻且疑急性胃炎时，蒙脱石主要吸附肠道有害物质，材料不足以支持其缓解呕吐，不宜仅凭此作为止吐主药；需核查有无肠梗阻、胃肠道出血等禁忌后评估甲氧氯普胺止吐，并关注脱水及锥体外系反应。"
+      },
+      {
+        "case_id": 195,
+        "reflection": "患者便秘腹泻交替、排便相关下腹痛且便常规正常时，不应仅以上消化道消化不良选用莫沙必利；其适应证偏上消化道，不良反应含腹泻、腹痛，当前腹泻2～3次/日需谨慎。应先核查有无器质性疾病及肠易激综合征诊断，确认为功能性肠病后再考虑曲美布汀并监测。"
+      },
+      {
+        "case_id": 196,
+        "reflection": "患者频繁腹泻伴腹胀、反酸且已用培菲康时，莫沙必利仅对反流或上腹胀有依据，说明书不良反应含腹泻、腹痛，不应仅因肠道胀气加用；加用前应核查腹泻频次和严重度并监测，加重则停用，益生菌可继续评估。"
+      },
+      {
+        "case_id": 197,
+        "reflection": "患者慢性稀便每日5～6次、无发热且无明显胃部不适时，不宜仅按消化不良选用健胃消食片并以蒙脱石长期对症；应先查便常规等排查器质性疾病，若考虑肠易激或胃肠动力紊乱，可评估曲美布汀，复方消化酶仅在排除胆道梗阻等禁忌后用于消化不良。"
+      },
+      {
+        "case_id": 198,
+        "reflection": "进食辛辣后短时出现脐周痛且已服颠茄片、疗效未记录时，拟用曲美布汀应先核对疼痛是否持续加重及有无器质性急腹症表现；未明确诊断前慎用，不能仅凭疑似胃肠痉挛加药。奥美拉唑对此类急性腹痛材料不足，不宜因标签补用。"
+      },
+      {
+        "case_id": 199,
+        "reflection": "患者进食可疑不新鲜海鲜后出现呕吐、恶心、上腹胀痛且无腹泻时，材料不足以支持仅凭胃部不适加用蒙脱石，应核查腹泻、脱水及便秘风险。若以上腹胀、恶心为主且无梗阻等禁忌，可评估莫沙必利改善症状；奥美拉唑需核对适应症及7天限制，并排除呕血、黑便等警示症状。"
+      },
+      {
+        "case_id": 200,
+        "reflection": "患者有慢性胃炎史，以上腹胀、嗳气、恶心为主且已备吗丁啉时，加莫沙必利前应核查两药是否同类及联用必要性；若考虑复方消化酶改善嗳气腹胀，需先排除急性肝炎和胆道完全闭锁。"
+      },
+      {
+        "case_id": 202,
+        "reflection": "患者饭后频繁反流、偶反酸并有胃炎时，莫沙必利有胃食管反流适应症但属促动力剂；应核查反流是否以酸为主及是否需奥美拉唑抑酸，按症状严重度决定是否联用，并注意奥美拉唑疗程限制。"
+      },
+      {
+        "case_id": 204,
+        "reflection": "当患者饭后右上腹隐痛、排气后缓解且未做胃镜时，拟诊胃炎或功能性胃肠病不能直接支持莫沙必利；该药需功能性消化不良伴早饱、上腹胀等说明书症状，应先核查这些症状及胃镜，缺如则不宜仅凭排气后缓解选用。"
+      },
+      {
+        "case_id": 205,
+        "reflection": "患者有浅表性胃炎伴糜烂、烧心胃痛且食欲缺乏、口淡，拟用奥美拉唑和莫沙必利时，应核查复方消化酶适应症及急性肝炎、胆道闭锁禁忌后考虑加用，以改善食欲；铝镁化合物对烧心胃痛有依据，但需核对严重心肾功能不全等限制。"
+      },
+      {
+        "case_id": 206,
+        "reflection": "患者有慢性浅表性胃炎，轻度消化不良以食欲下降和餐后不适为主，无明显胃痛、胃胀、反酸烧心时，莫沙必利缺少其说明所需的早饱、上腹胀、嗳气、恶心等动力症状支持；应先核查这些症状，若以食欲缺乏、消化不良为主且需排除急性肝炎或胆道完全闭锁，可考虑复方消化酶。"
+      },
+      {
+        "case_id": 207,
+        "reflection": "患者慢性胃炎以胃部刺痛、饭后加重为主，已用奥美拉唑及四维臭铵而疗效不佳时，须先核查有无早饱、腹胀等动力障碍，无则材料不支持用莫沙必利针对瘀血阻络；可评估三九胃泰行气活血止痛，并确认证候及胃炎类型。"
+      },
+      {
+        "case_id": 208,
+        "reflection": "患者有慢性糜烂性胃炎并出现胃食管反流相关咽喉异物感、打嗝、胃难受时，氯雷他定缺乏过敏性鼻炎或荨麻疹证据，不宜作为反流性咽喉炎常规药；应核查过敏史，并评估奥美拉唑抑酸及康复新液护胃的适应症与禁忌。"
+      },
+      {
+        "case_id": 209,
+        "reflection": "患者有慢性胃炎史，出现进食后胃痛、饥饿不适、偶反酸时，莫沙必利因缺乏腹胀、早饱等动力症状支持不足；应核查有无溃疡或胃食管反流等抑酸指征，再决定是否用奥美拉唑，且不得默认与莫沙必利联用。"
+      },
+      {
+        "case_id": 210,
+        "reflection": "患者出现持续嗳气伴消化不良，且已用促动力药后嗳气未缓解、停阿嗪米特后便秘、未行胃镜时，可核查曲美布汀：其说明书适应症含嗳气、腹胀、便秘，但须先排除器质性或占位性消化道疾病；无溃疡或反流证据时不宜默认加奥美拉唑。"
+      },
+      {
+        "case_id": 211,
+        "reflection": "哺乳期患者以餐后饱胀、嗳气、消化不良为主，大便正常且无反酸烧心时，不应仅凭胃炎加用蒙脱石；应核查有无腹泻或毒素吸附指征，无则不推荐，并评估复方消化酶的适应症、胆道闭锁等禁忌及哺乳期资料。"
+      },
+      {
+        "case_id": 213,
+        "reflection": "患者出现餐后胃隐痛、嗳气后缓解，且饮食不规律、无腹泻腹胀时，莫沙必利有促动力依据；健胃消食片仅作助消化推荐但材料未给适应症/相互作用，应核对高龄体弱及合并用药后再决定；益生菌仅在明确消化不良或肠内异常发酵时考虑，无腹泻腹胀不强制加用。"
+      },
+      {
+        "case_id": 214,
+        "reflection": "患者出现急性腹泻、腹痛、排便不净且无发热时，若拟按消化不良选药，应先核查莫沙必利：其适应症主要覆盖上消化道症状且不良反应含腹泻腹痛，不宜仅凭消化不良推荐；如评估曲美布汀改善腹泻腹痛，须先明确诊断并排除器质性消化道疾病。"
+      },
+      {
+        "case_id": 215,
+        "reflection": "患者有反流相关咽喉堵闷、咽口水不适而无鼻痒喷嚏等过敏表现时，不宜仅凭咽喉不适选用氯雷他定；应先查喉镜并针对胃食管反流治疗，只有合并过敏性鼻炎或荨麻疹等适应症时才考虑抗组胺药。"
+      },
+      {
+        "case_id": 217,
+        "reflection": "患者慢性萎缩性胃炎出现餐后胃痛胃胀、频繁呕吐时，若考虑山莨菪碱解痉，须先排除幽门梗阻及急腹症，并核查其与莫沙必利的联用限制；健胃消食片说明书缺适应症，不能仅凭“促消化”确证推荐，应核对正式适应症并明确呕吐病因。"
+      },
+      {
+        "case_id": 218,
+        "reflection": "长期饮酒者出现乏力、纳差、卧床且既往胃出血，未查肝功和胃镜时，不应仅凭饮酒史推荐谷胱甘肽、水飞蓟素保肝；应先查肝功确认肝损伤，查胃镜评估胃黏膜病变，胃酸相关症状时再评估奥美拉唑、铝镁化合物，并强调戒酒及水飞蓟素忌酒。"
+      },
+      {
+        "case_id": 219,
+        "reflection": "患者餐后饱胀、早饱伴烧心并拟诊胃食管反流时，复方消化酶可辅助改善消化不良，但须先核查急性肝炎、胆道完全闭锁等禁忌，且不能据此替代奥美拉唑抑酸或莫沙必利促动力；奥美拉唑应按说明限用不超过7天并评估长期用药风险。"
+      },
+      {
+        "case_id": 220,
+        "reflection": "患者饭后胃痛、左上腹胀痛拟诊胃炎时，奥美拉唑抑酸需限7天并核查呕血、黑便等报警症状；上腹胀突出可核查莫沙必利，胃酸相关胃痛可核查铝镁化合物，但急腹症未排除前不宜自行使用。"
+      },
+      {
+        "case_id": 221,
+        "reflection": "患者出现胃部梗胀伴稀便且无反酸烧心时，拟用莫沙必利前应核查腹泻频次及动力障碍证据，因该药不良反应含腹泻、可能加重症状，使用中需监测大便；奥美拉唑须有溃疡或反流等指征，不能仅因胃部不适加用。"
+      },
+      {
+        "case_id": 222,
+        "reflection": "患者出现胃部不适、呕吐及咽部异物感，拟诊胃炎、咽炎且无明确过敏表现时，不应仅因咽部不适选用氯雷他定；该药适应症为过敏性鼻炎、荨麻疹等，应核查过敏史及咽炎病因，非过敏性咽炎不用其缓解异物感，确需抗过敏时再评估。"
+      },
+      {
+        "case_id": 223,
+        "reflection": "当患者仅有饭后胃咸感持续一年、未就医检查且无早饱腹胀腹泻等记载时，仅凭疑似胃炎加用莫沙必利证据不足；应先核查消化不良、反流及腹泻症状并排除器质病，再按莫沙必利或益生菌适应症决定是否使用。"
+      },
+      {
+        "case_id": 224,
+        "reflection": "患者饮酒后呕吐少量淡血且有浅表性胃炎时，不应自行推荐奥美拉唑或铝镁化合物；奥美拉唑说明书明确呕血时勿使用并应就医，铝镁化合物对呕血证据不足且急腹症需先就诊。应先急诊评估出血，再评估胶体果胶铋等黏膜保护剂是否适用。"
+      },
+      {
+        "case_id": 225,
+        "reflection": "患者反复反胃想吐，若伴消化不良而拟加助消化药，健胃消食片说明未提供适应症，不能据此支持；复方消化酶说明覆盖恶心、消化不良，可考虑但须先排除急性肝炎及胆道完全闭锁，并评估与莫沙必利、奥美拉唑联用必要性。"
+      },
+      {
+        "case_id": 226,
+        "reflection": "患者幽门螺杆菌检测阴性、诊断为慢性浅表性胃炎伴腹胀时，医生依据“幽门螺杆菌阳性”与检测不符；应核对奥美拉唑抑酸适应症，益生菌依据不足，三九胃泰可按湿热气滞血瘀证评估，莫沙必利结合腹胀核查适应症。"
+      },
+      {
+        "case_id": 227,
+        "reflection": "进食油炸食物后出现胃部不适、反酸、打嗝且无腹胀呕吐时，若考虑健胃消食片，须先核实其说明书适应症是否覆盖反酸；反酸或烧灼突出时，应评估短期奥美拉唑是否符合适应症及7天限制，不能仅凭标签差异直接联用或替换。"
+      },
+      {
+        "case_id": 228,
+        "reflection": "患者上腹疼痛与体位、用力相关且无压痛，仅有腹泻后胃痛史时，不应仅凭疑似胃炎直接推荐奥美拉唑；其说明书未列胃炎且缺胃酸相关证据。应先核查反酸、烧心及急腹症警示，若为慢性胃炎相关胃痛可考虑铝镁化合物对症。"
+      },
+      {
+        "case_id": 229,
+        "reflection": "患者有浅表性胃炎、餐后不适且已用PPI和西沙必利疗效不佳时，重复同类奥美拉唑/莫沙必利依据不足；应核查既往药名、疗程和依从性，若仍以胃酸相关症状为主可评估铝镁化合物，并继续排查心肺。"
+      },
+      {
+        "case_id": 230,
+        "reflection": "患者有反流、烧心并诉咽部卡感或进食不畅时，不能只凭症状按胃炎直接开奥美拉唑；应先核查是否吞咽困难、呕血或黑便，因奥美拉唑说明书将吞咽困难/疼痛列为请勿使用并需就医的情形；无上述警报再考虑抑酸与促动力治疗。"
+      },
+      {
+        "case_id": 231,
+        "reflection": "患者出现胆汁反流胃炎症状、已使用莫沙必利半个月仍上腹痛，且近期用过奥美拉唑和雷贝拉唑时，再单荐莫沙必利依据不足；应核查促动力药剂量疗程与疗效，并按奥美拉唑“不超过7天、两个月内不得再次服用”的限制确认PPI间隔后再决定加用或换药。"
+      },
+      {
+        "case_id": 234,
+        "reflection": "持续嗳气、排气增多且上消化道钡餐、C13及复查肠镜无异常、考虑胃肠功能紊乱时，莫沙必利有适应证依据；健胃消食片说明未载明适应症，材料不足以支持其与莫沙必利联用，应核查联用必要性；排气突出时可核查益生菌用于肠内异常发酵的依据。"
+      },
+      {
+        "case_id": 236,
+        "reflection": "患者反复左上腹阵发胀痛、便中粘稠血块且大便不成形时，莫沙必利缓解腹胀的依据不足，不宜仅按疑似胃炎使用；应先检查排除消化道出血或器质病变，并核查幽门螺杆菌、肾功能及疗程后，再评估胶体果胶铋等胃炎/溃疡用药。"
+      },
+      {
+        "case_id": 237,
+        "reflection": "患者以恶心、腹胀嗳气、排便困难为主，拟诊胃炎或胃肠功能紊乱并考虑莫沙必利时，应核查反酸、烧心或上腹痛等奥美拉唑抑酸指征；未记录时不宜仅凭胃炎标签加用（其说明未列功能性消化不良），益生菌需明确菌种及便秘依据。"
+      },
+      {
+        "case_id": 238,
+        "reflection": "患者进食油腻后出现急性胃痛、反酸且无腹胀早饱时，铝镁化合物可对症中和胃酸；莫沙必利促动力依据不足，宜核查有无腹胀、早饱、恶心或反流等适应症，否则不优先加用；反酸明显可评估奥美拉唑抑酸，但须先排除呕血黑便、吞咽疼痛并限短期使用。"
+      },
+      {
+        "case_id": 239,
+        "reflection": "慢性浅表性胃炎伴胆汁反流患儿已用奥美拉唑近4周且症状改善、无停药指征时，若拟加莫沙必利和益生菌而未列奥美拉唑，应核查奥美拉唑是否需按4-8周疗程继续及儿童长期使用限制；益生菌须有消化不良或菌群失调依据，不能替代抑酸。"
+      },
+      {
+        "case_id": 240,
+        "reflection": "患者有肠炎后肠易激综合征表现，以腹泻、排便后腹痛、左腹隐痛为主，且已用益生菌好转时，莫沙必利作为促动力药说明未列肠易激，并可致腹泻、腹痛，不宜据此加用；应核查是否腹泻为主及有无器质性疾病，再评估具肠易激适应症的曲美布汀，并保留益生菌。"
+      },
+      {
+        "case_id": 241,
+        "reflection": "患者长期上腹鸣、间断烧痛伴偶反酸，诊断消化不良伴反流时，奥美拉唑针对反流；莫沙必利有功能性消化不良和反流适应症，但应核查是否以早饱、腹胀、嗳气等动力障碍为主，而非仅凭上腹鸣使用。复方消化酶可改善消化不良相关腹部不适，需排除急性肝炎及胆道完全闭锁。"
+      },
+      {
+        "case_id": 242,
+        "reflection": "军训后持续8小时恶心、呕吐并自述中暑时，不应仅凭“胃炎”用铝镁化合物止恶心；其说明用于慢性胃炎/胃酸相关不适且急腹症需先就诊。应核查中暑、急腹症及酸相关症状，再决定抑酸药；奥美拉唑无相应依据不常规加用。"
+      },
+      {
+        "case_id": 243,
+        "reflection": "患者妊娠4个多月且既往胃炎、出现夜间胃痛反酸呕吐时，蒙脱石说明书未涵盖反酸或呕吐，缺乏孕期疗效依据，不宜作为抑酸推荐；应核查胃食管反流或溃疡诊断及奥美拉唑孕期慎用条件，由医生评估是否使用。"
+      },
+      {
+        "case_id": 245,
+        "reflection": "患者持续胃痛、夜间加重且进食无缓解、未行胃镜，又未明确嗳气早饱腹胀等动力障碍时，莫沙必利缺乏使用依据，应先核查上述症状及胃镜；无功能性消化不良或反流证据不宜联用，奥美拉唑经验性抑酸7天未缓解需就医。"
+      },
+      {
+        "case_id": 246,
+        "reflection": "饮酒后出现反流、恶心并疑胃黏膜损伤，且已用达喜、胶体果胶铋者，加铝镁化合物前应核查抗酸药重复及间隔；症状持续或需抑酸时，可评估奥美拉唑等PPI而非仅叠加抗酸药，并先排除呕血、黑便等报警征象。"
+      },
+      {
+        "case_id": 248,
+        "reflection": "患者有胃镜诊断胃糜烂、夜间反酸胃痛并伴鲜血便时，拟加胶体果胶铋前应核查肾功能和便血来源，并告知其可致黑便、可能混淆出血判断；莫沙必利对反流胃胀有适应症依据，仅属方案差异，不应仅因未列参考方案而否定。"
+      },
+      {
+        "case_id": 249,
+        "reflection": "胃镜确诊胃溃疡、贲门炎时，奥美拉唑有适应症依据；胶体果胶铋可用于消化性溃疡，但须核查肾功能不全、其他铋剂及长期大剂量限制。若考虑联用康复新液，应先核查哮喘、孕妇及过敏禁忌，再决定是否加入。"
+      },
+      {
+        "case_id": 255,
+        "reflection": "患者出现持续胃痛数日伴反酸、烧心、明显胃胀时，仅选莫沙必利促动力虽可缓解腹胀，但应核查有无呕血、黑便、吞咽困难等报警症状，并评估是否需加用奥美拉唑抑酸及疗程限制。"
+      },
+      {
+        "case_id": 256,
+        "reflection": "患者长期腹胀、早饱、恶心并近期稀便时，莫沙必利虽可用于功能性消化不良，但说明书列腹泻、腹痛不良反应，应核查腹泻程度及是否暂缓；无烧心反酸或溃疡证据时，奥美拉唑不宜仅凭腹胀加入，三九胃泰需确认湿热气滞证型。"
+      },
+      {
+        "case_id": 257,
+        "reflection": "患者出现持续1个月反胃、嗳气后缓解且未明确胃炎或反流病时，若处方药名（膜固思达）与推荐依据（莫沙必利）不一致，应先核对最终用药；莫沙必利可对症，奥美拉唑仅在有反酸/烧心或溃疡证据时考虑，不能因参考标签直接联用。"
+      },
+      {
+        "case_id": 258,
+        "reflection": "患者进食柿子、酸奶后仅轻微胃痛，无反酸烧心嗳气及胃病史时，铝镁化合物缺乏酸相关症状支持，应先热敷观察并核查急腹症警示；三九胃泰须有湿热气滞血瘀证候依据，不能仅因胃痛选用。"
+      },
+      {
+        "case_id": 259,
+        "reflection": "患者出现慢性嗳气、头痛恶心但无明确反酸胃痛时，莫沙必利可改善嗳气恶心；谷氨酰胺说明无胃肠功能紊乱适应症，材料不足以支持联用。奥美拉唑需先核查反酸烧心或溃疡报警症状再决定，不能仅凭参考标签加入。"
+      },
+      {
+        "case_id": 261,
+        "reflection": "患者反复胃痛、硬食后胀气呕吐，胃镜示普通胃炎（自诉出血点）时，莫沙必利与症状相符；奥美拉唑应先核实糜烂、出血或溃疡指征。健胃消食片缺适应症及联用资料，不宜仅凭助消化加入；谷氨酰胺缺适应症资料，不能因参考列入而加用，应核查胃黏膜保护指征。"
+      },
+      {
+        "case_id": 263,
+        "reflection": "萎缩性胃炎C2患者已用铋剂、匹维溴铵、泮托拉唑后仍胃微痛，若仅有疼痛而无早饱、腹胀、嗳气等动力障碍，不应仅凭胃不适选莫沙必利；先核查功能性消化不良/GERD证据及报警征象，否则不推荐。"
+      },
+      {
+        "case_id": 264,
+        "reflection": "患者反酸烧心、恶心且偶有腹泻，并已用奥美拉唑而本次无效时，莫沙必利可改善恶心但可能致腹泻，应评估腹泻风险；铝镁化合物可缓解烧心，但须先排除急腹症并核查严重心肾功能不全或高镁高钙，再决定是否加用。"
+      },
+      {
+        "case_id": 265,
+        "reflection": "患者出现餐后上腹胀、早饱并便秘且拟诊功能性消化不良时，莫沙必利有适应症依据；若需加助消化药，应核查复方消化酶的适应症与禁忌，急性肝炎、胆道完全闭锁者禁用；健胃消食片材料未载明适应症，不能仅凭助消化经验替代。"
+      },
+      {
+        "case_id": 266,
+        "reflection": "患者出现嗳气、腹胀并拟诊慢性胃炎时，莫沙必利有改善动力症状的依据，但不应据此将不明原因呼吸困难归因胃病；需核查胃镜及反流/溃疡证据，奥美拉唑仅在胃食管反流病或溃疡等抑酸适应症明确时考虑，不能仅因标签差异加入。"
+      },
+      {
+        "case_id": 267,
+        "reflection": "患者饭后腹鸣、晨起反酸且常不吃晚餐时，诊断慢性胃炎伴消化不良，应核查莫沙必利是否有早饱、上腹胀或嗳气等适应症状；复方消化酶可考虑用于消化不良，但须先排除急性肝炎及胆道闭锁。"
+      },
+      {
+        "case_id": 269,
+        "reflection": "妊娠7周出现严重呕吐、进食即吐时，蒙脱石说明主要针对消化道致病因子及腹泻，不能据此作为妊娠剧吐的主要处理；应核查脱水并选择有妊娠安全性证据的止吐/补液方案。复方消化酶虽可改善消化不良，但妊娠安全性及剧吐适用性未明，不能仅因参考推荐直接替代或加用。"
+      },
+      {
+        "case_id": 270,
+        "reflection": "患者出现饭后烧胃、打嗝并气管发痒，考虑食管反流且已用莫沙必利时，应核查气管发痒有无过敏证据；无过敏证据时氯雷他定材料不足，不宜据此加用，奥美拉唑抑酸可考虑，莫沙必利应按反流适应症评估继续或联用。"
+      },
+      {
+        "case_id": 271,
+        "reflection": "患者出现持续数周腹泻、排气增多、肠鸣且疑肠炎时，若拟用莫沙必利改善消化不良，应先确认是否腹泻为主并评估其促动力及腹泻不良反应加重症状的风险；同时核查益生菌用于肠炎、肠内异常发酵的适用性。"
+      },
+      {
+        "case_id": 273,
+        "reflection": "患者反复饭前胃痛、进食缓解，近期辛辣饮酒后复发且无早饱腹胀等动力症状时，莫沙必利支持不足，应核查嗳气、早饱、腹胀等症状后再定；可结合舌脉评估三九胃泰辨证用于气滞血瘀胃痛；奥美拉唑需先核查消化性溃疡证据及7天疗程、两个月内重复用药限制。"
+      },
+      {
+        "case_id": 274,
+        "reflection": "患者仅诉慢性胃炎反复、无早饱腹胀等动力障碍及反流/溃疡证据时，不宜默认联用莫沙必利和奥美拉唑；应核查具体症状、既往抑酸药及疗程，奥美拉唑适应症和7天限制不匹配时，可评估铝镁化合物或辨证三九胃泰，而非直接加用。"
+      },
+      {
+        "case_id": 275,
+        "reflection": "餐后恶心呕吐伴不痛不痒红痘时，不能仅凭红痘认定过敏并直接加用氯雷他定；应核查皮疹是否瘙痒/荨麻疹样及妊娠状态（妊娠慎用），证据不足先不加。若以止吐为目标，可评估甲氧氯普胺，但须排除胃肠道出血、机械性肠梗阻、癫痫、嗜铬细胞瘤等禁忌并监测锥体外系反应。"
+      },
+      {
+        "case_id": 277,
+        "reflection": "患者胃部烧灼闷痛伴呕吐、拟诊胃炎时，奥美拉唑说明书未列普通胃炎且限用7天，应核实适应症和疗程；莫沙必利仅在功能性消化不良等伴胃灼热、恶心呕吐时有依据，需核对是否符合；益生菌须核实腹泻、肠炎或消化不良指征，不能仅凭参考列表加入。"
+      },
+      {
+        "case_id": 278,
+        "reflection": "患者餐后上腹隐痛伴轻度恶心、疑似胃炎而症状未明确支持功能性消化不良时，加用莫沙必利前应核对说明书适应症；若缺乏腹胀、早饱、反酸等依据，不应仅以促动力加入。若见脘腹隐痛、恶心等证候，可评估三九胃泰，但须符合其证候，不能仅因说明书列有胃炎适应症即加用。"
+      },
+      {
+        "case_id": 281,
+        "reflection": "患者进食后出现急性胃痛、胃胀伴恶心且按压痛加重时，推荐铝镁化合物前应先排查急腹症并就医明确诊断，因说明书要求急腹症诊断明确后再用药；奥美拉唑说明书未列急性胃炎且需排除呕血、黑便等，未排除前不宜直接按急性胃炎自行用药。"
+      },
+      {
+        "case_id": 282,
+        "reflection": "患者反复烧心或胃痛、冷饮诱发且有反流史但无恶心、早饱、腹胀时，莫沙必利促动力依据不足，应核查胃食管反流或功能性消化不良诊断及动力症状；康复新液须胃镜证实溃疡或黏膜损伤且无哮喘等禁忌，不宜仅凭参考标签加入。"
+      },
+      {
+        "case_id": 283,
+        "reflection": "患者新发餐后3-4小时胃痛、病因未明时，推荐铝镁化合物前应核查剧烈腹痛、呕血黑便等急腹症/报警表现；若存在应先就医明确诊断，不直接服药，因说明书要求急腹症诊断明确后再决定。奥美拉唑仅宜短期使用，7天未缓解需就医。"
+      },
+      {
+        "case_id": 284,
+        "reflection": "青少年短期胃痛、恶心且无报警症状时，不能仅凭症状诊断慢性胃炎即用奥美拉唑；其说明适应症为溃疡、反流等，儿童需医师指导且连续使用不超7天。应先核查溃疡/反流证据，并评估健胃消食片资料未列适应症、康复新液是否具备胃痛出血或溃疡依据。"
+      },
+      {
+        "case_id": 285,
+        "reflection": "患者有慢性浅表性胃炎，出现嗳气、恶心、胸骨刺痛且已服奥美拉唑仍隐痛时，莫沙必利可改善功能性消化不良，但不应替代反流或器质病变评估；应核查奥美拉唑剂量疗程和依从性，并结合反酸及胃镜复查结果决定是否加用莫沙必利或调整抑酸。"
+      },
+      {
+        "case_id": 287,
+        "reflection": "老年患者呕吐后上腹痛、无腹泻且大便次数正常、精神差提示脱水时，不宜仅凭大便颜色异常选用蒙脱石；应核查腹泻与脱水并优先补液。奥美拉唑用于胃炎缺乏明确适应症依据，需核实溃疡或反流证据及呕血、黑便等禁忌后再决定是否加用。"
+      },
+      {
+        "case_id": 288,
+        "reflection": "患者出现反流、咽痛、腹胀、嗳气且已用达喜时，若莫沙必利用于功能性消化不良或反流有依据，应核查是否需加用奥美拉唑抑酸；奥美拉唑适用于胃食管反流病，但需先排除吞咽困难、呕血、黑便并限用7天，不能仅因参考标签不同判定莫沙必利错误。"
+      },
+      {
+        "case_id": 289,
+        "reflection": "患者呕吐后清嗓见鲜红色血丝、近期感冒并下腹隐痛时，复方甲氧那明胶囊无明确咳嗽依据，且活动性消化性溃疡禁用、与感冒/抗组胺药合用受限；应先核查消化道出血及已用感冒药，胃部症状可评估奥美拉唑，但呕血黑便须先就医。"
+      },
+      {
+        "case_id": 290,
+        "reflection": "患者空腹饮咖啡后腹泻、晨起反酸恶心并揉腹打嗝时，莫沙必利可按胃动力不足选用；加铝镁化合物前需评估其致软便/腹泻风险，反酸明显者应核查反流或胃炎诊断、报警症状及7天疗程限制后再考虑奥美拉唑。"
+      },
+      {
+        "case_id": 295,
+        "reflection": "患者胃痛打嗝伴大便不成型或豆腐渣样时，莫沙必利虽可促动力，但其不良反应含腹泻，且适应症偏功能性消化不良伴嗳气早饱，便溏明显者应核查排便次数并慎用；疑似溃疡或糜烂需先查胃镜和幽门螺杆菌，再评估奥美拉唑抑酸，不宜仅凭打嗝加用促动力药。"
+      },
+      {
+        "case_id": 299,
+        "reflection": "患者长期餐后上腹胀、无胃痛及烧心反流时，莫沙必利有适应症依据；健胃消食片说明书缺适应症信息，启用前应核查其适用性及与现有用药关系；奥美拉唑无溃疡或反流证据，不应仅因参考标签加用。"
+      },
+      {
+        "case_id": 300,
+        "reflection": "患者出现胃灼热、烧心、嗳气且拟胆汁反流性胃炎时，莫沙必利有促动力适应症依据；若考虑奥美拉唑，应核查是否符合胃食管反流病或溃疡，排除吞咽困难、呕血黑便，并限定短期7天，联用前需评估适应症。"
+      },
+      {
+        "case_id": 301,
+        "reflection": "患者有胃痛、恶心、偶反酸且自述奥美拉唑疗效不佳时，不应仅据症状重复推荐奥美拉唑；应核查其剂量疗程（说明书限7天）及胃镜/报警症状，再评估莫沙必利是否适用于功能性消化不良或反流。"
+      },
+      {
+        "case_id": 304,
+        "reflection": "患者间断反酸恶心1个月、饮冰咖啡后加重时，奥美拉唑抑酸须限7天内，先核查吞咽困难、呕血、黑便等报警症状并推动胃镜；症状反复应就医而非长期自服。反酸恶心虽合三九胃泰适应症，但缺证候信息，不宜据标签直接替代或联用。"
+      },
+      {
+        "case_id": 305,
+        "reflection": "患者出现饮食相关上腹胀伴麻木、已使用奥美拉唑且疗效不明时，莫沙必利有促动力依据；应核查有无反酸烧心、黑便等警示、饮食诱因及奥美拉唑反应，再决定单用莫沙必利或联用抑酸，并关注麻木感变化，不能仅因参考标签加用奥美拉唑。"
+      },
+      {
+        "case_id": 306,
+        "reflection": "患者以咽部不适、嗳气及餐后胃胀为主且未确认反酸/烧心时，奥美拉唑用于GERD的证据不足；应先追问反酸烧心、夜间呛咳及报警症状，确认反流后再用PPI，未确认时以莫沙必利对症，并核查健胃消食片的适应症，不能默认联用。"
+      },
+      {
+        "case_id": 308,
+        "reflection": "患者有胃炎肠化并出现上吐下泻、早饱腹胀时，拟加奥美拉唑前应核查是否存在胃酸相关诊断或症状及消化道出血、急腹症征象；其说明书适应症未含慢性胃炎，材料未明确胃酸过多，不宜仅凭胃部不适选用。"
+      },
+      {
+        "case_id": 309,
+        "reflection": "患者完成幽门螺杆菌四联14天、无胃胀胃痛而仅嗳气时，莫沙必利有促动力适应症，但仍应核查嗳气是否持续及有无梗阻、过敏，并评估是否需对症用药；健胃消食片说明缺适应症，不宜据此主张替代。"
+      },
+      {
+        "case_id": 310,
+        "reflection": "患者慢性胃炎出现胃胀、胃凉，已用胃炎药后异物感减轻而胃胀突出时，选用中成药应先核对说明书适应症与证候：健胃消食片说明未载适应症，不能仅凭“缓解胃胀胃凉”推荐；若考虑三九胃泰，须核实是否属湿热内蕴或气滞血瘀之饱胀，胃凉者先辨寒热，避免与现用药盲目联用。"
+      },
+      {
+        "case_id": 311,
+        "reflection": "患者有慢性萎缩性胃窦炎和十二指肠球炎，已用雷贝拉唑半个月仍胸下痛、轧感时，莫沙必利仅在明确腹胀、早饱等动力障碍时考虑；不应仅因标签差异将奥美拉唑与雷贝拉唑联用或直接替换，需先核查依从性、剂量疗程、幽门螺杆菌及报警症状。"
+      },
+      {
+        "case_id": 312,
+        "reflection": "患者有胃溃疡、食管炎和腹胀痛，且已断断续续服用莫沙必利、奥美拉唑、铝碳酸镁时，医生再推荐莫沙必利前应核实是否为继续原药及规律用药，避免把已用药当新增；同时康复新液可用于胃十二指肠溃疡，需评估过敏、哮喘、妊娠等禁忌后考虑。"
+      },
+      {
+        "case_id": 313,
+        "reflection": "患者有胃溃疡、糜烂性胃炎并出现夜间胃痛、胃胀且已选用奥美拉唑时，莫沙必利仅针对动力症状，不能单独替代抑酸/抗酸；应核查酸相关疼痛是否需联用铝镁化合物等抗酸药，并结合溃疡史评估，避免把促动力药当作止痛主药。"
+      },
+      {
+        "case_id": 314,
+        "reflection": "患者仅有胃胀、消化不良，烧心无、反酸仅少有且未做胃镜时，不应仅凭胃胀加奥美拉唑；应核查反酸烧心及酸相关诊断，缺乏依据时以消化酶或促动力对症，并因莫沙必利可能腹泻而监测排便。"
+      },
+      {
+        "case_id": 315,
+        "reflection": "患者受凉后频繁腹泻、胃隐痛且无发热时，蒙脱石可对症止泻并需纠正脱水；奥美拉唑对急性肠胃炎胃隐痛缺乏适应症支持，应核查溃疡/反流或胃酸症状后再用；拟加黄连素需核查感染证据及溶血性贫血/G6PD缺乏禁忌。"
+      },
+      {
+        "case_id": 316,
+        "reflection": "患者饭后嗳气1～2周、未检查治疗时，莫沙必利适应症覆盖嗳气；健胃消食片说明未载明适应症及相互作用，无法确认联用依据，应核对正式说明书及联用必要性后再决定是否加用；益生菌仅在伴肠内异常发酵或消化不良时考虑，不能仅凭标签差异加入。"
+      },
+      {
+        "case_id": 317,
+        "reflection": "患者仅有胃炎病史和反复打嗝、未用抑酸药时，莫沙必利和奥美拉唑说明书均未直接覆盖单纯打嗝；应核查反酸、上腹痛、早饱等表现，若符合功能性消化不良可考虑莫沙必利，若有反流或溃疡证据再考虑奥美拉唑。"
+      },
+      {
+        "case_id": 318,
+        "reflection": "患者餐后上腹胀、嗳气，且已用莫沙必利联合奥美拉唑、达喜一周效果不佳时，再次推荐莫沙必利前应核查剂量、疗程及是否重复；可评估复方消化酶改善餐后胀、嗳气，但须排除胆道完全闭锁等禁忌，并考虑胃镜。"
+      },
+      {
+        "case_id": 319,
+        "reflection": "患者短期餐后恶心、呕吐伴胃咕噜、无明确反酸腹痛时，若拟诊急性胃炎，奥美拉唑须先核查有无溃疡或胃食管反流等适应症，不能仅因参考方案加用；健胃消食片说明书未载明适应症，应核实其助消化依据及与莫沙必利联用的必要性。"
+      },
+      {
+        "case_id": 320,
+        "reflection": "患者慢性非萎缩性胃炎和十二指肠球炎伴饭后腹胀、排气后减轻，使用莫沙必利仅短暂缓解时，可核查复方消化酶用于餐后腹胀、早饱等消化不良的适应症，排除急性肝炎和胆道完全闭锁后考虑加用；莫沙必利有促动力依据，不因参考未列而否定。"
+      },
+      {
+        "case_id": 322,
+        "reflection": "患者饮酒后出现急性胃炎伴恶心、呕吐、胃胀时，铝镁化合物仅缓解胃酸相关不适，不能覆盖恶心呕吐；若拟用奥美拉唑，应先核对说明书未列急性胃炎、呕血黑便等报警症状、7天疗程及与奈非那韦/利匹韦林合用限制，再决定是否加入。"
+      },
+      {
+        "case_id": 323,
+        "reflection": "患者餐后出现上腹阵发性中等痛伴嗳气、无腹泻呕吐时，莫沙必利可因嗳气考虑，但需监测腹痛腹泻；奥美拉唑说明书适应症不含非特异性胃炎，应限7天并核查呕血黑便及疗效，未缓解行肝胆彩超；复方消化酶可考虑改善餐后消化不良和嗳气，但须先排除急性肝炎及胆道完全闭锁。"
+      },
+      {
+        "case_id": 324,
+        "reflection": "患者胃镜示胃炎伴糜烂、偶发胃痛但无早饱、腹胀、嗳气、恶心等动力症状时，莫沙必利缺乏使用依据，应先核查有无功能性消化不良表现再决定；奥美拉唑需核对适应症及不超过7天限制，健胃消食片因说明书缺适应症不宜仅凭参考标签加入。"
+      },
+      {
+        "case_id": 325,
+        "reflection": "患者饮酒辛辣后胃部不适伴恶心、拟诊胃炎而溃疡、反流或幽门螺杆菌未证实时，奥美拉唑需核对适应症及7天疗程，莫沙必利仅按恶心症状权衡；胶体果胶铋应先查幽门螺杆菌和肾功能，不宜直接加用。"
+      },
+      {
+        "case_id": 326,
+        "reflection": "进食生冷油腻后出现上腹胀堵、纳差时，莫沙必利有促动力依据；健胃消食片说明书未载适应症和剂量，不能确认适用，应核实其适应证并嘱忌生冷油腻。奥美拉唑说明书适应证未含急性胃炎或功能性消化不良，若拟抑酸需先确认诊断并询问、排除吞咽困难、呕血或黑便。"
+      },
+      {
+        "case_id": 328,
+        "reflection": "患者有慢性胃炎、胆汁反流及烧心时，铝镁化合物缓解烧心符合适应症，不应仅因参考为胶体果胶铋而否定；若拟用胶体果胶铋，需核查胃镜类型、肾功能及是否长期或联用其他铋剂，再决定黏膜保护剂选择。"
+      },
+      {
+        "case_id": 329,
+        "reflection": "患者因糜烂性胃炎询问康复新液时，推荐前应核查哮喘、妊娠及过敏史（说明书禁用），并说明其说明书未明确该适应症、仅可作辅助，需评估是否另需抑酸；若考虑奥美拉唑，应核对适应症、7天疗程及禁忌。"
+      },
+      {
+        "case_id": 330,
+        "reflection": "患者饮酒后反复胃隐痛、无典型反酸时，奥美拉唑说明书未列慢性胃炎且限用7天，材料不足以支持其常规用于酒精刺激胃痛；应核查胃酸相关适应症与疗程，铝镁化合物可对症但须先排除急腹症并核对心肾功能及高镁高钙限制。"
+      },
+      {
+        "case_id": 331,
+        "reflection": "患者餐后嗳气、上腹不适伴胸正中痛时，胸痛未排除心源性前不宜仅归因反流；健胃消食片材料未提供适应症及与温胃舒联用资料，不能仅凭助消化印象选用；若考虑莫沙必利，须核实其嗳气/反流适应症、过敏及腹泻腹痛风险。"
+      },
+      {
+        "case_id": 332,
+        "reflection": "患者进食油腻后间断上腹痛6天、无反酸呕吐腹泻时，仅凭“胃炎可能”处方莫沙必利+奥美拉唑证据不足：莫沙必利需有功能性消化不良相关症状，奥美拉唑说明书未列胃炎且连续用药不超7天；应先查报警症状、Hp和胃镜，再评估是否需铋剂。"
+      },
+      {
+        "case_id": 333,
+        "reflection": "患者出现长期餐后早饱、腹胀、嗳气并需催吐排气，且既往多潘立酮效果不佳时，莫沙必利有适应症依据；若考虑甲氧氯普胺，须先排除胃肠道出血、机械性肠梗阻或穿孔、癫痫及嗜铬细胞瘤，并监测锥体外系反应，不能仅凭标签差异替换。"
+      },
+      {
+        "case_id": 334,
+        "reflection": "患者餐后胃胀痛、嗳气且近期排便增多或有稀便倾向时，推荐莫沙必利前应核查腹泻风险；莫沙必利可致腹泻，应慎用或监测，并可依据曲美布汀对腹胀、嗳气、腹痛、腹泻的适应症评估替代，而非默认联用。"
+      },
+      {
+        "case_id": 335,
+        "reflection": "患者上腹痛伴腹胀4～5天、未确诊胃病时，先核对莫沙必利用于功能性消化不良伴上腹胀的适应症，不宜仅按“胃病”联用；奥美拉唑可短期抑酸，但症状不缓解或出现吞咽困难、呕血、黑便需就医；铝镁化合物可短期缓解酸相关疼痛和腹胀，若已用奥美拉唑应评估是否需要联用。"
+      },
+      {
+        "case_id": 336,
+        "reflection": "患者有慢性浅表性胃炎伴糜烂、轻度肠化及嗳气烧心，但未证实幽门螺杆菌感染时，不应仅因参考方案加阿莫西林；应先核查Hp检测及联合根除指征，莫沙必利可对症但需监测。"
+      },
+      {
+        "case_id": 337,
+        "reflection": "患者饮食不洁后轻度胃不适、打嗝、肠鸣且已用莫沙必利时，益生菌可辅助消化不良但需确认联用；不应仅因胃炎诊断加奥美拉唑，需核查反酸、烧心、溃疡或反流证据，无证据时该药缺乏适应症支持。"
+      },
+      {
+        "case_id": 339,
+        "reflection": "患者胃肠炎后仍有恶心、呕吐、上腹痛且无明确过敏症状时，不应以氯雷他定缓解感冒相关恶心呕吐（无依据且可能致头痛、嗜睡）；应核查有无梗阻、出血等禁忌，必要时考虑甲氧氯普胺对症止吐并监测锥体外系反应。"
+      },
+      {
+        "case_id": 340,
+        "reflection": "患者出现持续2个月脐旁腹痛、腹泻、频繁排气而诊断未明确时，不应仅凭“胃炎伴消化不良”选用莫沙必利；其说明书适应症偏上消化道症状且不良反应含腹泻腹痛，应核查腹泻是否加重，并在排除器质性疾病后评估曲美布汀对腹痛腹泻的适用性。"
+      },
+      {
+        "case_id": 341,
+        "reflection": "患者餐后上腹堵、打嗝且无黑便时，莫沙必利可用于功能性消化不良；健胃消食片说明书缺适应症，联用前须核对成分与适应症。奥美拉唑不宜仅因标签差异加入，针刺样胃痛或反酸烧心时需先核实溃疡及报警症状。"
+      },
+      {
+        "case_id": 342,
+        "reflection": "患者有糜烂性胃炎、胃酸相关烧灼痛且无明确胃胀早饱嗳气时，不应仅凭胃炎加用莫沙必利，应先核查动力症状；若仅需中和胃酸缓解胃痛烧心，可评估铝镁化合物，并排除急腹症及严重心肾功能不全。"
+      },
+      {
+        "case_id": 346,
+        "reflection": "患者出现胃胀、反酸烧心、饭后打嗝且拟诊慢性胃炎或消化不良时，莫沙必利可按功能性消化不良症状选用；奥美拉唑需先核查有无胃食管反流/溃疡等适应症并遵循不超过7天、未缓解就医的限制，不宜仅以慢性胃炎/消化不良作为抑酸依据。"
+      },
+      {
+        "case_id": 347,
+        "reflection": "患者出现急性上腹或胃区疼痛、餐后加重且定位不清时，应先排除急腹症；铝镁化合物说明要求急腹症诊断明确后再用，不宜直接经验性加用。奥美拉唑抑酸需限定酸相关病；莫沙必利缺少恶心、早饱、腹胀等依据，不建议常规联用，应核查报警症状后选药。"
+      },
+      {
+        "case_id": 348,
+        "reflection": "患者有胃病、餐后1小时出现单纯饥饿感且已在服奥美拉唑时，不应仅据此用曲美布汀缓解“饥饿感”；其说明用于胃肠运动紊乱症状，未涵盖该表现，应核查有无反酸烧心等胃酸相关症状及器质性疾病，再决定是否需铝镁化合物或调整奥美拉唑。"
+      },
+      {
+        "case_id": 349,
+        "reflection": "患者有胃胀、嗳气且已用吗丁啉一周时，若拟加莫沙必利，应先确认是否停用吗丁啉并评估其疗效，避免未交代的叠加；医生判断胃酸过多时，还需核查奥美拉唑是否符合溃疡/GERD等适应症，无反酸且未检查者不宜仅凭饥饿感加用。"
+      },
+      {
+        "case_id": 350,
+        "reflection": "慢性浅表性胃炎患者服荆花胃康胶囊后胃部不适、未明确嗳气早饱上腹胀等动力障碍症状时，不应仅凭胃炎以莫沙必利替代；先评估并停用可疑药物，若为胃酸相关不适可考虑铝镁化合物，并核查急腹症及心肾功能限制。"
+      },
+      {
+        "case_id": 351,
+        "reflection": "自免肝硬化稳定期患者出现不洁饮食后呕吐腹泻且神志清楚时，蒙脱石可吸附肠道毒素，但须评估脱水及便秘风险；奥美拉唑适应症不含急性胃肠炎，若考虑护胃应先核查溃疡或反流史及肝功能，不宜仅因呕吐加用。"
+      },
+      {
+        "case_id": 352,
+        "reflection": "患者胃镜示胃炎并幽门螺杆菌感染、夜间胃痛剧烈且胆胰检查无异常时，若仅推荐奥美拉唑，应核查是否需联合根除方案并遵循其7天疗程限制；对胃痛对症可评估铝镁化合物，但须先排除急腹症及心肾功能、高镁/高钙血症等限制。"
+      },
+      {
+        "case_id": 354,
+        "reflection": "患者出现餐后胃胀、下坠感且胃镜仅提示胃炎、食管炎时，采用奥美拉唑和莫沙必利抑酸促动力，不应仅因参考方案含康复新液而加用；先核查有无胃十二指肠溃疡、出血或瘀血指征，无相应指征则康复新液证据不足。"
+      },
+      {
+        "case_id": 356,
+        "reflection": "患者已用鹅去氧胆酸和谷氨酰胺后出现腹泻腹痛时，若加蒙脱石止泻，因其为吸附剂，应核查腹泻是否与胆酸相关并明确与其他口服药的间隔；奥美拉唑需依据胃镜及反酸烧心等症状判断是否加用。"
+      },
+      {
+        "case_id": 358,
+        "reflection": "患者已用艾普拉唑、铋剂及阿莫西林、呋喃唑酮后仍有胃胀时，莫沙必利可按功能性消化不良使用；益生菌无腹泻或菌群失调证据不宜默认加入，需核查适应症及与抗菌药间隔；继续抑酸应在艾普拉唑与奥美拉唑间择一，避免同类PPI叠加。"
+      },
+      {
+        "case_id": 359,
+        "reflection": "患者出现以恶心为主、无腹泻便秘等肠道症状且正在服达英时，益生菌针对该症状材料依据不足，不宜常规加用；应核查达英服药与停药后恶心是否缓解，再决定按药物副作用处理或选用有恶心适应症的促动力药并核对其禁忌。"
+      },
+      {
+        "case_id": 360,
+        "reflection": "患者进食咸食后恶心呕吐、无腹泻且体温35.9℃时，不宜仅凭“胃炎”用蒙脱石缓解恶心呕吐，其说明未列该适应症；应核查脱水及报警症状，若考虑奥美拉唑需先确认烧心、上腹痛或溃疡/反流等指征。"
+      },
+      {
+        "case_id": 361,
+        "reflection": "患者以餐后上腹胀、早饱、恶心、食欲差为主且无烧心反酸或内镜诊断时，莫沙必利有依据，奥美拉唑不宜仅凭胃炎诊断加入；健胃消食片材料未列适应症，应核查，必要时按复方消化酶说明考虑，但须排除急性肝炎和胆道完全闭锁，并核查是否重复。"
+      },
+      {
+        "case_id": 364,
+        "reflection": "患者上腹阵发性疼痛伴浅表性胃炎史、无腹胀嗳气恶心呕吐时，莫沙必利促动力依据不足且可能加重腹痛，应先核查有无功能性消化不良或胃动力障碍；奥美拉唑、健胃消食片及康复新液、复方消化酶均须按各自适应症核对，不能仅凭胃炎史选用。"
+      },
+      {
+        "case_id": 366,
+        "reflection": "患者有慢性胃炎，出现腹胀、恶心、偶有胃痛，且已用达喜可缓解时，无溃疡或出血证据不应仅因胃痛加康复新液；若用奥美拉唑，需核查溃疡/反流适应症并限≤7天、2个月内不重复；莫沙必利应有功能性消化不良或胃动力障碍证据并监测腹泻腹痛。"
+      },
+      {
+        "case_id": 368,
+        "reflection": "餐后上腹胀且胃动力差者，莫沙必利可作促动力选择；若联用健胃消食片，因材料未载明其适应症及相互作用，应先核查其适用性和与现用药的相互作用。需助消化时可评估复方消化酶，但急性肝炎或胆道完全闭锁者禁用。"
+      },
+      {
+        "case_id": 370,
+        "reflection": "患者以恶心、早饱、上腹胀等消化不良症状持续1个月就诊时，莫沙必利有适应症依据；考虑加奥美拉唑前应核查反酸、溃疡病史及报警征象，因说明书适应症为溃疡、反流等，不能仅凭参考方案加入；健胃消食片材料未提供适应症，需核对。"
+      },
+      {
+        "case_id": 371,
+        "reflection": "患者胃窦炎伴饥饿性胃痛持续4小时、无反酸且Hp呼气试验阴性时，莫沙必利须核查腹胀、嗳气、早饱等适应症，谷氨酰胺说明书未载适应症，不应臆断适用；持续胃痛可评估铝镁化合物或胶体果胶铋，但前者需先排除急腹症，后者肾功能不全禁用。"
+      },
+      {
+        "case_id": 373,
+        "reflection": "患者出现饮食诱发的间断腹痛、不成型稀便、便黏时，诊断慢性胃炎伴消化不良依据不足；曲美布汀可作胃肠运动紊乱尝试，但不应仅因稀便常规加蒙脱石，需核对排便频率、脱水及便秘风险；复方消化酶或三九胃泰须按消化不良/胃炎证候限定，不能仅因参考列表加入。"
+      },
+      {
+        "case_id": 376,
+        "reflection": "患者因辛辣油腻饮食出现上腹胃痛、消化不良且有胃炎史时，应核查奥美拉唑是否覆盖溃疡/胃食管反流等适应症；材料提示铝镁化合物可用于慢性胃炎相关胃痛，可评估适用性并排除急腹症及心肾功能不全，不宜默认联用。健胃消食片缺适应症依据，需核查。"
+      },
+      {
+        "case_id": 378,
+        "reflection": "患者进食辛辣后出现剑突下灼烧感且曾有红色便/便血时，不应仅归因食物染色而用蒙脱石止泻（无腹泻）或氯雷他定治肛门瘙痒（缺乏过敏依据）；应先就医核查便血来源，诊断未明前慎用山莨菪碱、奥美拉唑，胃灼热可评估铝镁抗酸。"
+      },
+      {
+        "case_id": 383,
+        "reflection": "患者近期胃肠炎后已用奥美拉唑和诺氟沙星且症状好转，因油腻饮食再发腹胀、轻痛时，加莫沙必利前应核查腹泻是否消失并评估是否继续奥美拉唑；莫沙必利适用功能性消化不良，但可致腹泻腹痛，活动性腹泻时需慎用监测。"
+      },
+      {
+        "case_id": 384,
+        "reflection": "患者持续上腹痛伴反酸、有胃病史且已服奥美拉唑未缓解时，加莫沙必利前须确认有无早饱、腹胀、嗳气等动力障碍及报警症状；仅凭慢性胃炎和持续腹痛支持不足，应评估奥美拉唑用法疗程并考虑胃镜，再决定是否联用。"
+      },
+      {
+        "case_id": 385,
+        "reflection": "患者出现饭后及夜间阵发性上腹胀痛、口苦且未检查时，莫沙必利有功能性消化不良适应症依据；健胃消食片说明书未列适应症及联用信息，不应默认与莫沙必利叠加，需先核实诊断和相互作用；益生菌可用于消化不良/肠内异常发酵，但材料未明确腹泻，不应仅因胀气默认加用。"
+      },
+      {
+        "case_id": 386,
+        "reflection": "辛辣饮食后出现上腹灼热痛、服达喜后缓解时，考虑酸相关胃炎或食管炎；奥美拉唑抑酸可保留，但应核查铝镁化合物能否用于缓解灼热痛，注意与达喜同类重复及急腹症、肾功能限制；莫沙必利仅在明确腹胀、早饱等动力障碍时考虑。"
+      },
+      {
+        "case_id": 387,
+        "reflection": "患者持续上腹痛、未行胃镜，且奥美拉唑4天无效并腹痛加重时，不宜仅凭症状诊断胃炎并加三九胃泰；应先核查报警症状、胃镜指征及与奥美拉唑联用风险，确认是否继续抑酸，并说明三九胃泰需辨湿热气滞证，慢性胃炎须医师指导、2周无效停药就医。"
+      },
+      {
+        "case_id": 388,
+        "reflection": "患者以餐后胃胀、消化不良为主，胃痛和反酸不明显时，莫沙必利符合适应症；在未确认反流或溃疡前，奥美拉唑不宜仅凭口苦加入，需核查抑酸指征及说明书适应症；健胃消食片说明缺适应症，应核对成分与适用人群。"
+      },
+      {
+        "case_id": 390,
+        "reflection": "患者出现饭后恶心、打嗝、轻度胃胀，但未提供反酸烧心、溃疡或反流证据且胃炎未确诊时，奥美拉唑抑酸依据不足；应先核查反酸烧心、溃疡/反流史及幽门螺杆菌，再决定是否抑酸，避免仅凭“慢性胃炎”加用。"
+      },
+      {
+        "case_id": 391,
+        "reflection": "患者有胃炎及空腹刺激性饮食后胃痛，若仅记录胃痛而未见恶心呕吐、腹胀等动力障碍表现，不应仅凭胃炎加用莫沙必利；应核查功能性消化不良/胃食管反流等适应症，无依据则不加。若考虑慢性胃炎或溃疡且肾功能正常、未同时用其他铋剂，可评估胶体果胶铋；无幽门螺杆菌确诊不宜自行联用抗菌药。"
+      },
+      {
+        "case_id": 393,
+        "reflection": "育龄女性停经超过3天并出现恶心、呕吐、食欲差时，在推荐莫沙必利或健胃消食片前应询问性生活史并行妊娠试验；停经加恶心需先排除妊娠，且健胃消食片孕妇须医师指导，妊娠状态会影响选药及安全性评估。"
+      },
+      {
+        "case_id": 397,
+        "reflection": "患者出现持续两周恶心欲吐、偶烧心不反酸且饮食不规律时，不宜仅据此加奥美拉唑；应先核查反流或溃疡证据及吞咽困难、呕血黑便，按说明书疗程不超7天。健胃消食片材料未载适应症，需核查是否匹配消化不良。"
+      },
+      {
+        "case_id": 398,
+        "reflection": "患者餐后恶心、无腹痛腹胀且缺乏烧心反酸或溃疡/反流病证据时，莫沙必利可对症选用；奥美拉唑不应仅凭恶心加用，应先核查酸相关症状及呕血、黑便等报警表现。"
+      },
+      {
+        "case_id": 399,
+        "reflection": "慢性非萎缩性胃炎患者出现食欲差、恶心且油腻食物诱发时，莫沙必利对恶心/消化不良有依据，但“应该没有”胆囊问题不足以排除胆道病；应先核实胆囊疾病及急性肝炎、胆道完全闭锁，再考虑复方消化酶改善脂肪消化，不宜仅因参考差异否定莫沙必利。"
+      },
+      {
+        "case_id": 401,
+        "reflection": "患者有胃炎伴出血点且主要表现为腹痛、大便次数增多，无恶心呕吐、早饱、腹胀时，莫沙必利说明书适应症不覆盖单纯胃肠功能紊乱，应核查有无功能性消化不良或反流症状；奥美拉唑说明书未列胃炎，需确认抑酸指征，不宜仅凭胃炎默认联用。"
+      },
+      {
+        "case_id": 402,
+        "reflection": "患者出现嗳气、腹胀、食欲差而无胃痛、烧心时，不宜仅凭参考标签加奥美拉唑；应先核查反酸、烧心及溃疡或胃食管反流证据，否则抑酸缺乏依据。莫沙必利符合功能性消化不良伴腹胀，健胃消食片需核对说明书适应症及联用信息。"
+      },
+      {
+        "case_id": 405,
+        "reflection": "患者出现慢性浅表性胃窦炎伴胆汁反流、腹胀早饱时，莫沙必利可促动力；但健胃消食片材料缺适应症且对胆汁反流证据不足，不宜作核心用药。应核查反酸/烧心、肾功能和排便，胃酸相关饱胀可考虑铝镁化合物，并监测联用后腹泻或便秘。"
+      },
+      {
+        "case_id": 406,
+        "reflection": "哺乳期患者出现胃痛、胃胀、恶心，且既往饥饿痛进食后缓解时，若考虑酸相关或溃疡，应核查奥美拉唑的溃疡适应症、7天限制及哺乳期慎用，并排除呕血黑便等报警症状；健胃消食片仅作哺乳期医师指导下的辅助，不能替代抑酸评估。"
+      },
+      {
+        "case_id": 407,
+        "reflection": "患者有腹泻、腹痛、呕吐且已用过肠炎宁、藿香正气时，蒙脱石止泻并需评估脱水，益生菌有肠炎适应症依据；若考虑加山莨菪碱解痉，须先排除急腹症及青光眼、前列腺肥大、肠梗阻等禁忌，诊断未明不宜轻易使用。"
+      },
+      {
+        "case_id": 408,
+        "reflection": "慢性非萎缩性胃炎患者进食硬辣食物后反复上腹不适、无明确早饱腹胀嗳气等动力障碍，且已用奥美拉唑效果不佳时，不宜仅凭“可能动力障碍”加用莫沙必利；应核查动力障碍表现，并按说明书评估铝镁化合物缓解胃炎相关胃酸症状。"
+      },
+      {
+        "case_id": 411,
+        "reflection": "患者胃胀、隐痛、烧心、便秘且已用六君子丸效果不佳、无过敏症状时，不应因焦虑加用氯雷他定；应核查过敏史，并针对功能性消化不良评估莫沙必利、曲美布汀或复方消化酶，焦虑另行处理。"
+      },
+      {
+        "case_id": 412,
+        "reflection": "患者脐周持续不适、与进食无关且大便正常、考虑肠道功能紊乱时，莫沙必利主要适用于上消化道动力障碍，材料不足以支持其用于该症状；应先肠镜明确诊断，并核查曲美布汀等胃肠运动调节药的适应症与器质性疾病限制后再选药。"
+      },
+      {
+        "case_id": 413,
+        "reflection": "患者以腹泻、肠鸣、排气增多为主且考虑消化不良/胃肠胀气时，莫沙必利适应症未突出腹泻/肠鸣，腹泻又属其不良反应，应核查有无上腹胀、早饱等指征及腹泻加重风险；曲美布汀可覆盖腹鸣、腹泻，但器质性疾病慎用，肠镜未明前不宜据此直接替换。"
+      },
+      {
+        "case_id": 415,
+        "reflection": "患者出现恶心、胃胀且无腹泻、既往胃病近期未用药时，莫沙必利可用于功能性消化不良相关恶心呕吐，属有依据的替代选择；若考虑甲氧氯普胺，应先核查机械性肠梗阻、胃肠道出血、癫痫、嗜铬细胞瘤及肝肾功能等禁忌或慎用条件，再决定是否使用。"
+      },
+      {
+        "case_id": 416,
+        "reflection": "患者胃胀伴夜间右侧发热、非典型烧心时，莫沙必利可对症；加铝镁化合物或奥美拉唑前须核查反酸烧心、呕血黑便、吞咽困难及急腹症，因铝镁急腹症须先就诊，奥美拉唑需酸相关证据且疗程有限，不能仅凭标签差异选用。"
+      },
+      {
+        "case_id": 417,
+        "reflection": "患者诊断复合溃疡且胃痛、进食差时，奥美拉唑抑酸适宜；莫沙必利仅促动力，材料不足以支持其作为溃疡常规联用，应核查消化不良症状及必要性；铝镁化合物可缓解胃酸相关胃痛，但须核实肾功能、高镁/高钙及与奥美拉唑联用间隔，不能默认必须加用。"
+      },
+      {
+        "case_id": 419,
+        "reflection": "患者出现胃闷疼、恶心、排气多但无明确腹泻时，蒙脱石缺乏使用依据且可能致便秘，不宜作主要对症药；应先核查排便、反酸烧心及报警症状，再评估是否需抑酸药如奥美拉唑及其适应症。"
+      },
+      {
+        "case_id": 420,
+        "reflection": "患者胃镜诊断胆汁反流性胃炎，出现反胃、烧心、打饱嗝时，铝镁化合物可对症但加用前须核查烧心/饱胀是否需额外抗酸及肾功能、高镁高钙限制；三九胃泰仅在符合湿热或气滞血瘀证候时考虑，并核查与西药联用。"
+      },
+      {
+        "case_id": 421,
+        "reflection": "患者有非萎缩性浅表性胃炎且反复酒后胃酸不适、无腹胀嗳气等动力障碍表现时，莫沙必利缺乏适应症支持，应核查有无功能性消化不良症状；可考虑铝镁化合物缓解胃炎相关胃酸症状。"
+      },
+      {
+        "case_id": 423,
+        "reflection": "患者出现腹胀、大便2～3次/日且有时腹泻并伴胃黏膜病变时，莫沙必利虽可促动力，但说明书可见腹泻、腹痛，应先评估其必要性及便次增多风险；若以胃酸相关不适为主，可核查铝镁化合物的适应症及大剂量致便次增多风险，再决定是否替代或联用。"
+      },
+      {
+        "case_id": 424,
+        "reflection": "患者急性腹泻后出现阵发性胃绞痛且诊断未明时，铝镁化合物仅可对症胃酸相关胃痛，须先排除急腹症；不应因参考列有布洛芬而加用，其适应症不含胃痛/胃肠痉挛且可致胃肠道不良反应，建议热敷并就医评估。"
+      },
+      {
+        "case_id": 425,
+        "reflection": "患者无症状、仅体检见慢性胃炎且有胃癌家族史、CEA略高时，奥美拉唑说明书适应症为溃疡、反流等，材料无酸相关症状或溃疡，不足以支持仅因胃炎使用；康复新液亦未明确覆盖无症状慢性胃炎。应先核查幽门螺杆菌、萎缩或肠化及反酸烧心、糜烂，再决定抑酸或胃黏膜保护。"
+      },
+      {
+        "case_id": 426,
+        "reflection": "患者已确诊萎缩性胃炎，仅有胃胀和进食酸辣后胃痛、无烧心反酸时，奥美拉唑缺乏抑酸指征，且说明书提示长期使用可致胃黏膜萎缩，应核查反酸、溃疡等证据后再决定是否使用；莫沙必利可针对腹胀，康复新液和谷氨酰胺须按说明书适应症另行核实。"
+      },
+      {
+        "case_id": 427,
+        "reflection": "患者仅发现慢性浅表性胃炎和胃息肉、未提及嗳气早饱腹胀等动力障碍时，莫沙必利材料不足以支持使用，应先核查功能性消化不良症状；康复新液需核查胃痛出血或溃疡等说明书限定，不能仅凭胃炎或息肉加用。"
+      },
+      {
+        "case_id": 428,
+        "reflection": "患者进食后突发剧烈上腹痛伴嗳气干呕、无腹泻反酸且未排除急腹症时，铝镁化合物须待诊断明确后使用；莫沙必利无急性胃炎适应症且腹痛为不良反应，应核查必要性；曲美布汀虽可改善腹痛嗳气，也须先明确诊断，奥美拉唑不应仅因标签差异加入。"
+      },
+      {
+        "case_id": 429,
+        "reflection": "长期饮酒者出现胃热胃胀胃痛、呕吐纳减，且既往奥美拉唑疗效下降时，医生推荐肠炎宁但药品说明未载明其胃炎/消化不良适应症，应先核查说明书；若确属湿热气滞胃痛，可按说明书考虑三九胃泰，勿默认与肠炎宁联用，并强调戒酒及胃镜评估。"
+      },
+      {
+        "case_id": 431,
+        "reflection": "患者胃痛胃胀、恶心且餐后痛缓、疑胃炎或溃疡时，莫沙必利可改善胃胀恶心，但不足以覆盖抑酸治疗；应核查有无呕血黑便等报警症状及奥美拉唑禁忌，再评估是否短期加用抑酸并交代7天未缓解就医。"
+      },
+      {
+        "case_id": 434,
+        "reflection": "患者有慢性胃炎和口腔异味、幽门螺杆菌未查且无明确反酸烧心时，奥美拉唑缺乏酸相关适应症依据，不宜仅凭胃炎推荐；应先核查反酸、溃疡或反流证据及口臭病因，再决定是否抑酸，避免以抑酸替代病因检查；考虑三九胃泰则需核实湿热气滞证候。"
+      },
+      {
+        "case_id": 436,
+        "reflection": "患者出现反酸、烧心、胀气2周，已用三九胃泰效果不明显时，仅予莫沙必利和健胃消食片可能未覆盖酸相关症状；应核查是否需加用奥美拉唑抑酸，注意其疗程不超过7天且不缓解就医，健胃消食片材料未明确适应症，不宜作核心替代。"
+      },
+      {
+        "case_id": 437,
+        "reflection": "患者有慢性胃炎伴糜烂、烧心，以上腹胀痛为主时，抑酸为基；若餐后腹胀、早饱突出，可在排除急性肝炎、胆道完全闭锁后考虑复方消化酶改善消化不良；莫沙必利对上腹胀、烧心亦有依据，材料不足以判定需替换或联用，应结合症状个体化核查。"
+      },
+      {
+        "case_id": 438,
+        "reflection": "患者饮食过饱后胆汁反流性胃炎复发、腹胀胸堵，已用莫沙必利和泮托拉唑一周余无改善时，应核查莫沙必利总疗程（约两周无效停药），并结合饮食诱因评估健胃消食片能否短期辅助；后者联用资料不足，不宜直接替代。"
+      },
+      {
+        "case_id": 441,
+        "reflection": "患者进食不洁食物后以腹胀、呕吐为主、仅排便1次且无明确腹泻时，材料不足以支持用蒙脱石止泻或消胀，不能仅凭食物中毒诊断常规使用；应核查腹胀呕吐是否需莫沙必利促动力改善，并评估急性呕吐脱水、药物禁忌及是否需联用。"
+      },
+      {
+        "case_id": 443,
+        "reflection": "患者反复餐后左上腹隐痛、饱胀且否认反酸时，不应将反酸作为奥美拉唑选药依据；需核查其胃炎适应症证据，并评估铝镁化合物（说明书覆盖慢性胃炎胃痛、饱胀）替代或补充；健胃消食片仅依据既往自服有效，宜短期对症并观察。"
+      },
+      {
+        "case_id": 444,
+        "reflection": "患者有糜烂性胃炎且需避免解热止痛药时，不推荐布洛芬：其说明提示消化性溃疡史/胃肠道出血者慎用，并可致胃肠溃疡出血；如确有解热镇痛需求，应核查肝功能、饮酒史后按需短期选用对乙酰氨基酚，并告知肝毒性及疗程限制。"
+      },
+      {
+        "case_id": 445,
+        "reflection": "患者有慢性胃炎伴胆汁反流、胃痛嗳气且易腹泻时，莫沙必利虽可促动力改善嗳气，但说明书列腹泻、腹痛不良反应，应核查排便频次后权衡；同时奥美拉唑需核对反酸依据及不超过7天疗程限制，可评估铝镁化合物缓解胃痛嗳气并先排除急腹症。"
+      },
+      {
+        "case_id": 446,
+        "reflection": "患者幽门螺杆菌阳性伴慢性胃炎、饥饿痛和餐后胀气时，阿莫西林应先确认青霉素皮试及过敏史；胶体果胶铋可考虑用于Hp相关胃炎，但须核查肾功能及完整联用方案；克拉霉素有Hp联合适应症，仍须核查心脏、肝肾功能和相互作用，不能仅因未入参考方案判错。"
+      },
+      {
+        "case_id": 448,
+        "reflection": "患者空腹晨起、趴睡后突发胃痛伴胀气时，应先核查急腹症及呕血、黑便、吞咽困难等报警症状；铝镁化合物说明要求急腹症诊断明确后再用，不宜直接按功能性消化不良推荐。健胃消食片说明书未列适应症、材料不足以支持直接加用；奥美拉唑、胶体果胶铋须待溃疡、胃炎或胃食管反流证据及肾功能等限制明确后再考虑。"
+      },
+      {
+        "case_id": 449,
+        "reflection": "患者出现夜间胃痛、胃胀1-2个月且考虑功能性消化不良或胃食管反流时，莫沙必利有适应症；奥美拉唑仅在考虑胃食管反流时短期抑酸，需先排除呕血、黑便、吞咽困难等并7天复诊；健胃消食片说明书缺适应症，不宜作为有依据推荐。"
+      },
+      {
+        "case_id": 450,
+        "reflection": "患者有饥饿痛、夜间痛醒且进食不规律，但无腹胀、嗳气、反酸时，莫沙必利缺乏胃动力不足依据；应核查黑便、消瘦等报警症状和胃镜指征，再评估奥美拉唑抑酸是否适合，并明确疗程与禁忌。"
+      },
+      {
+        "case_id": 451,
+        "reflection": "患者晨起胃灼热痛并阵发加剧、考虑胃炎时，奥美拉唑抑酸需先排除呕血黑便等警示症状；若仅有烧灼痛而无早饱、腹胀、恶心等功能性消化不良表现，莫沙必利依据不足，应核查动力障碍症状；可评估铝镁化合物缓解胃痛烧心，但急性腹痛须先排除急腹症。"
+      },
+      {
+        "case_id": 452,
+        "reflection": "患者胃镜示非萎缩性胃炎伴糜烂而以脐周隐痛为主、材料未提示早饱上腹胀嗳气等动力障碍时，莫沙必利缺少适应症支持，应先核查动力症状再决定是否加入；康复新液可按胃黏膜糜烂评估，但须核查哮喘、过敏及妊娠禁忌。"
+      },
+      {
+        "case_id": 453,
+        "reflection": "患者已根除幽门螺杆菌且未复查、胃镜为萎缩性胃炎C2并主诉口苦恶心时，不应以幽门螺杆菌感染辅助治疗为依据直接选用奥美拉唑；应先核实根除结果，按说明书适应症及酸相关症状评估PPI，若考虑三九胃泰需确认湿热或气滞血瘀证候并遵医嘱。"
+      },
+      {
+        "case_id": 454,
+        "reflection": "患者已用雷贝拉唑等抑酸药且餐后腹胀、排气多时，不宜再加奥美拉唑，应先核查现用药并只保留一种抑酸方案；针对腹胀、排气可评估复方消化酶，但急性肝炎或胆道完全闭锁者禁用，并确认益生菌是否与现用双歧杆菌重复。"
+      },
+      {
+        "case_id": 456,
+        "reflection": "患者误饮烟灰水后呕吐且上腹痛随呼吸或活动加重时，应先就医排除急腹症或黏膜损伤，不宜仅用铝镁化合物对症；诊断明确为胃酸相关轻度不适再考虑抗酸药，奥美拉唑需按适应症及警示核查后决定。"
+      },
+      {
+        "case_id": 457,
+        "reflection": "饮酒后急性胃痛、恶心呕吐且既往胃镜者，拟诊胃炎或溃疡时，奥美拉唑、莫沙必利、铝镁化合物可按适应症使用；健胃消食片材料未载适应症，不应作为主要治疗，需核查消化不良依据。山莨菪碱仅在排除急腹症及青光眼、前列腺肥大等禁忌后用于胃肠绞痛，诊断未明时不宜轻易加用。"
+      },
+      {
+        "case_id": 458,
+        "reflection": "患者已使用含克拉霉素、阿莫西林等的幽门螺杆菌四联且出现胃痛、便意时，仅凭“又想大便”加蒙脱石依据不足；应先确认是否腹泻，并按说明书核查蒙脱石与同服肠道抗菌药的联用限制，再评估益生菌是否适合抗生素相关肠道反应。"
+      },
+      {
+        "case_id": 459,
+        "reflection": "患者有浅表性胃炎伴饭后嗳气、偶反酸且幽门螺杆菌未明时，莫沙必利可对症嗳气、胃灼热，但需核实是否符合功能性消化不良或胃食管反流；三九胃泰仅用于湿热气滞证，不应仅凭浅表性胃炎常规加用，应先辨证核对证候。"
+      },
+      {
+        "case_id": 460,
+        "reflection": "患者长期晨起空腹胃痛、未行胃镜且未明确有恶心嗳气早饱腹胀等动力症状时，莫沙必利使用依据不足；应先核查动力障碍及报警症状，不宜仅以促蠕动联用，胃痛对症可评估铝镁化合物，但急腹症须先就诊。"
+      },
+      {
+        "case_id": 461,
+        "reflection": "患者出现急性水样腹泻伴胃痛、呕吐，且已用奥美拉唑，莫沙必利主要用于功能性消化不良等，缺乏止泻止痛依据，其不良反应含腹泻、腹痛，可能加重症状；应核查疼痛是否为痉挛性，若急腹症未排除不宜轻易用山莨菪碱，并先评估脱水及电解质。"
+      },
+      {
+        "case_id": 462,
+        "reflection": "患者已多种胃药无效且持续上腹痛伴呼吸时加重、肺部有结节时，仅凭胃炎予莫沙必利和铝镁化合物证据不足；应先排查心肺胸膜/肝胆疾病，诊断未明尤其疑急腹症时暂缓铝镁化合物，并核查反酸烧心或溃疡/反流证据以决定是否加奥美拉唑。"
+      },
+      {
+        "case_id": 463,
+        "reflection": "患者有饮酒后胃出血史且服瑞巴派特稍好转，近期反酸、嗳气、恶心并疑胃炎或溃疡时，莫沙必利和铝镁化合物可对症；仍应核查胃镜及是否需奥美拉唑抑酸，并排除活动性出血，出现黑便或呕血先就医，不自行服奥美拉唑。"
+      },
+      {
+        "case_id": 464,
+        "reflection": "患者出现上腹剑突下不适、进食后缓解且当前无明确腹泻时，不宜仅凭既往急性胃肠炎经验加用蒙脱石；应核查腹泻及脱水，无腹泻则不推荐，转而评估抑酸或胃黏膜保护，若考虑胶体果胶铋需核查胃炎/溃疡依据、肾功能及疗程。"
+      },
+      {
+        "case_id": 466,
+        "reflection": "患者因饮食后胃酸疼、恶心、烧心且已服铝镁化合物（达喜）时，推荐奥美拉唑或莫沙必利前应核查抗酸剂是否继续及与PPI的服用间隔，并确认恶心是否伴腹胀、早饱以支持莫沙必利；材料未载相互作用，不能默认可同时安全联用。"
+      },
+      {
+        "case_id": 467,
+        "reflection": "患者长期熬夜、饮食不规律后出现胃痛腹胀打嗝、失眠多梦且内镜和CT无异常时，考虑胃肠神经官能症不应仅凭情绪压力加用氯雷他定，须核查过敏史及有无过敏性症状；莫沙必利可针对嗳气腹胀，胃痛可评估三九胃泰并核查联用信息。"
+      },
+      {
+        "case_id": 468,
+        "reflection": "患者因生冷饮食后出现恶心呕吐、反酸、胃胀并拟诊急性胃炎时，奥美拉唑抑酸及铝镁化合物中和胃酸可对症，但奥美拉唑说明书适应症未列急性胃炎且限用7天，铝镁化合物需排除急腹症并核查肾功能；若恶心呕吐、上腹胀突出，应核查莫沙必利对功能性消化不良或胃食管反流的适用性及过敏、腹泻风险后再考虑加用，不能仅因药物清单差异强制联用。"
+      },
+      {
+        "case_id": 470,
+        "reflection": "患者胃窦炎黏膜糜烂活动、已用奥美拉唑且主诉腹胀时，莫沙必利有对症依据；益生菌仅凭“调节菌群”材料不足以支持联用，应核查其消化不良证据及与奥美拉唑合用信息；同时确认奥美拉唑是否继续及疗程，不能因已用而默认无需评估。"
+      },
+      {
+        "case_id": 471,
+        "reflection": "幽门螺杆菌阳性伴腹胀痛、既往奥美拉唑/吗丁啉效果不佳而拟用阿莫西林+克拉霉素+奥美拉唑+胶体果胶铋根除时，须先核查青霉素过敏/皮试、克拉霉素心脏及肝功能禁忌、铋剂肾功能和既往抗生素暴露；否则不能确认方案安全适用。"
+      },
+      {
+        "case_id": 472,
+        "reflection": "患者长期餐后饱胀、嗳气、夜间胃痛且未行胃镜时，不应仅凭“慢性胃炎”经验使用奥美拉唑；其说明书适应症为溃疡、胃食管反流病等，应先核查呕血、黑便、吞咽困难等警报并建议胃镜明确溃疡或反流，再决定抑酸；莫沙必利可针对嗳气、早饱、上腹胀。"
+      },
+      {
+        "case_id": 476,
+        "reflection": "患者餐后上腹痛、有饮食过量诱因且无反酸烧心、未确诊溃疡或反流时，应核查疼痛性质、黑便等报警症状及抑酸指征；不应仅因参考方案遗漏就加奥美拉唑，健胃消食片按说明书短期观察，3天无缓解就医。"
+      },
+      {
+        "case_id": 477,
+        "reflection": "患者出现晨起恶心、反酸，且既往奥美拉唑可缓解时，推荐莫沙必利前应核查反流/酸相关症状及奥美拉唑适应症、疗程和警示，评估是否需抑酸治疗；莫沙必利可改善恶心，但资料不足支持其替代或必须联用奥美拉唑。"
+      },
+      {
+        "case_id": 478,
+        "reflection": "患者有浅表胃炎伴早饱、进食后即排且已停用既往胃炎药时，莫沙必利符合功能性消化不良适应症；奥美拉唑须先核查胃溃疡、反流等酸相关指征及7天疗程限制，无酸相关指征不宜仅因胃炎联用；可评估益生菌对肠内异常发酵、消化不良的作用。"
+      },
+      {
+        "case_id": 480,
+        "reflection": "患者有非萎缩性胃炎、仅胃痛嗳气且无烧心反酸，并已自行购买莫沙必利和胃康灵时，再推荐莫沙必利前应核实是否已服及剂量，避免重复；奥美拉唑缺乏酸相关适应症依据，健胃消食片对乏力胃痛依据不足，需核查联用必要性。"
+      },
+      {
+        "case_id": 481,
+        "reflection": "患者有慢性胃炎，以间断胃痛为主且无烧心、反酸、嗳气时，莫沙必利的促动力依据不足；加用前应核对是否存在功能性消化不良、胃食管反流或胃排空障碍，否则不宜仅按胃炎加用；谷氨酰胺说明未载适应症，不能据此判定必须补用。"
+      },
+      {
+        "case_id": 482,
+        "reflection": "患者上腹间歇痛伴胀气、排气多且无反酸烧心时，应核查铝镁化合物的酸相关使用依据；其说明书适用于慢性胃炎及胃酸相关不适。若仅为消化不良，可考虑复方消化酶改善腹胀（需排除急性肝炎、胆道闭锁），不默认必需抗酸治疗。"
+      },
+      {
+        "case_id": 486,
+        "reflection": "患者出现近期饮食不规律、饮酒及甜腻饮食后餐后腹胀、反酸3～4天时，莫沙必利和铝镁化合物分别有促动力、中和胃酸的对症依据；若反酸持续或加重，应核查报警症状并评估奥美拉唑等抑酸治疗，不能仅因参考方案不同而替换。"
+      },
+      {
+        "case_id": 487,
+        "reflection": "患者出现持续约1个月胃部不适、恶心、喉咙异味且拟诊慢性胃炎、幽门螺杆菌未排除时，奥美拉唑说明书未列慢性胃炎适应症；应先核查胃酸相关症状及HP，再评估是否选用适应症含慢性胃炎的铝镁化合物。"
+      },
+      {
+        "case_id": 488,
+        "reflection": "患者以胃胀、打嗝为主且无胃痛、反酸、烧心时，疑诊胃炎不应仅凭参考标签加用奥美拉唑；应先核查酸相关症状及奥美拉唑适应症，若仅有腹胀可保留莫沙必利，健胃消食片需核对适应症并嘱忌辛辣，联用前咨询药师。"
+      },
+      {
+        "case_id": 489,
+        "reflection": "患者出现左下腹痛、排气多臭、肠鸣，而无明确上腹胀、早饱、嗳气时，不宜仅凭“消化不良”加用莫沙必利；应核查症状是否以上消化道动力障碍为主，并评估复方消化酶的适用性，用前排除急性肝炎和胆道完全闭锁。"
+      },
+      {
+        "case_id": 490,
+        "reflection": "患者以恶心、食欲差或早饱为主且无胃痛腹胀时，莫沙必利有功能性消化不良适应症依据；健胃消食片说明未载适应症，不能仅凭“促消化”叠加。若已用两种成分不明胃药，加药前应核对成分与适应症、避免重复，并据恶心/早饱评估是否选用莫沙必利。"
+      },
+      {
+        "case_id": 491,
+        "reflection": "患者吃辣后脐左下腹痛、腹部CT正常且未记录明确上消化道症状时，不宜将下腹痛直接归因于胃炎并加用莫沙必利；应先核实有无肠道动力紊乱或肠易激及排便异常，若符合可考虑曲美布汀，并按腹胀早饱等评估复方消化酶。"
+      },
+      {
+        "case_id": 493,
+        "reflection": "慢性胃炎伴腹胀、无胃痛黑便时，健胃消食片可考虑助消化、缓解腹胀，但其说明未提供适应症，不能视为胃黏膜保护剂；康复新液说明用于胃痛出血或溃疡，不应仅凭慢性胃炎加用，若要求黏膜保护，需核查溃疡、出血及哮喘、妊娠禁忌。"
+      },
+      {
+        "case_id": 494,
+        "reflection": "患者胃胀、恶心且未行胃镜时，莫沙必利与参考药甲氧氯普胺均有促动力适应症，不能仅凭标签差异判定原推荐错误；若考虑甲氧氯普胺，须先核查胃肠道出血、机械性肠梗阻及肾衰等禁忌或慎用条件。"
+      },
+      {
+        "case_id": 495,
+        "reflection": "患者有幽门螺杆菌感染且一次四联未根治、需再次根除时，若仅推荐阿莫西林、克拉霉素、奥美拉唑，应核查四联方案是否缺铋剂（胶体果胶铋适用于幽门螺杆菌相关性胃炎），并核实既往用药、耐药及过敏禁忌后再定。"
+      },
+      {
+        "case_id": 496,
+        "reflection": "患者以下腹痛、腹胀为主且腹泻刚缓解时，莫沙必利仅凭消化不良诊断证据不足：其适应症偏上消化道功能性消化不良，不良反应含腹泻、腹痛。应核实疼痛部位及排便变化，若以消化不良胀气为主再考虑助消化药，避免在腹泻未稳时贸然促动力。"
+      },
+      {
+        "case_id": 497,
+        "reflection": "患者出现空腹恶心干呕、进食后缓解并考虑功能性消化不良时，莫沙必利可按适应症使用；复方消化酶可考虑用于消化不良，但需核查急性肝炎、胆道闭锁等禁忌；铝镁化合物需先核实胃酸相关症状及急腹症、肾功能不全等限制，不宜仅凭恶心干呕常规联用。"
+      },
+      {
+        "case_id": 498,
+        "reflection": "患者出现左上腹间歇绞痛、偶发烧心且暂不能检查时，莫沙必利仅在功能性消化不良或反流症状明确时考虑，不应仅凭烧心加用；应先排除呕血黑便、吞咽困难及急腹症，若明确胃肠痉挛且无青光眼、前列腺肥大等禁忌，再考虑山莨菪碱，否则暂缓。"
+      },
+      {
+        "case_id": 499,
+        "reflection": "患者有慢性胃炎、餐后腹胀烧心及油性便时，材料未支持双黄连用于此症，且其说明提示不宜与复方消化酶同用；应核查胆道梗阻、急性肝炎后考虑复方消化酶改善脂肪便，并按烧心及报警症状评估奥美拉唑短期使用。"
+      },
+      {
+        "case_id": 501,
+        "reflection": "患者出现紧张、胸闷伴胃痛，已用谷维素、B1和天王补心丸时，不推荐以氯雷他定缓解紧张情绪，其说明书无抗焦虑适应症；应转心理门诊评估，并按慢性浅表性胃炎症状核查莫沙必利或抑酸药的适应症，避免无依据用药。"
+      },
+      {
+        "case_id": 502,
+        "reflection": "患者出现黑便或红色便并伴头晕乏力、疑似消化道出血时，蒙脱石缺乏止便血依据，不应作为主要处理；应先留便化验并急诊评估。奥美拉唑说明书将黑便/便血列为先就医警示，须在排除严重出血并由医师评估后决定是否加用。"
+      },
+      {
+        "case_id": 503,
+        "reflection": "患者出现烧心口苦、胃胀，且已用铝碳酸镁和藿香清胃片3天胃胀减轻而烧心口苦仍时，加莫沙必利前应核查是否存在功能性消化不良或胃食管反流；奥美拉唑按说明书限7天并复诊；三九胃泰须确认浅表性胃炎及湿热/气滞血瘀证候，不宜仅因标签差异加用。"
+      },
+      {
+        "case_id": 504,
+        "reflection": "患者饱餐后呕吐物呈红酒样带血时，不应仅按胃炎选用莫沙必利；须先核查呕血、黑便及循环情况并就医评估。奥美拉唑说明书对呕血标注勿使用/咨询医师，抑酸治疗应在排除活动性出血后由医生决定。"
+      },
+      {
+        "case_id": 505,
+        "reflection": "患者餐后不适、早饱且既往雷贝拉唑等治疗近2个月后反复、B超正常但未做胃镜时，若考虑功能性消化不良，奥美拉唑说明书未列该适应症且长期抑酸依据不足，不宜默认加用；可核查有无反酸/溃疡警讯，无则保留莫沙必利并评估复方消化酶（需排除急性肝炎、胆道完全闭锁）以改善消化不良症状。"
+      },
+      {
+        "case_id": 506,
+        "reflection": "患者有慢性非萎缩性胃炎伴胆汁反流，停药后辛辣诱发餐后腹胀、方案含莫沙必利时，不应仅凭“助消化”加健胃消食片（说明书未载适应症）；若考虑复方消化酶，需核查消化不良适应症及急性肝炎、胆道完全闭锁禁忌。"
+      },
+      {
+        "case_id": 507,
+        "reflection": "患者上腹阵发性疼痛、无烧心反酸，且近期腹泻后转为便秘时，仅凭“胃炎”推荐莫沙必利依据不足；应核查是否存在功能性消化不良或胃动力障碍，并评估说明书所列腹泻、腹痛风险，避免仅以便秘作为促动力依据。"
+      },
+      {
+        "case_id": 508,
+        "reflection": "患者短期胃痛伴胃胀、嗳气而缺乏胃镜和幽门螺杆菌结果时，不应仅凭拟诊慢性胃炎常规加用胶体果胶铋；若考虑慢性浅表或萎缩性胃炎，需先核实肾功能及幽门螺杆菌状态，并避免长期或与其他铋剂联用。"
+      },
+      {
+        "case_id": 510,
+        "reflection": "患者有上腹痛、反酸且疑诊胃炎/胃食管反流，既往服达喜后胃痛缓解时，铝镁化合物可短期对症；若考虑反流病，应核查是否需奥美拉唑抑酸及7天/2个月疗程限制，并排除吞咽困难、呕血、黑便，不能仅因标签差异判为错误。"
+      },
+      {
+        "case_id": 511,
+        "reflection": "患者辛辣饮食后出现消化不良且疑胃动力不足时，莫沙必利可按适应症考虑；奥美拉唑应核查反酸烧心、溃疡史及胃镜结果，仅在提示酸相关病时加用，缺乏依据不应仅凭“胃病”使用。患者已用健胃消食片且3天无缓解时应复诊并注意忌辛辣。"
+      },
+      {
+        "case_id": 512,
+        "reflection": "患者出现慢性胃炎伴恶心、呕吐，且已使用莫沙必利而恶心仍明显时，应核查复方消化酶用于消化不良/恶心的适应症及急性肝炎、胆道完全闭锁禁忌；健胃消食片说明未载适应症，不能仅凭促进消化加入或替代现有方案。"
+      },
+      {
+        "case_id": 513,
+        "reflection": "患者短期饭后胃痛、胀气、恶心且无反酸烧心时，莫沙必利符合功能性消化不良适应证；健胃消食片说明缺适应症，不宜仅据助消化经验确证联用。若考虑奥美拉唑，应先核查反酸烧心、溃疡病史或报警症状，无依据不因参考标签常规加用。"
+      },
+      {
+        "case_id": 515,
+        "reflection": "患者仅诉胃痛、未伴反酸烧心或嗳气早饱恶心时，不应默认胃酸过多即用奥美拉唑（说明书限溃疡、GERD等且不超过7天），莫沙必利也缺少功能性消化不良伴随症状依据；应先核查报警症状和排除器质性疾病，若以动力紊乱性腹痛为主可评估曲美布汀。"
+      },
+      {
+        "case_id": 516,
+        "reflection": "患者有烧心、饥饿样上腹不适且进食后缓解并伴恶心呕吐时，莫沙必利有促动力依据；但应核查是否为胃食管反流或消化性溃疡，若符合奥美拉唑适应症且无禁忌及警示症状，再评估抑酸，不能仅因参考列表不同判原方案错误。"
+      },
+      {
+        "case_id": 517,
+        "reflection": "患者餐后腹痛伴嗳气、大便频繁且未检查时，若考虑胃炎或溃疡，选用莫沙必利前应核查排便频繁是否加重（其可致腹泻腹痛）；铝镁化合物可缓解胃酸相关不适，但大便频繁者需警惕含镁致便次增多，并先排除急腹症。"
+      },
+      {
+        "case_id": 518,
+        "reflection": "患者急性起病胃部不适、间歇疼痛、食欲不振，有慢性非萎缩性胃炎及近期辛辣饮食诱因，但无恶心呕吐、早饱、腹胀时，材料不足以支持仅凭急性胃炎加用莫沙必利；应核查有无功能性消化不良等促动力适应症，若仅为胃酸相关胃痛，可考虑铝镁化合物并短期评估奥美拉唑，同时警惕呕血黑便。"
+      },
+      {
+        "case_id": 519,
+        "reflection": "患者出现黑便、腹痛、呕吐并疑上消化道出血时，应先急诊或胃镜明确出血，不宜仅按胃炎自行用奥美拉唑（说明书列黑便勿用）；胶体果胶铋可致黑便混淆判断，铝镁化合物在急性腹痛诊断未明时也应先就诊评估、暂缓自行服用。"
+      },
+      {
+        "case_id": 520,
+        "reflection": "患者反复呕吐伴腹泻且呕吐后口水带血时，不宜仅用莫沙必利和铝镁化合物对症；应先就医排除消化道出血，确认无呕血、黑便后再评估奥美拉唑，且莫沙必利可能加重腹泻，需监测并据病因调整。"
+      },
+      {
+        "case_id": 521,
+        "reflection": "患者暴饮暴食后上腹痛并放射后背、既往幽门螺杆菌阳性但未复查且胃镜报告缺失时，莫沙必利无早饱腹胀恶心等动力障碍依据，不宜常规加用；应核查现症幽门螺杆菌、肾功能及报警症状，确认HP相关胃炎后再评估胶体果胶铋联合抑酸，并注意铋剂禁忌。"
+      },
+      {
+        "case_id": 523,
+        "reflection": "患者以上腹隐痛、便秘为主，既往胃胀已好转且达喜无效时，不应仅凭便秘或既往胃胀选用莫沙必利；需核查当前有无上腹胀、早饱等适应症并确认功能性消化不良，便秘本身非其适应症；若考虑三九胃泰，需先辨明胃痛证型。"
+      },
+      {
+        "case_id": 525,
+        "reflection": "患者进食生冷后出现阵发性胃痛伴腹泻时，急腹症未排除前山莨菪碱不宜轻易使用，铝镁化合物也须待诊断明确；已有腹泻者莫沙必利可能加重腹泻、腹痛且不针对痉挛，应先评估急腹症和脱水。"
+      },
+      {
+        "case_id": 528,
+        "reflection": "患者出现脐上阵发性腹痛、排气困难且伴腹泻时，选用莫沙必利前需确认功能性消化不良诊断，并评估其腹泻、腹痛不良反应是否会加重；奥美拉唑仅在反酸烧心或溃疡等酸相关指征明确时考虑，不能仅因标签差异加入。"
+      },
+      {
+        "case_id": 530,
+        "reflection": "患者出现长期胃胀、无烧心反酸黑便且仅有胃炎史时，莫沙必利对功能性消化不良伴上腹胀有依据，但需核实是否为该诊断；健胃消食片可短期对症，3天无效应就医。奥美拉唑、康复新液在该表现下缺乏溃疡/反流或瘀血出血、溃疡依据，不宜仅因参考标签加入，应先核查诊断及报警症状。"
+      },
+      {
+        "case_id": 533,
+        "reflection": "患者未行胃镜、仅凭餐后腹胀嗳气上腹痛恶心拟诊反流性胃炎，且已用莫沙必利后疼痛缓解但腹胀嗳气仍在时，应核查反酸/烧心及禁忌后评估加用奥美拉唑抑酸；健胃消食片说明书未载反流适应症，材料不足以替代或优先于抑酸治疗。"
+      },
+      {
+        "case_id": 534,
+        "reflection": "患者仅胃泌素升高、尚未胃镜确诊，且未提供反酸胃痛或溃疡/反流/卓-艾综合征依据时，不应仅凭胃泌素偏高在镜前推荐奥美拉唑；三九胃泰也需核查湿热气滞证候。应先核查症状、既往抑酸药、禁忌及胃镜结果，再决定用药。"
+      },
+      {
+        "case_id": 537,
+        "reflection": "饮食诱发上腹胀、恶心而无食欲下降时，不宜仅凭习惯加用健胃消食片；莫沙必利虽可用于功能性消化不良，但患者有进食后腹泻史，需监测腹泻。疑胃炎不等同溃疡或反流，奥美拉唑不应仅凭“可能胃炎”常规加入；考虑铝镁化合物前应排除急腹症并确认酸相关症状。"
+      },
+      {
+        "case_id": 538,
+        "reflection": "患者有慢性胃炎史，表现为间断上腹隐痛、轻度腹胀，无反酸烧心且未确诊溃疡时，奥美拉唑缺乏适用依据，不应仅凭参考用药加用；莫沙必利仅在腹胀等动力症状明显时考虑并核查过敏及腹泻风险，健胃消食片因说明未载适应症需先核实。"
+      },
+      {
+        "case_id": 539,
+        "reflection": "患者有胃炎、胃肠功能紊乱伴腹胀、口臭时，莫沙必利对上腹胀等有适应症依据；应核查复方消化酶的消化不良/腹胀适应症及急性肝炎、胆道闭锁禁忌，再结合餐后腹胀等决定是否加用，不能仅凭标签差异替换。"
+      },
+      {
+        "case_id": 540,
+        "reflection": "患者饮酒后出现腹胀、恶心且已一日未排便时，推荐蒙脱石前须核查便秘程度：该药可致便秘、大便干结，可能加重腹胀，不宜仅以吸附未消化食物为由使用；奥美拉唑需核查反酸烧心等酸相关表现后再考虑。"
+      },
+      {
+        "case_id": 541,
+        "reflection": "患者有慢性胃炎伴糜烂、反酸嗳气腹胀，且已用盐酸伊托必利两周时，若再推荐莫沙必利，应先明确是停用伊托必利后替代还是联用；材料未说明可同服，需核查重复促动力风险及既往疗效后再定。"
+      },
+      {
+        "case_id": 542,
+        "reflection": "患者有慢性胃炎、便秘及餐后腹胀不消化时，莫沙必利有促动力依据；益生菌材料未提示菌群失调，应核查其必要性；复方消化酶可改善腹胀早饱，但须先排除急性肝炎、胆道完全闭锁。"
+      },
+      {
+        "case_id": 544,
+        "reflection": "患者有胃糜烂史且饭后饱胀、反流时，莫沙必利与奥美拉唑有适应症依据；若加益生菌，须先核实腹泻、肠内异常发酵等指征，否则不应仅以调节菌群为由加入。对饱胀、烧心明显者，可核查铝镁化合物对症的适用性及肾功能、便秘等限制，但不得默认与抑酸药同用。"
+      },
+      {
+        "case_id": 548,
+        "reflection": "患者餐后烧灼样上腹痛、嗳气腹胀且未确诊、雷贝拉唑3天疗效不确切时，莫沙必利可覆盖功能性消化不良的嗳气腹胀，但应核查烧灼痛是否符合反流/溃疡等奥美拉唑适应症及疗程限制；符合再考虑抑酸，不符合不应仅因参考推荐加用，并需就医明确诊断。"
+      },
+      {
+        "case_id": 550,
+        "reflection": "患者出现反酸伴吞咽困难时，不应仅凭胆汁反流性胃炎直接推荐奥美拉唑——说明书将吞咽困难/疼痛列为勿用并需排查严重情况；应先核查报警症状及吞咽困难原因，再决定抑酸治疗或转诊，无腹泻的胃肠功能紊乱加益生菌证据不足。"
+      },
+      {
+        "case_id": 552,
+        "reflection": "患者有反复胃痛、饭后不适并出现黑便时，应先核查黑便是否提示消化道出血（呕血、便血、贫血及急诊胃镜），不宜直接按慢性胃炎口服奥美拉唑和莫沙必利；奥美拉唑说明黑便属需咨询医师的严重征兆，排除出血后再评估抑酸/促动力及康复新液。"
+      },
+      {
+        "case_id": 553,
+        "reflection": "患者出现餐后腹胀、消化不良且已使用莫沙必利时，若考虑加复方消化酶，应先核查有无急性肝炎或胆道完全闭锁等禁忌；健胃消食片说明书缺适应症和相互作用信息，不宜默认替代消化酶，需核对功能主治及与已用中成药是否重复。"
+      },
+      {
+        "case_id": 554,
+        "reflection": "患者空腹大量饮浓茶后出现心慌、饥饿感及胃至咽部上冲感但无返酸时，莫沙必利可改善动力症状；铝镁化合物用于酸相关不适的依据不足，奥美拉唑须先核查烧心、反酸或胃食管反流证据及报警症状，不能因参考方案默认加用或默认与铝镁化合物联用。"
+      },
+      {
+        "case_id": 555,
+        "reflection": "患者急性恶心、呕吐伴胃部不适且大便正常时，处方蒙脱石前应核查有无腹泻或肠道感染证据；其说明主要固定消化道病原及毒素，无腹泻时止吐依据不足，宜评估铝镁化合物或甲氧氯普胺并排查肠梗阻、出血等禁忌，同时核对奥美拉唑疗程及呕血黑便警示。"
+      },
+      {
+        "case_id": 556,
+        "reflection": "哺乳期患者出现胃痛、胃胀且大便正常时，不应仅按“止泻”选用蒙脱石；应核查有无腹泻及说明书适应症，胃痛胃胀可评估铝镁化合物等抗酸药，但须确认哺乳期用药信息；健胃消食片应按说明书在医师指导下使用。"
+      },
+      {
+        "case_id": 557,
+        "reflection": "患者出现餐后及空腹间断恶心、进食过量后加重且胃内容物未消化时，莫沙必利与功能性消化不良适应症相符；健胃消食片说明缺适应症，联用前应核查食积证据及与莫沙必利的必要性，益生菌无腹泻或菌群失调证据时非必需。"
+      },
+      {
+        "case_id": 558,
+        "reflection": "患者拟以奥美拉唑治疗胃溃疡且连续服用两周、并追问说明书7天限制时，不应直接回答可以；说明书载明使用不超过7天、未缓解应就医且两个月内不得再次服用，需核查症状与诊断后由医师评估疗程，不能以他人经验替代。"
+      },
+      {
+        "case_id": 559,
+        "reflection": "患者有萎缩性胃炎及十二指肠溃疡史、杀菌后未复查，出现餐后腹胀嗳气早饱时，莫沙必利可用；健胃消食片说明未载适应证，证据不足。应核查幽门螺杆菌是否根除、复方消化酶有无禁忌，再结合症状决定是否加用复方消化酶。"
+      },
+      {
+        "case_id": 560,
+        "reflection": "患者夜间胃痛胃胀、坐起打嗝缓解、无反酸且既往浅表性胃炎时，可考虑莫沙必利；健胃消食片说明书未载适应症及联用信息，合用前应核实；奥美拉唑需确认反流或溃疡证据，不能仅凭夜间痛加用。"
+      },
+      {
+        "case_id": 561,
+        "reflection": "哺乳期11个月患者餐后出现阵发性胃区绞痛且体位变动加重、无嗳气腹胀早饱时，不宜仅凭‘胃肠功能紊乱’选用莫沙必利；其说明书适应症未覆盖单纯绞痛，也未提供哺乳期安全性。应核对动力障碍症状及哺乳期用药资料，先评估急腹症，再决定是否用药。"
+      },
+      {
+        "case_id": 562,
+        "reflection": "患者有重度胃炎及幽门螺杆菌感染史，饮酒后出现烧心、前胸痛时，应先急诊排除急腹症及心血管事件；诊断明确后铝镁化合物可对症中和胃酸，奥美拉唑需核查酸相关适应症、警示症状及7天疗程限制，不能仅凭烧心直接替代或联用。"
+      },
+      {
+        "case_id": 565,
+        "reflection": "患者有上腹胀、恶心呕吐及反酸而无腹泻或菌群失调证据时，不宜仅以“调节肠道菌群”加用益生菌；应先核查腹泻、菌群失调等依据，否则围绕促动力和抑酸选药，并核查康复新液有无溃疡、出血或黏膜损伤指征。"
+      },
+      {
+        "case_id": 566,
+        "reflection": "患者有慢性胃炎伴糜烂、偶腹胀且稍不注意即腹泻时，推荐莫沙必利前应核查腹胀是否确属其适应症，并评估促动力药是否可能加重腹泻；同时应询问已用益生菌的具体制剂与疗效，再决定是否保留或调整，避免忽略既往用药。"
+      },
+      {
+        "case_id": 567,
+        "reflection": "患者有糜烂性胃炎和胆汁反流史，出现饥饿痛、进食后缓解伴胃酸多时，仅以莫沙必利促动力依据不足；应核查有无早饱、腹胀等动力症状，并评估奥美拉唑抑酸是否更契合酸相关表现，同时按说明书排除报警症状和疗程限制。"
+      },
+      {
+        "case_id": 568,
+        "reflection": "患者有慢性萎缩性胃炎伴糜烂、食欲增加而动力障碍症状不明确时，莫沙必利促动力材料支持不足；谷氨酰胺说明未载明该适应症。应先核查早饱腹胀恶心及幽门螺杆菌，再决定是否加用，已用复方消化酶者不必重复推荐。"
+      },
+      {
+        "case_id": 569,
+        "reflection": "患者出现打嗝、胃胀、冷饮胃痛，拟诊胃炎且未检查时，可核查促动力药：莫沙必利适应症含嗳气、上腹胀，无过敏可考虑；健胃消食片说明未载适应症，不宜仅凭“促消化”替代。奥美拉唑说明书未列胃炎且疗程≤7天，需核对诊断与疗程。"
+      },
+      {
+        "case_id": 571,
+        "reflection": "当患者反复烧心、胃酸过多且进食糯米后加重，拟诊慢性胃炎但无明确胃动力障碍时，应核查莫沙必利是否有早饱、腹胀等动力障碍依据，并评估铝镁化合物抗酸适用性及急腹症、心肾功能限制；材料未支持常规联用，不可默认同服。"
+      },
+      {
+        "case_id": 572,
+        "reflection": "患者C14阳性且诊断幽门螺杆菌感染伴慢性胃炎时，单用奥美拉唑和莫沙必利仅对症，未覆盖Hp感染；应核查根除指征并完善根除方案，莫沙必利仅在早饱腹胀有依据时使用；复方消化酶可针对食欲缺乏、嗳气考虑，但须排除急性肝炎及胆道闭锁。"
+      },
+      {
+        "case_id": 574,
+        "reflection": "患者短期胃痛、嗳气、间断类似发作且未胃镜时，莫沙必利与功能性消化不良的嗳气症状相符；健胃消食片说明缺适应症和相互作用，联用前须核对成分、过敏史及慢性病用药；奥美拉唑仅列溃疡/反流等适应症且疗程受限，不应因“胃炎可能”直接加用，应先核查反酸烧心、黑便呕血、吞咽困难及胃镜指征。"
+      },
+      {
+        "case_id": 575,
+        "reflection": "患者进食后恶心呕吐、胃胀且未用药或检查时，莫沙必利有适应症依据，不应仅因参考方案含甲氧氯普胺而替换；若考虑甲氧氯普胺，须先核查机械性梗阻、消化道出血/穿孔、癫痫及嗜铬细胞瘤等禁忌，因其促动力可能加重梗阻或出血。"
+      },
+      {
+        "case_id": 576,
+        "reflection": "患者出现胃灼热、泛酸并考虑胃食管反流时，铝镁化合物仅中和胃酸对症；应核查是否需加奥美拉唑抑酸、有无报警症状及禁忌，因奥美拉唑适应胃食管反流病，但未确诊且无两药联用信息时不能默认同时使用。"
+      },
+      {
+        "case_id": 577,
+        "reflection": "胆汁反流胃炎患者已用铝碳酸镁和多潘立酮时，加蒙脱石缺乏说明书适应症支持，医嘱所述吸附胆汁酸依据未见材料；应核查反流症状及是否需奥美拉唑等抑酸治疗，并确认蒙脱石与其他口服药服用间隔后再决定是否加用。"
+      },
+      {
+        "case_id": 578,
+        "reflection": "患者已用含奥美拉唑方案26天、停用抗菌药及果胶铋后反嗝反复且仍胃胀时，莫沙必利可针对嗳气腹胀考虑；益生菌须先核查腹泻或肠内异常发酵等指征，不能仅凭胃胀默认联用；奥美拉唑还需复核说明书疗程限制及维持必要性。"
+      },
+      {
+        "case_id": 579,
+        "reflection": "患者因辛辣饮食后出现胃灼热、肠鸣排气增多且大便稀溏时，不应仅凭“胃炎/肠功能紊乱”即用莫沙必利；促动力药可能加重腹泻、腹痛，需先核查排便次数和腹痛，若稀便突出应评估曲美布汀等兼顾胃肠运动紊乱的方案；胃灼热明显或持续时再评估奥美拉唑抑酸指征及不超过7天的限制。"
+      },
+      {
+        "case_id": 580,
+        "reflection": "餐后胃部不适、恶心、想吐口水且无发热和腹痛时，可暂用健胃消食片对症，但材料未载其适应症及对恶心/反流的效果；不应因参考标签直接换用甲氧氯普胺。若恶心突出需考虑甲氧氯普胺，应先核查胃肠道出血、机械性肠梗阻或穿孔、嗜铬细胞瘤、癫痫及肾功能不全等禁忌/慎用，并监测锥体外系反应；3天不缓解应就诊。"
+      },
+      {
+        "case_id": 581,
+        "reflection": "患者出现饮食相关连续呕吐、尚未腹泻并疑急性胃肠炎时，蒙脱石说明未支持止吐，不宜仅凭呕吐选用；应核查甲氧氯普胺的呕吐适应症、肠梗阻或胃肠道出血等禁忌及补液需求，再决定是否止吐。"
+      },
+      {
+        "case_id": 582,
+        "reflection": "进食油腻后出现腹胀、嗳气并伴稀便，考虑肠功能紊乱拟用莫沙必利时，应核查腹泻次数和程度；莫沙必利可致腹泻、腹痛，若稀便明显需重新评估促动力方案，必要时考虑曲美布汀或益生菌，而不只按消化不良加用健胃消食片。"
+      },
+      {
+        "case_id": 583,
+        "reflection": "患者已用伊托必利且腹胀便秘改善不佳时，若考虑加莫沙必利，应先核查两药是替代还是联用及联用依据、监测要求；材料未提供联用安全性信息，不能默认叠加，并应复核乳果糖通便效果及益生菌是否有明确指征。"
+      },
+      {
+        "case_id": 584,
+        "reflection": "患者下腹胀痛、肠镜正常、尿常规白细胞，而既往浅表性胃炎已无症状时，莫沙必利仅凭胀气使用依据不足（其适应症偏上消化道功能性消化不良）；应核查尿路感染症状、尿培养及氟喹诺酮过敏/肾功能等限制，再评估左氧氟沙星。"
+      },
+      {
+        "case_id": 585,
+        "reflection": "患者出现胃反流伴胸骨后痛、既往反流致喉咙痛且拟诊胃食管反流病时，奥美拉唑适用；莫沙必利有胃食管反流适应症，不宜仅因与参考方案不同而否定。胶体果胶铋应核查有无消化性溃疡、幽门螺杆菌或胃炎证据，未确认前不常规加入。"
+      },
+      {
+        "case_id": 586,
+        "reflection": "患者餐后脐上隐痛、便检正常且无腹泻或恶心呕吐时，拟诊胃炎不应默认加莫沙必利：其适应症偏动力障碍症状，当前依据不足；应核查有无腹胀早饱等，并评估曲美布汀对运动紊乱性腹痛是否适用，奥美拉唑需确认溃疡或反流证据及7天疗程限制。"
+      },
+      {
+        "case_id": 587,
+        "reflection": "患者出现胃胀、嗳气、阵发性胃痛，处于哺乳期且已服达喜时，推荐莫沙必利前应核查哺乳期安全性；所给说明书无泌乳及婴儿风险信息，不能据此认定安全，健胃消食片也仅提示哺乳期医师指导，不宜默认替代。"
+      },
+      {
+        "case_id": 588,
+        "reflection": "患者非萎缩性胃炎伴反酸打嗝、胃蠕动差，材料未提及腹泻或肠道菌群失调时，加益生菌前须核查有无肠内异常发酵、肠炎或腹泻等适应症；不宜仅凭“调节菌群”加用，以免无依据联合用药。"
+      },
+      {
+        "case_id": 589,
+        "reflection": "患者出现饥饿痛、进食后缓解、夜间痛时，应先核查消化性溃疡而非仅按慢性胃炎处理；莫沙必利对嗳气有依据但对该疼痛证据不足，奥美拉唑需围绕溃疡或反流适应症评估；康复新液仅在确认胃十二指肠溃疡且无哮喘、过敏、妊娠禁忌时考虑。"
+      },
+      {
+        "case_id": 591,
+        "reflection": "患者出现晨起将醒时胃痛、醒后缓解、偶打嗝且无反酸，未行胃镜而拟诊慢性胃炎时，应核查奥美拉唑说明书适应症未列慢性胃炎及7天疗程限制、莫沙必利是否有功能性消化不良动力症状依据，并核实康复新液是否具备胃痛出血或溃疡等使用条件，再决定是否联用。"
+      },
+      {
+        "case_id": 592,
+        "reflection": "患者夜间胃痛醒且仅拟诊胃酸过多或胃溃疡时，铝镁化合物可对症中和胃酸，但若考虑溃疡，应核查有无呕血、黑便、吞咽困难等报警症状及急腹症；无禁忌时可评估奥美拉唑抑酸，注意其7天疗程限制，不能仅凭标签差异认定铝镁错误。"
+      },
+      {
+        "case_id": 593,
+        "reflection": "患者进食辛辣酸性食物后短时胃部不适、拟诊急性胃炎或消化不良时，奥美拉唑说明书适应症未涵盖该诊断，应核查呕血黑便等警报症状及是否符合胃溃疡/反流适应证；莫沙必利仅在伴早饱、上腹胀等动力症状时可考虑；健胃消食片说明未载适应症，加入前需核对其适用范围。"
+      },
+      {
+        "case_id": 596,
+        "reflection": "患者有晨起腹胀、口火气大且既往用药后好转；若拟以黄连素清热燥湿，应先核实其适应症及G6PD缺乏/溶血性贫血史，说明载此类患者禁用，材料未给适应症，不能仅凭口火气大判定安全适用。谷氨酰胺说明未载适应症，不能仅因参考推荐而加入或替代。"
+      },
+      {
+        "case_id": 597,
+        "reflection": "患者胃不能受凉、有浅表性胃炎伴糜烂，并出现口腔溃疡、牙龈肿痛且服黄连上清片未愈时，炉甘石洗剂因溃疡面禁用、材料未支持口腔黏膜使用而不宜推荐；若考虑康复新液，需先核查过敏、哮喘、妊娠禁忌及口腔用法，再决定是否加入。"
+      },
+      {
+        "case_id": 598,
+        "reflection": "患者出现恶心胃胀且已用奥美拉唑无效，并诉曾有黑便时，应核查黑便的真实性、近期性及有无呕血等报警症状，再决定是否继续用奥美拉唑；说明书将黑便列为不宜自行使用并需就医的征兆。"
+      },
+      {
+        "case_id": 600,
+        "reflection": "患者晨起喷嚏、鼻炎未明确过敏性时，氯雷他定应核查过敏性鼻炎证据后再用；若胸口烧灼向背放射考虑胃酸相关，奥美拉唑抑酸合理，针对烧心还可评估铝镁化合物，并先排除吞咽困难、呕血或黑便等报警症状，症状持续需就医。"
+      },
+      {
+        "case_id": 601,
+        "reflection": "患者进食后胃痛、咽下时疼痛并伴反酸，且已用铝碳酸镁后反酸缓解时，奥美拉唑说明书将吞咽疼痛/困难列为勿使用警示，应先核查并就医排除严重情况再决定是否用PPI；莫沙必利虽可用于反流，也需排除该警示后评估。"
+      },
+      {
+        "case_id": 603,
+        "reflection": "患者突发持续上腹痛伴呕吐、发冷低热且既往胃炎近期稳定时，推荐铝镁化合物或甲氧氯普胺前应核查急腹症、机械性肠梗阻及出血/穿孔：前者说明急腹症须诊断明确后使用，后者禁用于梗阻、穿孔或胃肠道出血；未排除前不宜仅按急性胃炎加用，并需评估低热及呕吐原因。"
+      },
+      {
+        "case_id": 604,
+        "reflection": "患者有浅表性胃炎伴糜烂、饱胀嗳气且奥美拉唑不耐受并要求中成药时，应核查三九胃泰是否符合湿热/气滞血瘀证候及糜烂性胃炎医师指导，并确认健胃消食片能否针对反酸；莫沙必利可按动力不足指征使用但需监测。"
+      },
+      {
+        "case_id": 606,
+        "reflection": "患者慢性胃炎伴糜烂、嗳气而反酸已缓解且无腹胀，已用兰索拉唑和胃苏颗粒时，莫沙必利可因嗳气或反流考虑，但需核实胃动力障碍及加用必要性；若考虑铝镁化合物缓解酸相关症状，应先核对肾功能及与现有口服药联用信息。"
+      },
+      {
+        "case_id": 607,
+        "reflection": "患者慢性非萎缩性胃炎伴胆汁反流且仅偶反酸、无腹胀嗳气早饱时，莫沙必利缺乏足够促动力适应症支持；应核查动力障碍症状，并评估铝镁化合物用于慢性胃炎胃酸相关不适的依据及奥美拉唑7天疗程限制，再决定是否调整。"
+      },
+      {
+        "case_id": 608,
+        "reflection": "患者有慢性胃炎史、饭后上腹胀痛且尚未行胆囊超声时，莫沙必利虽可试用于功能性消化不良的早饱腹胀，但不能替代胆囊炎排查；应先完成B超，排除胆道病变并核实胃炎/溃疡及肾功能后，再评估是否加用胶体果胶铋。"
+      },
+      {
+        "case_id": 609,
+        "reflection": "患者功能性消化不良伴嗳气、腹胀、肠鸣且口服药物疗效不佳时，曲美布汀有对症依据；但其说明要求治疗前明确诊断并慎用于器质性或占位性消化道疾病，应核对胃肠镜报告排除后再用。不能仅因参考方案含莫沙必利而替换，需另行核查其适应症与过敏史。"
+      },
+      {
+        "case_id": 610,
+        "reflection": "慢性浅表性胃炎伴烧心、口气重、大便滑腻，若既往奥美拉唑/铝碳酸镁效果不佳而胃炎灵类有效，应核查奥美拉唑用法疗程及反流证据；无食积、纳差、腹胀依据时，健胃消食片缺少支持，应先核查适应指征；三九胃泰仅在符合湿热气滞血瘀证候时考虑，并核查联用说明。"
+      },
+      {
+        "case_id": 612,
+        "reflection": "患者有上腹不适、腹胀嗳气、便秘，无烧心反酸或溃疡证据时，医生推荐莫沙必利与健胃消食片；莫沙必利符合功能性消化不良适应症，健胃消食片说明未列适应症，应核查批准适应症后再用；奥美拉唑不应仅因上腹不适加入，需确认溃疡或反流证据。"
+      },
+      {
+        "case_id": 613,
+        "reflection": "患者按慢性胃炎/肠炎评估，出现反复嗳气、腹胀、餐后不适，伴大便不成形和粘液气泡时，奥美拉唑在无反酸及溃疡/反流依据下证据不足，应核查抑酸指征；可评估曲美布汀或复方消化酶针对动力紊乱和消化不良，并监测莫沙必利相关腹泻。"
+      },
+      {
+        "case_id": 614,
+        "reflection": "患者有口苦、恶心、早饱且未查胃镜和幽门螺杆菌时，暂用莫沙必利有促动力依据；若餐后腹胀、早饱突出，应核查是否适合加复方消化酶并确认无急性肝炎或胆道闭锁；铝镁化合物可考虑缓解慢性胃炎相关饱胀，但需排除急腹症及严重心肾功能不全，且用药不能替代检查。"
+      },
+      {
+        "case_id": 615,
+        "reflection": "患者有慢性胃炎基础、进食冷食后急性恶心呕吐烧心一周时，莫沙必利说明书适应症主要限功能性消化不良、胃食管反流等，用于止吐前需核查症状是否属这些适应症并评估脱水；谷氨酰胺说明缺适应症，不宜仅因参考推荐加入。"
+      },
+      {
+        "case_id": 616,
+        "reflection": "患者餐后腹胀、食欲缺乏，已用多潘立酮联合莫沙必利而疗效不佳时，应核查两促动力药联用的必要性，避免仅重复推荐莫沙必利；若需改善餐后腹胀可评估复方消化酶，但须先排除急性肝炎或胆道完全闭锁。"
+      },
+      {
+        "case_id": 617,
+        "reflection": "患者胃痛伴稀便2~3次/日、服香砂养胃丸后疼痛加重时，若考虑胃炎并拟用莫沙必利，须先核查腹泻程度，因该药不良反应含腹泻腹痛，腹泻明显时不宜贸然选用；无烧心反酸且未确诊溃疡/反流时，奥美拉唑不应仅凭胃炎诊断加入。"
+      },
+      {
+        "case_id": 618,
+        "reflection": "患者有食欲缺乏、恶心、餐后上腹不适且胃炎或功能性消化不良未确诊时，选用莫沙必利或奥美拉唑前应核查胃镜及适应症；若以消化不良、食欲差为主，可评估复方消化酶（急性肝炎、胆道闭锁禁用），但不宜仅凭参考方案常规联用。"
+      },
+      {
+        "case_id": 620,
+        "reflection": "患者有反酸恶心、上腹胀，已用兰索拉唑和吗丁啉且部分缓解时，拟加奥美拉唑、莫沙必利前应核实原药是否停用及替换关系，否则可能造成同类抑酸或促动力药重复；若加铝镁抗酸药，还需核查与抑酸药的服用间隔并明确疗程。"
+      },
+      {
+        "case_id": 621,
+        "reflection": "患者有反酸、胃胀及进食或咽下时胸背痛，疑胃食管反流时，莫沙必利有促动力适应症，并非不宜；奥美拉唑虽可抑酸，但说明警示吞咽疼痛须先就医排查，不能仅因反酸漏荐即加用，应先核查吞咽痛性质及报警症状再决定。"
+      },
+      {
+        "case_id": 622,
+        "reflection": "长期反复餐后不适、恶心者可用莫沙必利；若考虑加用复方消化酶改善消化不良，须先排除急性肝炎及胆道完全闭锁；健胃消食片与复方消化酶仅属参考差异时，不应据此自行叠加或替代，并需评估联用必要性；症状持续或出现报警症状应就医。"
+      },
+      {
+        "case_id": 623,
+        "reflection": "患者以嗳气、餐后上腹胀为主，已服健胃消食片无效且未获胃镜确认慢性胃炎时，不宜重复推荐健胃消食片；应核查既往剂量疗程及无效原因，评估莫沙必利等促动力药和胃镜指征，并仅在符合湿热气滞证候时考虑三九胃泰，避免重复无效用药。"
+      },
+      {
+        "case_id": 624,
+        "reflection": "患者出现慢性餐后上腹胀、嗳气、早饱，伴大便食物残渣且胃镜为轻度萎缩性胃炎伴糜烂时，莫沙必利可对症促动力；健胃消食片说明未载适应症，不能据此认定可替代助消化药，应核查有无消化酶不足，排除急性肝炎及胆道完全闭锁后可考虑复方消化酶并观察疗效。"
+      },
+      {
+        "case_id": 625,
+        "reflection": "患者焦虑未确诊且以嗳气、消化不良、恶心为主时，不应以氯雷他定缓解焦虑（说明书无此适应症），应转专科评估；消化不良突出可在排除急性肝炎、胆道完全闭锁后考虑复方消化酶，并复核奥美拉唑疗程及疗效。"
+      },
+      {
+        "case_id": 626,
+        "reflection": "患者已用快力（需确认是否为莫沙必利）和泮托拉唑后胃堵、打嗝无改善且无反酸时，继续推荐莫沙必利或换奥美拉唑缺乏明确再使用依据；应先核对当前药物成分避免同类重复，并评估复方消化酶改善消化不良，须排除急性肝炎、胆道闭锁及与现有酶制剂重复。"
+      },
+      {
+        "case_id": 627,
+        "reflection": "患者出现进食后胸闷、恶心、头晕且有室上性心动过速史时，不应仅按胃炎或胃动力障碍选用莫沙必利；应先完成心电图、动态心电、心脏彩超和胃镜，明确胸闷头晕是否心源性，再决定是否需健胃消食片辅助消化，并监测莫沙必利后头晕等反应。"
+      },
+      {
+        "case_id": 628,
+        "reflection": "患者慢性胃炎仅偶发轻微上腹痛、无反酸烧心或腹胀早饱时，莫沙必利缺少动力症状依据，不宜仅凭胃炎加用；应核查反酸、腹胀、早饱及幽门螺杆菌、肾功能和铋剂疗程，再考虑胶体果胶铋，奥美拉唑按抑酸指征短期使用。"
+      },
+      {
+        "case_id": 629,
+        "reflection": "患者出现急性胃炎伴恶心呕吐，且已使用莫沙必利五六天、呕吐缓解但胃部不适持续时，不宜仅凭症状相符继续推荐莫沙必利；应核查是否需停用或调整促动力药，并评估胃酸相关或黏膜损伤指征及奥美拉唑适应症限定后再决定是否加用PPI。"
+      },
+      {
+        "case_id": 630,
+        "reflection": "患者餐后阵发上腹胀痛、恶心嗳气且无烧心、大便成形，已服三九胃泰一次无效时，不应据此认定该药无效或必须换药；莫沙必利可针对腹胀恶心嗳气考虑，但需核查三九胃泰证候与疗程、联用信息，并监测腹泻腹痛及胆囊源性疼痛。"
+      },
+      {
+        "case_id": 631,
+        "reflection": "患者有反酸、胃胀、晨起恶心及咽部痰感等反流表现且鼻炎性质未明时，奥美拉唑抑酸可考虑并核查7天疗程限制；氯雷他定仅在明确过敏性鼻炎时使用，不能仅凭“鼻炎”加用；蒲地蓝缺适应症材料，不宜仅因参考推荐加入。"
+      },
+      {
+        "case_id": 633,
+        "reflection": "患者有胃炎/胃下垂史，出现胃胀、肠鸣并新发腹泻时，莫沙必利虽可促动力，但说明书列腹泻、腹痛为不良反应，应核查腹泻程度并暂缓或调整；蒙脱石止泻有依据，须补液并核查与其他口服药间隔；奥美拉唑仅在酸相关症状或适应证明确时考虑。"
+      },
+      {
+        "case_id": 634,
+        "reflection": "患者突发胃部不适伴按压痛、初步考虑慢性胃炎且无呕血黑便等报警症状时，奥美拉唑说明书适应症未涵盖慢性胃炎或单纯胃痛，材料不足以支持其作为首选；应核查适应症并评估铝镁化合物等抗酸药的适用性，同时排除急腹症及严重肾功能不全、高镁高钙等限制。"
+      },
+      {
+        "case_id": 635,
+        "reflection": "患者进食后咽喉至上腹堵塞、嗳气，疑似胃食管反流且无吞咽困难时，用莫沙必利合铝镁化合物仅覆盖促动力和对症抗酸；应核查是否需加奥美拉唑抑酸，因其适用于胃食管反流，但须先排除吞咽困难等报警症状并限短期使用。"
+      },
+      {
+        "case_id": 636,
+        "reflection": "患者出现嗳气、恶心，未见反酸/胃灼热，考虑功能性消化不良时，莫沙必利符合适应症；健胃消食片说明未载明适应症，应核查其适用性及与莫沙必利联用的必要性；奥美拉唑适应症不含功能性消化不良，无反酸烧心时不宜仅因标签差异加用。"
+      },
+      {
+        "case_id": 637,
+        "reflection": "患者慢性非萎缩性胃炎伴幽门螺杆菌阳性但未达根除指征、以恶心腹胀为主且已不规律使用莫沙必利时，推荐莫沙必利前应核对既往剂量、疗效及不良反应，避免把已用药当作“加用”；奥美拉唑需先确认胃炎/HP治疗指征及7天疗程限制，材料不足则不贸然加入。"
+      },
+      {
+        "case_id": 638,
+        "reflection": "患者出现餐后肠鸣、排气增多、便意频繁并伴轻微便秘时，莫沙必利说明主要针对上消化道症状且不良反应含腹泻腹痛，应核查其与肠鸣排气/轻微便秘的匹配性；益生菌可用于肠内异常发酵、消化不良，可评估但需确认过敏及联用咨询。"
+      },
+      {
+        "case_id": 641,
+        "reflection": "患者胆囊切除术后出现晨起呕吐黄色液体伴脸色发黄、眩晕时，不应仅用蒙脱石按“吸附胆汁”处理，其说明书未支持该用途；应先就医核查胆道梗阻或胆汁反流，奥美拉唑仅在明确胃酸相关适应症后考虑，不能替代胆道评估。"
+      },
+      {
+        "case_id": 644,
+        "reflection": "患者慢性腹泻伴黏液、餐后腹胀且焦虑，已用马来酸曲美布丁和益生菌而近期效果差时，医生直接加服曲美布汀依据不足；应先核对当前剂量、依从性及是否仍在用，若确无效则重新评估功能性肠病/焦虑因素并考虑替代或转诊。"
+      },
+      {
+        "case_id": 649,
+        "reflection": "患者有胆囊切除史并出现上腹胀、反酸等消化不良时，推荐莫沙必利前应核查是否需评估复方消化酶以改善胆囊切除相关消化不良，并排除急性肝炎、胆道完全闭锁；莫沙必利对反酸胀气有依据，不因标签差异否定。"
+      },
+      {
+        "case_id": 650,
+        "reflection": "患者出现感冒后口异味、嗳气及胃部顶气但无反酸烧心时，不宜仅凭疑似胃炎直接选用奥美拉唑；应先核查反酸/烧心、吞咽困难、黑便等PPI指征及禁忌，若均无，可考虑铝镁化合物缓解嗳气饱胀并观察7天疗效。"
+      },
+      {
+        "case_id": 651,
+        "reflection": "慢性胃炎伴餐后上腹胀、无反酸烧心时，拟用奥美拉唑应核查反流、糜烂或溃疡证据及7天疗程限制，无指征不因慢性胃炎常规抑酸；晨起腹泻者用莫沙必利需监测其致腹泻风险，益生菌应待肠炎或菌群失调证据明确后再决定是否加用。"
+      },
+      {
+        "case_id": 652,
+        "reflection": "患者有夜间烧心、反酸及便稀，且既往幽门螺杆菌阳性未复查时，应先核查幽门螺杆菌和胃镜；对症可评估奥美拉唑抑酸，莫沙必利改善反流/动力症状但需监测腹泻，铝镁可中和胃酸而长期需注意电解质，复方消化酶仅在消化不良或脂肪便指征时考虑，益生菌辅助。"
+      },
+      {
+        "case_id": 653,
+        "reflection": "患者长期夜间胃痛、刺痛并与情绪相关，胃镜无异常且无反酸嗳气时，仅凭慢性胃炎加用莫沙必利和健胃消食片依据不足；应先核查腹胀、早饱、嗳气或食积等指征，并限定奥美拉唑短期使用，否则不宜默认三联联用。"
+      },
+      {
+        "case_id": 654,
+        "reflection": "患者出现烧心、打嗝、胃烧且拟诊反流性胃炎、尚未用药时，奥美拉唑抑酸及莫沙必利促动力均有相应适应症，不应因未列参考而否定；若考虑加胶体果胶铋，须先确认消化性溃疡/幽门螺杆菌或慢性胃炎及肾功能，否则材料不足以支持常规加入。"
+      },
+      {
+        "case_id": 655,
+        "reflection": "患者出现持续2个月胃烧、口干干呕及偶发反酸，拟诊胃炎或消化不良时，单用莫沙必利仅针对动力症状；应核查有无吞咽困难、呕血黑便等报警症状，必要时考虑奥美拉唑抑酸，并遵守其7天疗程及两个月内不重复的限制。"
+      },
+      {
+        "case_id": 656,
+        "reflection": "患者有胃炎胃糜烂史，出现胃肠功能紊乱伴腹部坠胀、大便不成形且进食凉食后不适时，若缺乏上腹胀、早饱、嗳气等症状，莫沙必利促动力依据不足，应核查其适应症状；可评估曲美布汀改善运动紊乱，但须先排除器质性疾病。"
+      },
+      {
+        "case_id": 658,
+        "reflection": "患者有胆汁返流性胃炎、上腹胀痛和嗳气但明确无便秘时，不应将便秘列为选药依据；莫沙必利可改善腹胀嗳气，铝镁化合物或奥美拉唑须先核实烧心反酸、胃痛及说明书适应症，再决定是否加用并关注便秘等不良反应。"
+      },
+      {
+        "case_id": 659,
+        "reflection": "患者出现胃上部及食道堵塞感、轻微疼痛并诉吞咽哽咽时，不应仅按胃炎直接选用奥美拉唑；其说明警示吞咽困难或疼痛者勿用，应先核查吞咽症状并尽快胃镜排除梗阻，再据结果决定是否用促动力药或抗酸药。"
+      },
+      {
+        "case_id": 660,
+        "reflection": "患者出现右上腹隐痛、糜烂性胃炎且转氨酶高时，不应仅凭“修复胃黏膜”选用谷氨酰胺，因材料未提供其胃炎或肝功能异常适应症；若考虑奥美拉唑，需核对糜烂性胃炎是否属其说明书适应症，并因转氨酶高按肝功能不全评估和监测。"
+      },
+      {
+        "case_id": 661,
+        "reflection": "患者有胃窦炎且仅饮食刺激后胃不适、无明确嗳气早饱恶心腹胀时，不宜仅凭胃窦炎加用莫沙必利；应核查胃炎分型及肾功能，若为慢性浅表性或萎缩性胃炎可考虑胶体果胶铋，并核对奥美拉唑适应症及7天疗程限制。"
+      },
+      {
+        "case_id": 662,
+        "reflection": "患者饥饿时胃痛、进食后缓解且未行胃镜时，莫沙必利仅列功能性消化不良等适应症，材料不足以支持用于疑似溃疡，应核查用药目的；铝镁化合物可缓解胃酸相关胃痛，但急腹症须先排除，不能仅因参考收录即加用。"
+      },
+      {
+        "case_id": 664,
+        "reflection": "患者出现反酸、食道堵塞感并偶有胸骨痛，且胃镜仅示浅表性胃炎时，莫沙必利可促动力缓解堵塞感，但不能替代抑酸评估；应先核查吞咽困难或疼痛等报警症状，排除严重情况后再考虑奥美拉唑短期抑酸，因该药在吞咽困难或疼痛时不宜自行使用。"
+      },
+      {
+        "case_id": 665,
+        "reflection": "长期胃胀、肠胀气伴大便不成型时，莫沙必利主要覆盖上腹胀/早饱；若下腹胀气、排便异常突出，应核查是否符合胃肠运动紊乱或肠易激惹表现以考虑曲美布汀，并评估复方消化酶对餐后腹胀、排气过多的适用性及胆道完全闭锁等禁忌，不能仅凭参考列表替换。"
+      },
+      {
+        "case_id": 668,
+        "reflection": "患者有饭后胃胀、反酸及饥饿性胃痛且疑胃炎或溃疡时，单用莫沙必利主要改善动力症状；应核查奥美拉唑等抑酸治疗的必要性及其7天疗程限制，并评估反复症状需胃镜的指征，避免仅对症而漏治酸相关表现。"
+      },
+      {
+        "case_id": 670,
+        "reflection": "慢性胃炎伴胆汁反流患者饮食后出现腹胀、嗳气、恶心且已服莫沙必利时，加健胃消食片前应核查其适应症及联用必要性（说明书未列适应症）；若考虑奥美拉唑，需核对胆汁反流抑酸指征及不超过7天、两个月内不得再次服用的限制，不能仅凭参考方案加入。"
+      },
+      {
+        "case_id": 673,
+        "reflection": "患者进食油腻过饱后仅呕吐1次、无腹泻及明显恶心时，核对健胃消食片适应症和禁忌后可短期对症；不应仅凭胃炎诊断加奥美拉唑，需核查反酸烧心、溃疡史及呕血黑便等警示征象，无酸相关证据则观察补液、3天不缓解就医。"
+      },
+      {
+        "case_id": 676,
+        "reflection": "患者短期餐后腹胀、恶心干呕、食欲不振，未提及反酸烧心或溃疡/胃食管反流确诊时，莫沙必利可对症但须监测腹泻、头晕及过敏；奥美拉唑说明书适应症限溃疡、GERD等，不宜仅因疑似胃炎加用，应核查反酸烧心、黑便等再评估PPI。"
+      },
+      {
+        "case_id": 677,
+        "reflection": "患者有慢性非萎缩性胃炎并因辛辣饮食出现胃刺痛、便秘，但无早饱腹胀嗳气等动力障碍证据时，莫沙必利依据不足，应核查动力症状；铝镁化合物更贴合胃炎相关胃痛，可评估使用；奥美拉唑须核实酸相关适应症及7天疗程限制。"
+      },
+      {
+        "case_id": 678,
+        "reflection": "患者持续嗳气、胃胀、打嗝，已用吗丁啉和健胃消食片无效，且未提供反酸烧心或溃疡证据时，不应仅凭疑似胃食管反流加奥美拉唑；应先核查抑酸指征及报警症状，功能性消化不良可选用莫沙必利，益生菌仅在伴消化不良或肠内异常发酵时考虑。"
+      },
+      {
+        "case_id": 679,
+        "reflection": "患者有慢性胃炎伴餐后腹胀、早饱及体重明显下降，且既往奥美拉唑疗效不佳时，应核查奥美拉唑使用指征与疗程，并进一步排查器质性病因，不宜仅因胃炎续用；可评估莫沙必利促动力，复方消化酶使用前须排除急性肝炎和胆道完全闭锁。"
+      },
+      {
+        "case_id": 680,
+        "reflection": "患者有胃炎病史、进食辛辣受凉后出现胃痛并腹泻时，不宜仅凭“胃炎”选用奥美拉唑；其说明书适应症未含胃炎且腹泻为常见不良反应，应核查腹泻病因及严重度，并评估铝镁化合物虽可缓解胃酸相关胃痛但可能使排便增多，再决定用药。"
+      },
+      {
+        "case_id": 681,
+        "reflection": "患者术后疼痛伴重度萎缩性胃炎、肠化生，且已用对乙酰氨基酚可缓解时，不宜直接改推荐布洛芬；应核对对乙酰氨基酚剂量、疗程及肝功能，避免重复复方制剂，并评估布洛芬胃黏膜损伤和出血风险，确需用时短期饭后服并监测。"
+      },
+      {
+        "case_id": 684,
+        "reflection": "患者已用奥美拉唑、莫沙必利、达喜及熊去氧胆酸半年仍胃胀痛、嗳气、腹泻时，加用铝镁化合物前应核查是否与达喜同类重复及腹泻加重风险；莫沙必利可致腹泻，需评估后调整，使用复方消化酶前应排除胆道完全闭锁。"
+      },
+      {
+        "case_id": 685,
+        "reflection": "患者餐后饱胀、早饱、大便不成型且无夜间空腹痛时，若诊断慢性胃炎伴消化不良，奥美拉唑因缺乏溃疡/反流等抑酸指征，常规加入依据不足，应先核查反酸、烧心及溃疡史；对早饱、餐后腹胀可核查复方消化酶适应证及胆道梗阻等禁忌后考虑。"
+      },
+      {
+        "case_id": 686,
+        "reflection": "患者仅凭幽门螺杆菌试纸阳性、钡餐示胃炎且已服奥美拉唑一周时，不宜直接按确诊启动阿莫西林+克拉霉素+奥美拉唑三联；应先以规范检测确认HP，并核查青霉素过敏、克拉霉素禁忌及是否需加胶体果胶铋。"
+      }
+    ]
+  ]
+}

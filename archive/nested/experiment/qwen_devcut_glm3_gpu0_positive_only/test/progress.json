@@ -1,0 +1,1575 @@
+{
+  "config": {
+    "dataset": "data/devcut.txt",
+    "doctor_backend": "local-qwen",
+    "doctor_model_path": "/data/SharedFile/Qwen/Qwen3-8B",
+    "doctor_max_new_tokens": 256,
+    "memory_dir": "/data/cuizh/tiny_hospital/experiment/qwen_positive_only_memory",
+    "stage": "test",
+    "retrieval_mode": "embedding",
+    "vector_transport": "shared_memory",
+    "embedding_backend": "api",
+    "embedding_model": "GLM-Embedding-3",
+    "embedding_model_version": "GLM-Embedding-3",
+    "embedding_endpoint": "https://llmapi.paratera.com/v1/embeddings",
+    "embedding_store": null,
+    "embedding_key_env": "EMBEDDING_API_KEY",
+    "embedding_timeout": 120,
+    "chat_timeout": 120.0,
+    "agent_timeout": 720,
+    "embedding_min_similarity": 0.6,
+    "runtime": "sync",
+    "shared_dialog": false,
+    "incremental_history": false,
+    "incremental_medicines": false,
+    "shared_medicines": false,
+    "structured_data": false,
+    "dataset_sha256": "4694d09fc81ef860bdf82b16a5a909ccae03a5e5d5bf6fb91658d4c1468a25ea",
+    "memory_source_sha256": "de3a954a60ef46cf34bee9164294b20027616c623cf8d840919d31c83e14ee6a",
+    "chat_model": "/data/SharedFile/Qwen/Qwen3-8B",
+    "chat_endpoint": "local",
+    "doctor_generation": {
+      "enable_thinking": false,
+      "do_sample": false,
+      "max_new_tokens": 256
+    },
+    "expert_model": "DeepSeek-V4.1-Flash-1017",
+    "expert_endpoint": "https://llmapi.paratera.com/v1/",
+    "code_sha256": {
+      "agent/__init__.py": "16c078bdf750d2bef02bea720a8896cb4a307d99289098c306a19655ea12b3a4",
+      "agent/base.py": "98f3babc25f203506249d4b56514fae510abdb692f2272e2bef79c70cc5d448b",
+      "agent/doctor.py": "090751098bd437ee147a1057eb099c25deeff37001e474513e903e8376c113fc",
+      "agent/doctor_Qwen.py": "b14661b2fbb9d8e83cc98c2770338c740905b42d2203d9e8f8b7a0acf4e69eec",
+      "agent/expert.py": "d14487ee8d4ed1f00644051e30049a0a189c3954daeeefc56461cab4d5f48b2a",
+      "agent/patient.py": "ed45903669dc31db69f43a1ba6522507acec5842f791c6c9ce03dab0b1cc3ca6",
+      "agent/retrieval.py": "ed6ea673369164f726e72ac926f3ae88229904be18c8415deab7f3e4d14be10b",
+      "agent/validation.py": "5b62253671a568d81e10478783716378e45aba1e1f643add279cac51817023e4",
+      "capture_gateway_run.py": "ac9fe95ca65ca72b58814ff3879823e836c27d40217ae97722b7a1a4d88fd1d7",
+      "cases.py": "792190566bcea2c6d3c986678c407455d1ab7e9bf5117e37794847e63d87f0c8",
+      "decision_vector.py": "4d4c6beb3acacec78e70153ef09cbcaf94874d365f233254a83230f3a0224738",
+      "embedding/__init__.py": "f1b8e0add04ef7224876d0943b01e703a4eb03c66074c38851b0e681d061a6a5",
+      "embedding/build_vectors.py": "328ab2028848f7f949f4c3ca14ec7e4593d13f58b03176fc67881e0bf996edce",
+      "embedding/encoder.py": "e8935b5a418a7294d58d83715ba46b57ba7b93c4a46f6afdd5d6d3929bf2bcec",
+      "embedding/records.py": "2ca33552a5328aeaddc3513f983691cab8200df18be8c9822c4cb7c0b4381de0",
+      "embedding/retrieval.py": "4d8c5955ef2a97727a101bc389150b7a4637e6028f9962c8c9b83261dd6c092e",
+      "embedding/store.py": "9364ea1de9e5b74a8411e0f587feab2c363090eb6a18c0b3651e35cc01ac2d2b",
+      "embedding/test_api.py": "c7e6dac2e8c06fc4d5930fca738ac8be6a05df1e229f392b9e94e83fb1e5b9d5",
+      "embedding/transport.py": "fbee2b7366b0f17276ca080cd1efc641d2959efc480b03cf853fb44f56185ad6",
+      "history/__init__.py": "426e1cc7158a91a6de3948bd4c64a6e67af854bf0c4e31f23072b437d6f6e891",
+      "history/memory.py": "bb92cedffe2734033fe3169071d8d6a644d4b47576a986f354def32cce772ae4",
+      "hospital_process.py": "8b5575131f9adf17a744b3f21b82755549c37f249c14fdb3b12084a23ab4214a",
+      "ipc_runtime.py": "6fd81bab31e1b4a2dbaf76d5745418c64f0ae2512419ea457781776e16277884",
+      "main.py": "3bf2a99fdf365662bb96924f7b3c9922c3e47674e818234c2a0c2cdac75632c8",
+      "measure_decision_transfer.py": "af4c6db1072e33ea698e08fe3e74ac6024ea3bfdd2c912f777f9c1b1e8a3a294",
+      "measure_incremental_history.py": "5f6e809471011809f6661e3d57b030409a277a9bf1b61e4dc08a46952b00d804",
+      "measure_incremental_medicines.py": "ce3fcc8fad60de401c96a886c2c17366ccc949641472a90eff0791a5e24d9087",
+      "measure_shared_transport.py": "c1ba0f89a3a595a017b8b1d6ef8b0c243e6d31d3be72fcd87fbc3e42e5332b97",
+      "performance_baseline.py": "96ba2eeb10be289921591f925289079bff25dd7fc878a047bbe42e73d9a7cc3c",
+      "performance_ipc.py": "1eab11007fcc7c4ac12feb62a465377e323fe26b3b01199cdd3a6d1cc6bd7c05",
+      "performance_stage2.py": "f65dbe43982b863b999271324c8fa021586ad334086e24ea19dc71db60c210f9",
+      "protocol.py": "3902102059a0368a6ca3079e6ceaeb8ff469df072c39aa063047a97ce7df96bf",
+      "shared_transport.py": "fb4f1aec1400ac2d5b5253bd3db85c6615375489098e06b57d3cf29c621fe98d",
+      "tool/__init__.py": "dc866139efc9d4234d56b1e4a789a1a00ca7ae9b38f311b2dbeaee3dc35abec4",
+      "tool/api_retry.py": "d02cd4625b0f6def53f7db46ea9674d3a7776678d03ba57dd884742cee41389a",
+      "tool/case_utils.py": "87b1a5921eea81f43e6595d7ae52ef0acf923d6eee5d9302e0acd7fb29f187f3",
+      "tool/diagnostics.py": "a971290981bf1d00eb973f2a0591df8bb0400873839ce4ffe43c059c075ff8d5",
+      "tool/experiment_progress.py": "512b5bc11b4c14d921caee156c7bbb9736162dd5277ef60e858fde4cb1b33af1",
+      "tool/json_store.py": "2db41e55a03fce3a2ed1e79464732407070f236beab3cd6d594ecfb81cc11bb1",
+      "tool/llm_client.py": "1ad2b71ae62dd6d0fb6eb7890dde3d88b3dd60ebeb71bf9a8a794bfac91c6670",
+      "tool/llm_usage.py": "5e8e402cfbc25297ae5f98efb12f06dee21fca4c0758e4a5269b07993fc702ff",
+      "tool/local_qwen_client.py": "4ed9cad239a7cdaf25f9347553ff1ca5d7872c421bc525a99748fbca44dbd019",
+      "tool/medicine_store.py": "02a381caf25271a3bc1b669a860e50bd12c09a1a7623e376e079e6fbeb487f9b",
+      "tool/tracing.py": "fcf28c72b93f6bac6ee1c1b9c5f1453ac89d9d26b7415a69458162f9aa16b069"
+    }
+  },
+  "completed_case_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81
+  ],
+  "results": [
+    {
+      "case_id": 1,
+      "status": "doctor_failed",
+      "recommended_drugs": null,
+      "error": "医生连续 3 次返回无效内容：关键证据须包含当前对话中出现的症状或病程用语",
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"奥美拉唑\", \"蒙脱石\"],\n  \"reasoning_summary\": \"关键证据：患者饥饿痛、进食后缓解、近期腹泻；疾病判断：考虑胃溃疡伴肠炎；选药依据：奥美拉唑抑制胃酸，适用于胃溃疡；蒙脱石止泻，适用于肠炎相关腹泻。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        },
+        {
+          "attempt": 2,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"奥美拉唑\", \"蒙脱石\"],\n  \"reasoning_summary\": \"关键证据：患者近期饥饿痛，进食后缓解，伴有腹泻；疾病判断：考虑胃溃疡并伴有肠炎；选药依据：奥美拉唑用于胃溃疡抑酸治疗，蒙脱石用于腹泻止泻。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        },
+        {
+          "attempt": 3,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"奥美拉唑\", \"蒙脱石\"],\n  \"reasoning_summary\": \"关键证据：饥饿痛、进食后缓解、近期病程；疾病判断：考虑胃溃疡；选药依据：奥美拉唑用于胃溃疡抑酸，蒙脱石用于腹泻止泻。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        }
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "蒙脱石"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 2,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 3,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 4,
+      "recommended_drugs": [
+        "益生菌",
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 5,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 6,
+      "recommended_drugs": [
+        "益生菌",
+        "布洛芬"
+      ],
+      "actual_drugs": [
+        "连花清瘟胶囊",
+        "对乙酰氨基酚"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 7,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 8,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 9,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 10,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 11,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 12,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 13,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 14,
+      "recommended_drugs": [
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 15,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 16,
+      "recommended_drugs": [
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "黄连素"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 17,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 18,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 19,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 20,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "健胃消食片"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 21,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 22,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 23,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "健胃消食片",
+        "双黄连口服液"
+      ],
+      "actual_drugs": [
+        "莫沙必利",
+        "复方消化酶",
+        "铝镁化合物",
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 24,
+      "recommended_drugs": [
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "益生菌"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 25,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "三九胃泰"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 26,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "三九胃泰"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 27,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 28,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 29,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 30,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 31,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 32,
+      "recommended_drugs": [
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 33,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 34,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 35,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 36,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "复方消化酶"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 37,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 38,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 39,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 40,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 41,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 42,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "复方消化酶",
+        "阿莫西林"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "阿莫西林",
+        "克拉霉素"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 43,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "肠炎宁",
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "山莨菪碱",
+        "肠炎宁",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 44,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "胶体果胶铋",
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 45,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 46,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 47,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 48,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 49,
+      "recommended_drugs": [
+        "蒙脱石"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 50,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 51,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 52,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "复方消化酶",
+        "阿莫西林",
+        "克拉霉素"
+      ],
+      "actual_drugs": [
+        "阿莫西林",
+        "奥美拉唑",
+        "胶体果胶铋",
+        "克拉霉素"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 53,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 54,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 55,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 56,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 57,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 58,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "复方消化酶",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 59,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 60,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "山莨菪碱",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 61,
+      "recommended_drugs": [
+        "复方消化酶",
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑",
+        "曲美布汀"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 62,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 63,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "复方消化酶",
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 64,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "铝镁化合物",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 65,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "谷氨酰胺",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 66,
+      "status": "doctor_failed",
+      "recommended_drugs": null,
+      "error": "医生连续 3 次返回无效内容：关键证据须包含当前对话中出现的症状或病程用语",
+      "attempts": [
+        {
+          "attempt": 1,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"莫沙必利\", \"奥美拉唑\"],\n  \"reasoning_summary\": \"关键证据：患者有胃胀、烧心、进食后不适；疾病判断：考虑胃炎或反流性食管炎；选药依据：莫沙必利改善胃肠动力，奥美拉唑抑制胃酸分泌，适用于反流或胃炎症状。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        },
+        {
+          "attempt": 2,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"莫沙必利\", \"奥美拉唑\"],\n  \"reasoning_summary\": \"关键证据：患者有胃胀、烧心、进食后不适；疾病判断：考虑胃炎或反流性食管炎；选药依据：莫沙必利改善胃肠动力，奥美拉唑抑制胃酸用于反流或溃疡可能。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        },
+        {
+          "attempt": 3,
+          "raw_reply": "{\n  \"recommended_drugs\": [\"莫沙必利\", \"奥美拉唑\"],\n  \"reasoning_summary\": \"关键证据：患者有胃胀、烧心、进食后不适；疾病判断：考虑胃炎或反流性食管炎；选药依据：莫沙必利改善胃动力，奥美拉唑抑酸适用于反流或溃疡可能。\"\n}",
+          "error": "关键证据须包含当前对话中出现的症状或病程用语"
+        }
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 67,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 68,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "三九胃泰",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 69,
+      "recommended_drugs": [
+        "莫沙必利",
+        "健胃消食片"
+      ],
+      "actual_drugs": [
+        "健胃消食片",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 70,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "莫沙必利",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 71,
+      "recommended_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "康复新液"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 72,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 73,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "曲美布汀",
+        "益生菌",
+        "复方消化酶"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 74,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "健胃消食片",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "胶体果胶铋",
+        "连花清瘟胶囊",
+        "莫沙必利"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 75,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "胶体果胶铋",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 76,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "胶体果胶铋",
+        "奥美拉唑"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 77,
+      "recommended_drugs": [
+        "莫沙必利",
+        "益生菌"
+      ],
+      "actual_drugs": [
+        "复方消化酶",
+        "益生菌"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 78,
+      "recommended_drugs": [
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "黄连素"
+      ],
+      "exact_match": false,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 79,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 80,
+      "recommended_drugs": [
+        "莫沙必利"
+      ],
+      "actual_drugs": [
+        "莫沙必利"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    },
+    {
+      "case_id": 81,
+      "recommended_drugs": [
+        "莫沙必利",
+        "奥美拉唑",
+        "铝镁化合物"
+      ],
+      "actual_drugs": [
+        "奥美拉唑",
+        "莫沙必利",
+        "铝镁化合物"
+      ],
+      "exact_match": true,
+      "reflection": null,
+      "golden_experience": null
+    }
+  ],
+  "memory": [
+    [
+      {
+        "case_id": 10,
+        "experience": "进食少量即胃胀、恶心、上腹胀且平卧可缓解，曾有肠胃炎、服中药口干停用，考虑胃炎或功能性消化不良时，可考虑莫沙必利促胃排空以对应上述症状；但诊断未明，应先胃镜，注意过敏者禁用及腹泻、口干等不良反应，并清淡少产气饮食。"
+      },
+      {
+        "case_id": 14,
+        "experience": "胃上部灼烧感疼痛，现在有点疼，曾于怀孕快生时及现在有类似发作，考虑胃酸过多或胃食管反流，可试用奥美拉唑抑酸；该药适用于胃食管反流病，但使用不得超过7天，症状未缓解或烧心加重应停药就医。"
+      },
+      {
+        "case_id": 22,
+        "experience": "对慢性餐后不适、打嗝伴消化不良、偶有反酸者，若疑似功能性消化不良或胃炎，可考虑促动力药莫沙必利；其适用于功能性消化不良伴嗳气、上腹胀等症状。诊断未明需保留不确定性，对本品过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 42,
+        "experience": "患者有反酸、嗳气数月，饭后常坐躺，医生考虑胃食管反流及胃动力不足；可考虑莫沙必利促胃动力、奥美拉唑减少胃酸。奥美拉唑使用不超过7天，症状未缓解或加重应就医，注意莫沙必利腹泻等不良反应。"
+      },
+      {
+        "case_id": 43,
+        "experience": "患者胃炎、消化不良、饱胀、打嗝、胃疼、胀气、舌苔发白持续一周，服奥美拉唑14粒后仍打嗝胃疼；考虑胃动力障碍或慢性胃炎，可加用莫沙必利改善胃动力及腹胀、嗳气等消化不良症状；需核实过敏史，注意腹泻等不良反应。"
+      },
+      {
+        "case_id": 74,
+        "experience": "患者近一周咽食管交界异物感，伴胃热、反酸，既往胃炎、胃下垂可能，进食不规律或辛辣可诱发不适；考虑胃食管反流病时，可试用莫沙必利促动力、奥美拉唑抑酸改善反流/胃灼热，并遵医嘱胃镜评估；奥美拉唑使用不得超过7天，出现吞咽困难或疼痛、呕血、黑便应咨询医师。"
+      },
+      {
+        "case_id": 84,
+        "experience": "患者有早饱、恶心、嗳气、上腹不适半年，且体重下降；考虑功能性消化不良，但医生强调胃镜明确诊断。若需对症，可考虑莫沙必利（消化道促动力剂）改善功能性消化不良相关的早饱、恶心、嗳气等症状；对本品过敏者禁用，具体用药仍需先核实诊断。"
+      },
+      {
+        "case_id": 93,
+        "experience": "患者胃胀、想打嗝打不出来，饭后加重，咖啡后胃灼热，服奥美拉唑和达喜后灼热缓解但胃胀未改善；考虑胃炎伴消化不良可能，可加莫沙必利促胃肠动力以改善上腹胀、嗳气；用药需注意过敏者禁用及腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 116,
+        "experience": "患者近期饥饿痛，既往类似发作经医院配药可缓解；医生考虑胃溃疡并建议胃镜。可考虑奥美拉唑抑酸，其适应症含胃溃疡；但应短期使用不超过7天，两个月内不得再次服用，症状未缓解或反复需就医，出现吞咽困难、呕血、便血或黑便时勿自行使用。"
+      },
+      {
+        "case_id": 119,
+        "experience": "洗胃后5天进食少量即腹胀，有服安眠药史，材料提及胃康宁但使用状态需核实；结合医生判断考虑胃炎及胃动力下降可能，可考虑莫沙必利改善上腹胀等消化道症状，但应核实过敏，并注意腹泻、腹痛等不良反应，不能据此保证疗效。"
+      },
+      {
+        "case_id": 130,
+        "experience": "患者原症状经中药加少量西药明显缓解，现仅余嗳气，曾问是否续用西药；在症状缓解不能排除萎缩性胃炎、仍待胃镜病理核实的情况下，针对嗳气可考虑莫沙必利，其作为消化道促动力剂适用于功能性消化不良伴嗳气等症状，用以改善胃动力；需注意过敏者禁用，且不能以症状缓解替代病理判断。"
+      },
+      {
+        "case_id": 134,
+        "experience": "疑似胃食管反流伴烧心反酸、进食后反嗝者，可考虑莫沙必利（说明书适应症含胃食管反流性疾病）和奥美拉唑（适应症含胃食管反流病）；对莫沙必利或奥美拉唑过敏者禁用，奥美拉唑使用不超过7天，症状未缓解或出现吞咽困难、呕血、黑便等应停药就医，两个月以内不得再次服用。"
+      },
+      {
+        "case_id": 144,
+        "experience": "胃部胀满、反酸半个月，考虑胃食管反流时，可考虑莫沙必利改善上腹胀（适用于胃食管反流性疾病等），奥美拉唑抑制胃酸（适用于胃食管反流病）；无既往用药信息，不判断加用或替换。须核实过敏、合并用药及报警症状，奥美拉唑不超过7天，未缓解就医。"
+      },
+      {
+        "case_id": 152,
+        "experience": "患者胃反酸、打嗝，伴背部及肩胛刺痛；体检心电图正常，但医生仍怀疑心绞痛并建议复查排除。若暂按胃食管反流处理，可考虑莫沙必利促动力缓解嗳气反流，奥美拉唑抑酸治疗反流。奥美拉唑不超过7天，两个月内不重复，未缓解或反复应就医。"
+      },
+      {
+        "case_id": 156,
+        "experience": "患者胃难受、呕吐后低烧，无腹痛腹泻，有消化不良及饱后不适；考虑胃食管反流或慢性胃炎可能。如按胃食管反流，可短期选用奥美拉唑抑酸；使用不超过7天，症状不缓解或出现吞咽困难、呕血、黑便应就医。"
+      },
+      {
+        "case_id": 166,
+        "experience": "近期服中药后出现持续恶心、餐后加重、嗳气厌食，既往慢性胃病、胃酸过多；可考虑功能性消化不良或胃食管反流。可考虑莫沙必利用于恶心嗳气等消化不良症状，奥美拉唑用于反流抑酸，铝镁化合物缓解胃酸相关不适。需核实中药影响及过敏；奥美拉唑需排除报警症状且不超过7天；铝镁需排除急腹症，未缓解就医。"
+      },
+      {
+        "case_id": 171,
+        "experience": "患者消化不良、后半夜胃部不适，晚餐晚且餐后即卧，反酸烧心“好像有”，初步考虑胃炎和反流性食管炎。可考虑莫沙必利促胃肠动力用于消化不良及反流，奥美拉唑抑酸用于反流；同时调整晚餐及餐后体位。诊断未确认，奥美拉唑不超过7天，症状未缓解或出现吞咽困难、呕血、黑便应就医。"
+      },
+      {
+        "case_id": 190,
+        "experience": "患者胃镜示局部胃溃疡，另有早搏并提及慢心律片；本次针对胃溃疡可考虑奥美拉唑（质子泵抑制剂），依据其胃溃疡适应症，不保证疗效。按说明书使用不得超过7天，症状未缓解需咨询医师或药师。"
+      },
+      {
+        "case_id": 201,
+        "experience": "胆汁反流胃炎幽门螺旋菌治愈后，雷贝拉唑、达喜、吗丁啉2周余无效，仍有胃痛、恶心、打嗝无力；考虑胆汁反流性胃炎时，可将吗丁啉换为莫沙必利，作为促动力剂改善消化不良/反流相关恶心、嗳气，需核对过敏史。"
+      },
+      {
+        "case_id": 203,
+        "experience": "患者进食后胃痛两个多月，每次持续一两秒，医生考虑胃溃疡可能；奥美拉唑为质子泵抑制剂，适用于胃溃疡等胃酸相关疾病，可抑制胃酸。需注意说明书限用不超过7天，且两个月内不得再次服用；症状未缓解或反复应就医；吞咽疼痛、呕血、黑便等严重征兆时勿自行使用并咨询医师。"
+      },
+      {
+        "case_id": 232,
+        "experience": "75岁女性晚饭后吃猕猴桃后胃痛、反酸，秋冬受凉易发，未做胃镜，曾服半袋舒肝健胃丸；不排除胃溃疡，可考虑奥美拉唑抑酸并做胃镜评估。使用不超过7天，症状未缓解、反复或出现吞咽困难、呕血、黑便等应及时就医，两个月内不得再次服用。"
+      },
+      {
+        "case_id": 254,
+        "experience": "患者乏力、腹泻、发热，疑饮食所致急性肠胃炎，每日腹泻3—4次、体温约38℃，既往有肠胃炎类似症状且近日辛辣饮食；可考虑蒙脱石吸附肠道病原体及毒素以缓解腹泻，并注意纠正脱水；已服达喜，合用其他药前咨询医师。"
+      },
+      {
+        "case_id": 260,
+        "experience": "患者有烧心、反酸，常不吃早饭致空腹久，考虑胃炎、反流性食管炎；既往奥美拉唑短期服用后胃舒服，已2-3个月未用。可考虑奥美拉唑抑酸、莫沙必利促动力以对应反流及灼热；奥美拉唑连续用不超7天，2个月内不得再次服用，症状反复就医。"
+      },
+      {
+        "case_id": 292,
+        "experience": "患者持续打嗝2个月，伴反胃、气上顶，既往胃药可暂缓但反复，未行胃镜，考虑胃炎或反流性食管炎可能。可考虑莫沙必利促胃肠动力，适用于功能性消化不良伴嗳气或胃食管反流相关症状，但仍需胃镜明确诊断；过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 293,
+        "experience": "十二指肠球部溃疡、慢性浅表性胃炎经奥美拉唑及四联疗法后仍腹痛反酸，伴大便未消化菜叶且医生考虑消化不良时，可考虑加用复方消化酶，其适应症含消化不良相关腹部不适；需复查胃镜及幽门螺杆菌，并核实急性肝炎、胆道完全闭锁等禁忌。"
+      },
+      {
+        "case_id": 297,
+        "experience": "患者食辣后胃闷，已在用泮托拉唑和吗丁啉稍好转；既往检查示反流性胃炎或食管炎，现感堵、打嗝不畅。可考虑加莫沙必利促胃肠动力，其适应症含胃食管反流性疾病及上腹胀等；需关注腹泻、腹痛等不良反应，过敏者禁用。"
+      },
+      {
+        "case_id": 303,
+        "experience": "患者幽门螺杆菌阳性治疗中出现腹胀、打嗝，既往无饥饿感、大便不成形、自述胃动力差；考虑胃动力障碍时，可考虑莫沙必利促胃动力，其适用于功能性消化不良伴上腹胀、嗳气及胃功能障碍；需注意腹泻、腹痛等不良反应，并核实症状是否与四联药相关。"
+      },
+      {
+        "case_id": 307,
+        "experience": "反流性胃炎及食管炎病史者，有嗳气、排气多、刺刺挠挠伴疼痛且现仅用奥美拉唑时，可考虑莫沙必利促胃肠动力改善反流相关症状；奥美拉唑适用于胃食管反流病，可结合现用药评估。需核实过敏及奥美拉唑用药时长，注意其7天疗程和两个月内再服限制。"
+      },
+      {
+        "case_id": 353,
+        "experience": "患者受凉后腹痛伴嗝气、干呕，既往胃酸过多及结石史；考虑胃炎或功能性消化不良时，可考虑莫沙必利促胃肠动力，针对嗳气、干呕等消化不良症状；但腹痛明显、部位偏肠或泌尿且建议彩超，应先排查结石等，药物不替代腹痛评估。"
+      },
+      {
+        "case_id": 357,
+        "experience": "患者有胆汁反流性胃炎，曾用艾普拉唑3周后间隔3周，饮冰水后胃不适，现仅有点胀；可考虑加用莫沙必利促动力缓解上腹胀，说明书适用于功能性消化不良伴上腹胀等。暂避冰冷饮食，并需核实是否对莫沙必利过敏。"
+      },
+      {
+        "case_id": 365,
+        "experience": "患者有胃炎史，曾用硫糖铝口服混悬液后未继续，近2天腹胀、间歇性中腹痛，医生考虑功能性消化不良；可考虑莫沙必利促胃肠动力，用于功能性消化不良伴腹胀，但应确认症状符合适应症，过敏者禁用，并注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 367,
+        "experience": "患者胃胀气、恶心、打嗝、干呕数月，暂无明显腹痛，久坐偏瘦，医生考虑可能为胃动力不足。可先调整工作习惯并试用莫沙必利：其说明适用于功能性消化不良伴嗳气、恶心、上腹胀等消化道症状；对本品过敏者禁用，效果不佳可进一步胃镜。"
+      },
+      {
+        "case_id": 379,
+        "experience": "口腔异味数月、时有加重，饭后刷牙不能缓解，伴口腔酸腥气和消化不良时，可考虑消化不良相关；若符合功能性消化不良伴相关消化道症状，可选用莫沙必利促胃动力以改善症状，但需先排查口腔疾病等病因，并核实过敏史。"
+      },
+      {
+        "case_id": 380,
+        "experience": "萎缩性胃炎患者既往用贝雷拉唑、莫沙必利两周自觉好转，仍有嗳气、口干，结合医生判断提示可能消化道动力不足；既往治疗反应可支持继续考虑莫沙必利改善动力和嗳气，但口干列为其注意事项，需关注并与原症状区分；过敏史待核实。"
+      },
+      {
+        "case_id": 381,
+        "experience": "慢性胃炎患者反复腹胀、进食后堵胀不下、嗳气，胃镜示浅表性胃炎，需考虑胃肠动力障碍。可在现有抑酸/抗酸治疗基础上加用莫沙必利促动力，以改善上腹胀、早饱等消化不良症状；幽门螺杆菌尚未检测，应核实；注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 382,
+        "experience": "33岁患者长年反酸、反流至咽，胃镜示慢性萎缩性胃炎、幽门螺旋杆菌阴性，考虑胃食管反流病；可先饮食调控，必要时加用奥美拉唑抑酸缓解反酸；奥美拉唑适应症含胃食管反流病，但连续使用不超过7天，症状未缓解或出现吞咽困难、呕血、黑便需就医。"
+      },
+      {
+        "case_id": 403,
+        "experience": "患者进食减少、餐中恶心干呕约两月，无胃痛胃胀，月经正常；考虑胃功能紊乱致轻度胃动力不足。可考虑莫沙必利，其适应症含功能性消化不良伴恶心、呕吐、早饱等；需核实过敏史，对本品过敏者禁用，并注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 418,
+        "experience": "58岁女性反复胃胀、返酸、烧心，排便后胃胀稍缓解，未用药，疑似胃炎/胃溃疡/反流性食管炎但未确诊；可考虑莫沙必利改善上腹胀等动力相关症状，奥美拉唑抑酸用于反流/溃疡可能；需胃镜明确，奥美拉唑不超过7天，未缓解应咨询医师/药师，呕血、便血或黑便先就医。"
+      },
+      {
+        "case_id": 422,
+        "experience": "大便不成形伴白色泡沫、遇生冷辛辣易发时，医生考虑肠道功能紊乱可能；建议先就医检查，若需调理可考虑益生菌，按说明书用于肠内异常发酵、消化不良等，并避免辛辣油腻；注意过敏及不良反应，禁忌尚不明确。"
+      },
+      {
+        "case_id": 433,
+        "experience": "胃隐痛、反酸伴饮食不规律者，考虑慢性胃炎伴反流性食道炎时，可考虑莫沙必利促胃肠动力、奥美拉唑抑酸、铝镁化合物中和胃酸；对相应药过敏者禁用。奥美拉唑不超过7天，未缓解或见吞咽困难、呕血、便血/黑便应就医，两个月内不得再服；铝镁化合物急腹症先就诊，严重心肾功能不全、高镁/高钙血症慎用。"
+      },
+      {
+        "case_id": 435,
+        "experience": "患者反复嗳气、偶有饥饿时烧心，胃镜示浅表性胃炎，碳14无幽门螺杆菌，曾用伊托必利等半月无明显好转；考虑消化不良、胃食管反流可能。可考虑莫沙必利改善嗳气、烧心等症状，但既往同类促动力药疗效不佳，需说明换药依据并观察反应；核实过敏史，留意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 455,
+        "experience": "既往胆汁反流性胃窦炎，近期烧心、胀气、早饱，曾用霍香清胃胶囊、铝碳酸镁效果不佳，奥美拉唑有缓解；考虑消化不良症状时可选用莫沙必利促动力以缓解腹胀、早饱，但患者大便次数多且热汤粥后腹泻，而莫沙必利说明列腹泻、腹痛等不良反应，需关注腹泻，不宜将适应症匹配视为疗效保证。"
+      },
+      {
+        "case_id": 465,
+        "experience": "患者有胃糜烂史，现夜间腹胀、肠鸣、睡眠差，既往用药后仍胀气；医生考虑胃炎复发，可考虑莫沙必利促胃肠动力以缓解腹胀等消化不良症状。该药适用于功能性消化不良伴上腹胀等或胃食管反流等，需核实符合适应症；对本品过敏者禁用，注意腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 483,
+        "experience": "胃痛5年、夜间躺下反酸后胃痛、持续性隐痛及贲门痛，既往胃食管反流且近期未查胃镜者，考虑胃溃疡、胃糜烂、反流性食管炎可能，可考虑奥美拉唑（PPI，适应胃溃疡、胃食管反流病）改善胃酸相关症状，并建议胃镜明确；说明书限用不超7天、未缓解就医，两个月内不得再服，吞咽困难、呕血、便血或黑便时勿用咨询。"
+      },
+      {
+        "case_id": 485,
+        "experience": "患者晨起胃痛、口水多，伴反胃、恶心干呕，进食可暂时缓解且每日多次发作，考虑胃食管反流病可能。可考虑莫沙必利促胃肠动力、奥美拉唑抑酸，分别针对动力异常和反流；奥美拉唑使用不超过7天，症状未缓解或反复应就医，并核实过敏及合用药物限制。"
+      },
+      {
+        "case_id": 500,
+        "experience": "患者有慢性胃炎，胃镜医生称胃溃疡但未提供报告，宜按考虑胃溃疡核实；可考虑奥美拉唑，其适应症含胃溃疡。药物说明提示使用不超过7天，未缓解就医；呕血、黑便等先就医；注意过敏及与奈非那韦、利匹韦林合用禁忌。"
+      },
+      {
+        "case_id": 524,
+        "experience": "患者有慢性胃窦炎糜烂报告及烧心，胃角隆起疑外压，需超声内镜/CT待查；烧心可短期考虑奥美拉唑，但需按胃食管反流病等适应症评估，不能仅凭烧心确诊；7天未缓解或烧心加重应停用就医，并继续排查隆起病变。"
+      },
+      {
+        "case_id": 531,
+        "experience": "22岁女性持续半个月饭后腹胀、消化不良，打嗝排气可缓解，偶有腹泻便秘及腹痛，有慢性浅表性胃炎史；考虑胃肠功能紊乱，可考虑莫沙必利促胃肠动力以缓解腹胀及消化不良，但须核实过敏，并关注腹泻、腹痛等不良反应。"
+      },
+      {
+        "case_id": 532,
+        "experience": "患者今天吃凉后腹泻、大便稀，伴反酸及既往反酸史，考虑胃食管反流可能。可考虑奥美拉唑改善反酸，但腹泻非其适应症；使用不超过7天，症状未缓解或反复就医，两个月内不得再次服用，出现吞咽困难、呕血、黑便等勿用并就医。"
+      },
+      {
+        "case_id": 543,
+        "experience": "长期反酸、偶有前胸痛，曾偶尔服奥美拉唑；医生考虑浅表性胃炎，但诊断待核实。反酸可考虑奥美拉唑对症，其适应症含胃食管反流病。须按说明使用不超过7天，症状未缓解或反复即就医，两个月内不重复；吞咽困难、呕血或黑便时勿用。"
+      },
+      {
+        "case_id": 551,
+        "experience": "患者胃胀、胃不适、胃痒、无反酸，胃镜示糜烂性胃炎且曾用多种药效果不佳，医生考虑慢性胃炎。可考虑莫沙必利，其作为消化道促动力剂适用于功能性消化不良伴上腹胀等；需核实是否符合，胃痒原因待明确，过敏者禁用。"
+      },
+      {
+        "case_id": 646,
+        "experience": "患者饮食作息不规律，下午胃部不适、恶心、胃胀打嗝、胃灼热，家中备有奥美拉唑；考虑胃食管反流，可考虑奥美拉唑、莫沙必利。奥美拉唑适用于胃食管反流病，莫沙必利适用于伴胃灼热、嗳气、恶心、上腹胀的功能性消化不良及胃食管反流性疾病。奥美拉唑使用不超过7天，症状未缓解需咨询，反复或出现吞咽困难、呕血、黑便应就医；莫沙必利过敏者禁用。"
+      },
+      {
+        "case_id": 647,
+        "experience": "慢性非萎缩性胃炎伴反流、胃胀、排气多，既往未规律服药；可考虑益生菌改善消化，其适应症包括肠内异常发酵、消化不良；应少食、三餐规律，少饮碳酸饮料，避免油腻生冷辛辣及产气食物，对本品过敏者禁用，具体用药遵医嘱。"
+      },
+      {
+        "case_id": 648,
+        "experience": "60岁女性既往萎缩性胃炎并服中药，现慢性食管炎和糜烂性胃炎且未活检；胃食管反流病可能时可考虑奥美拉唑（PPI），其说明书适应症含胃食管反流病，但诊断仅为可能，需结合症状，且使用不得超过7天，未缓解需就医。"
+      },
+      {
+        "case_id": 657,
+        "experience": "患者浅表性胃炎、息肉未切除，有反酸烧心、腹痛腹胀及晨起反胃，无打嗝，考虑消化不良或胃食管反流病时可试用莫沙必利促动力、奥美拉唑抑酸；奥美拉唑使用不得超过7天，未缓解应咨询医师或药师，息肉宜择期切除。"
+      },
+      {
+        "case_id": 663,
+        "experience": "患儿持续腹泻、大便次数多，曾吐奶且精神差，已用益生菌；肠炎病因未明时，可在医生指导下试用蒙脱石吸附病原及毒素作腹泻对症处理。急性腹泻需警惕脱水并观察尿量、及时就医，儿童用量咨询医师，服1天无改善应复诊。"
+      },
+      {
+        "case_id": 667,
+        "experience": "患者有胃病，进食辛辣或火锅后易犯，近期夜间不论进食何物均腹泻；考虑功能性胃肠病或肠易激综合征依据有限。可试用蒙脱石吸附肠道内有害物质以缓解腹泻症状；治疗急性腹泻需注意纠正脱水，出现便秘可减量继续服用。"
+      },
+      {
+        "case_id": 669,
+        "experience": "反复咽至胃部堵塞感伴肩胛酸痛，既往胃镜示浅表胃炎，疑似胃食管反流但需胃镜明确。可考虑莫沙必利促动力、奥美拉唑用于胃食管反流病；先短期口服。奥美拉唑不超过7天，两个月内不重复，未缓解就医；若有吞咽困难/疼痛、呕血黑便勿用并就医。"
+      },
+      {
+        "case_id": 674,
+        "experience": "患者胃不适伴右肋及后背痛一周，饮食不规律、无烧心反酸，未检查；考虑胃溃疡时可考虑奥美拉唑，该药适应证含胃溃疡。因诊断未明，建议先查胃镜，并注意用药不超过7天、两个月以内不得再次服用，症状未缓解或出现吞咽困难、呕血、黑便等应就医。"
+      }
+    ],
+    []
+  ]
+}

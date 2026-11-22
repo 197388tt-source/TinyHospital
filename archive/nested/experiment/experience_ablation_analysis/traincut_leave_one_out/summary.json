@@ -1,0 +1,126 @@
+{
+  "dataset": "data/traincut.txt",
+  "cases": 686,
+  "experience_records": {
+    "positive": 59,
+    "negative": 500
+  },
+  "runs": {
+    "empty": {
+      "cases": 686,
+      "tp": 648,
+      "fp": 600,
+      "fn": 618,
+      "micro_precision": 0.5192307692307693,
+      "micro_recall": 0.5118483412322274,
+      "micro_f1": 0.5155131264916468,
+      "micro_jaccard": 0.34726688102893893,
+      "exact_match": 178,
+      "doctor_failures": 12
+    },
+    "positive": {
+      "cases": 686,
+      "tp": 664,
+      "fp": 586,
+      "fn": 602,
+      "micro_precision": 0.5312,
+      "micro_recall": 0.5244865718799369,
+      "micro_f1": 0.5278219395866455,
+      "micro_jaccard": 0.35853131749460043,
+      "exact_match": 194,
+      "doctor_failures": 10
+    },
+    "negative": {
+      "cases": 686,
+      "tp": 576,
+      "fp": 652,
+      "fn": 690,
+      "micro_precision": 0.46905537459283386,
+      "micro_recall": 0.4549763033175355,
+      "micro_f1": 0.4619085805934242,
+      "micro_jaccard": 0.30031282586027114,
+      "exact_match": 139,
+      "doctor_failures": 20
+    },
+    "both": {
+      "cases": 686,
+      "tp": 659,
+      "fp": 586,
+      "fn": 607,
+      "micro_precision": 0.5293172690763053,
+      "micro_recall": 0.5205371248025277,
+      "micro_f1": 0.5248904818797292,
+      "micro_jaccard": 0.3558315334773218,
+      "exact_match": 192,
+      "doctor_failures": 10
+    }
+  },
+  "comparisons_to_empty": {
+    "positive": {
+      "success": 194,
+      "failure": 492,
+      "gain": 63,
+      "harm": 47,
+      "both_correct": 131,
+      "both_wrong": 445,
+      "doctor_failure": 10,
+      "f1_same": 512,
+      "f1_up": 92,
+      "f1_down": 82,
+      "paired_cases": 686,
+      "mean_case_f1_delta": 0.002915
+    },
+    "negative": {
+      "success": 139,
+      "failure": 547,
+      "gain": 50,
+      "harm": 89,
+      "both_correct": 89,
+      "both_wrong": 458,
+      "doctor_failure": 20,
+      "f1_same": 443,
+      "f1_up": 87,
+      "f1_down": 156,
+      "paired_cases": 686,
+      "mean_case_f1_delta": -0.06086
+    },
+    "both": {
+      "success": 192,
+      "failure": 494,
+      "gain": 67,
+      "harm": 53,
+      "both_correct": 125,
+      "both_wrong": 441,
+      "doctor_failure": 10,
+      "f1_same": 489,
+      "f1_up": 102,
+      "f1_down": 95,
+      "paired_cases": 686,
+      "mean_case_f1_delta": 0.002672
+    }
+  },
+  "retrieval": {
+    "positive": {
+      "positive_hits": 683,
+      "negative_hits": 0,
+      "unique_positive_experiences": 51,
+      "unique_negative_experiences": 0
+    },
+    "negative": {
+      "positive_hits": 0,
+      "negative_hits": 686,
+      "unique_positive_experiences": 0,
+      "unique_negative_experiences": 242
+    },
+    "both": {
+      "positive_hits": 683,
+      "negative_hits": 686,
+      "unique_positive_experiences": 51,
+      "unique_negative_experiences": 242,
+      "same_source_as_single": {
+        "positive": 686,
+        "negative": 684
+      }
+    }
+  }
+}

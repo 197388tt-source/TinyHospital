@@ -1,0 +1,26 @@
+name: Offline reproducibility
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install offline dependencies
+        run: python -m pip install -r requirements.txt -c constraints-offline.txt
+      - name: Restore and verify deduplicated inputs
+        run: python scripts/prepare_assets.py
+      - name: Run offline tests
+        run: python -m unittest discover -s tests
+      - name: Recompute saved predictions
+        run: python -m experiment.test --input experiment/qwen3_betterex_full2/test/progress.json --expected-count 93 --output /tmp/tinyhospital-metrics.json
