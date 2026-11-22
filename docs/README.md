@@ -8,3 +8,5 @@
 - cleanup_manifest.json：删除和归档清单。
 - recomputed_metrics.json：已有预测的离线复算值。
 - legacy/：标明过时的原设计文档。
+
+- DATA_PROVENANCE.md / data_provenance.json：DialMed 公开来源、固定上游提交与逐文件核验。

@@ -10,7 +10,7 @@
 | 资源恢复 | 111 个资源全部通过 SHA-256 校验并恢复（6 个子集 + 52 个重复文件路径 + 53 个无损压缩资源） |
 | 全部输入数据 | 恢复后的 9 个数据集逐字节等于上传文件 |
 | 最终经验 | 两份 JSON 逐字节等于外层 betterex；52/235 条 |
-| 完整 unittest | **151 项：150 通过，1 跳过，0 失败，0 报错**，约 37.72 秒 |
+| 完整 unittest | **153 项：152 通过，1 跳过，0 失败，0 报错**，约 37.32 秒 |
 | 跳过原因 | 原项目缺少 `runs/performance_baseline.json` 冻结基线 |
 | Python 静态解析 | 76 个 `.py` 文件全部通过 AST 解析；活动代码 compileall 通过 |
 | CLI 和启动脚本 | main、test、testval、benchmark help；4 个 shell 脚本 bash -n 通过 |

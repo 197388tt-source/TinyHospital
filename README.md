@@ -27,7 +27,7 @@ python -m unittest discover -s tests
 python -m experiment.test --input experiment/qwen3_betterex_full2/test/progress.json --expected-count 93
 ```
 
-离线逻辑测试已通过（150 通过、1 项因缺少历史基线跳过）。真实 Qwen/API 推理需要按下文配置权重和服务，未在整理环境重新运行。
+离线逻辑测试已通过（152 通过、1 项因缺少历史基线跳过）。真实 Qwen/API 推理需要按下文配置权重和服务，未在整理环境重新运行。
 
 ## 1. 目录和入口
 

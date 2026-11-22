@@ -28,4 +28,4 @@
 | test_stage5_recovery.py | 测试 stage5_recovery |
 | test_structured_payload.py | Native TH-ACP data payload compatibility and shared field delivery. |
 
-运行：`python -m unittest discover -s tests`。151 项中 150 通过、1 跳过（缺少旧冻结基线）；不依赖真实模型 API。
+运行：`python -m unittest discover -s tests`。153 项中 152 通过、1 跳过（缺少旧冻结基线）；不依赖真实模型 API。
