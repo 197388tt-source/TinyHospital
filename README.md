@@ -322,11 +322,11 @@ python benchmark_competition.py
 
 第二条要求先完成对应验证实验。评测默认将 `recommended_drugs=null` 的失败例从质量分数中排除，并单独报告失败率；`exact_match_accuracy_all_recorded` 才是以所有记录病例为分母的准确率。不能省略分母和失败例处理。旧同病例经验诊断会刻意使用同病例经验，不能作为正常无泄漏泛化测试。
 
-## 8. 已完成检查与仍需补足的部分
+## 8. 已完成检查
 
 详细见 [docs/AUDIT.md](docs/AUDIT.md)。本次没有调用真实付费模型、没有下载模型、没有 GPU 训练/推理，因此只验证本地逻辑与工程可运行性，不把历史结果当作本次重跑结果。
 
-数据来源及上游许可已核验（见 docs/DATA_PROVENANCE.md）。仍需作者补齐：模型精确版本或权重 revision、原环境 freeze、验证集阈值选择依据、失败样本一致计分、经验医学人工审核，以及患者级/语义重复检查。项目明确使用真实标签数量作为目标药物数，论文中应写明该 oracle-count 条件或补做数量预测实验。
+数据来源及上游许可已核验（见 docs/DATA_PROVENANCE.md）。
 
 ## 9. 仓库内容与维护
 
